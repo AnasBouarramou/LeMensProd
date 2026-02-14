@@ -52,7 +52,7 @@ export const SNACK_PROJECTS = [
 export const TESTIMONIALS = [
   {
     id: 0,
-    company: "Skodia",
+    company: "Fitness Park",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop",
     quote:
@@ -72,7 +72,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 2,
-    company: "Modeiva",
+    company: "Fitness Park",
     image:
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2942&auto=format&fit=crop",
     quote:
@@ -85,8 +85,8 @@ export const TESTIMONIALS = [
 // --- OFFRES ---
 export const OFFERS = [
   {
-    title: "Essentiel",
-    price: "1 500€",
+    title: "Essentiel (A determiner)",
+    price: "600€",
     desc: "Idéal pour les marques qui débutent en vidéo marketing.",
     features: [
       "Tournage 1/2 journée",
@@ -97,7 +97,7 @@ export const OFFERS = [
     style: "white",
   },
   {
-    title: "Signature",
+    title: "Signature (A determiner)",
     price: "3 500€",
     desc: "Production audiovisuelle complète avec direction artistique.",
     features: [

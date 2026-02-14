@@ -25,8 +25,15 @@ const Navbar = ({ progress }) => {
   // CORRECTION 2 : Le fond solide apparaît plus tôt (dès 70% de scroll)
   const backdropOpacity = useTransform(progress, [0.7, 0.8], [0, 1]);
 
+  const isMobileViewport = () => window.innerWidth < 768;
+
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
+    let targetId = id;
+    // Sur desktop, "savoir-faire" pointe vers l'ancre desktop dédiée
+    if (id === "savoir-faire" && !isMobileViewport()) {
+      targetId = "savoir-faire-desktop";
+    }
+    const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }

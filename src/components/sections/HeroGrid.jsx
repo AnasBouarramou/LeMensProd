@@ -117,9 +117,9 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
         className="hidden md:block h-[300vh] relative"
         id="hero"
       >
-        {/* Ancre invisible placée à la fin de l'animation */}
+        {/* Ancre invisible placée à la fin de l'animation (desktop uniquement) */}
         <div
-          id="savoir-faire"
+          id="savoir-faire-desktop"
           className="absolute top-[200vh] left-0 w-full h-1 pointer-events-none"
         />
 

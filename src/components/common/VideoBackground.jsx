@@ -7,7 +7,7 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  // Expose play/pause au parent via ref
+  // Expose play/pause/fullscreen au parent via ref
   useImperativeHandle(ref, () => ({
     play: () => {
       const video = videoRef.current;
@@ -21,6 +21,17 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
       const video = videoRef.current;
       if (!video) return;
       video.pause();
+    },
+    requestFullscreen: () => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      }
     },
   }));
 
@@ -76,6 +87,22 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
     setIsPlaying(true);
   }, []);
 
+  // Force la première frame sur iOS/Safari quand playOnHover est actif
+  const handleLoadedMetadata = useCallback(() => {
+    if (playOnHover && videoRef.current) {
+      try {
+        videoRef.current.currentTime = 0.1;
+      } catch (_) {}
+    }
+  }, [playOnHover]);
+
+  // Rend visible dès que la frame est peinte (pour playOnHover)
+  const handleSeeked = useCallback(() => {
+    if (playOnHover) {
+      setIsPlaying(true);
+    }
+  }, [playOnHover]);
+
   return (
     <div
       className={`absolute inset-0 overflow-hidden pointer-events-none bg-neutral-900 ${className}`}
@@ -86,10 +113,12 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
         src={videoSrc}
         autoPlay={!playOnHover}
         loop
-        playsInline
+        playsInline={true}
         muted={isMuted}
         preload={playOnHover ? "metadata" : "auto"}
         onPlaying={handlePlaying}
+        onLoadedMetadata={handleLoadedMetadata}
+        onSeeked={handleSeeked}
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-700 ${
           isPlaying ? "opacity-100" : "opacity-0"
         }`}

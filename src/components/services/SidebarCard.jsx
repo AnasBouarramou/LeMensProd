@@ -40,9 +40,15 @@ const SidebarCard = ({
   };
 
   const handleClick = (e) => {
-    // Si on clique sur l'icone audio, on ne navigue pas
-    if (e.target.closest("[data-audio-toggle]")) return;
+    // Si on clique sur l'icone audio ou fullscreen, on ne navigue pas
+    if (e.target.closest("[data-audio-toggle]") || e.target.closest("[data-fullscreen]")) return;
     onClick?.();
+  };
+
+  const handleFullscreen = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    videoRef.current?.requestFullscreen();
   };
 
   const handleAudioToggle = (e) => {
@@ -139,6 +145,29 @@ const SidebarCard = ({
           </svg>
         </button>
       )}
+
+      {/* Bouton Plein Écran — visible au hover */}
+      <button
+        data-fullscreen
+        onClick={handleFullscreen}
+        aria-label={`Voir la vidéo ${title} en plein écran`}
+        className="absolute bottom-3 right-3 lg:bottom-4 lg:right-4 z-20 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover:opacity-70 hover:!opacity-100 transition-all cursor-pointer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+          />
+        </svg>
+      </button>
 
       {/* Overlay dégradé pour lisibilité */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />

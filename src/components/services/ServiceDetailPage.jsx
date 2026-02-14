@@ -415,17 +415,13 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                 >
                   {config.statsDesc}
                 </motion.p>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-12 mb-4">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-0 md:gap-y-12 mb-4">
                   {config.stats.map((stat, i) => (
                     <motion.div
                       key={i}
-                      className={`flex flex-col pl-4 md:pl-6 ${
-                        i % 2 !== 0
-                          ? "border-l border-neutral-300"
-                          : "md:border-l md:border-neutral-300"
-                      } ${i === 0 ? "!border-l-0 !pl-0" : ""} ${
-                        i === 2 ? "md:!border-l border-l-0 pl-0 md:pl-6" : ""
-                      }`}
+                      className={`flex flex-col items-start text-left ${
+                        i > 0 ? "md:border-l md:border-neutral-300 md:pl-6" : ""
+                      } ${i % 2 !== 0 ? "border-l border-neutral-300 pl-4 md:pl-6" : "pl-0"}`}
                       variants={serviceFadeInUp}
                     >
                       <span className="text-3xl md:text-5xl font-bold text-neutral-900 mb-1 md:mb-2 tracking-tighter">
@@ -755,10 +751,16 @@ const BlockContent = ({
     blockVideoRef.current?.pause();
   };
 
+  const handleFullscreen = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    blockVideoRef.current?.requestFullscreen();
+  };
+
   return (
     <motion.div
       style={{ x: blockX }}
-      className="flex-1 relative overflow-hidden rounded-[2rem] bg-neutral-900 shadow-xl"
+      className="flex-1 relative overflow-hidden rounded-[2rem] bg-neutral-900 shadow-xl group/block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -766,6 +768,27 @@ const BlockContent = ({
         <>
           <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" isMuted={activeAudioId !== audioId} playOnHover />
           <AudioToggleButton audioId={audioId} activeAudioId={activeAudioId} setActiveAudioId={setActiveAudioId} />
+          {/* Bouton Plein Écran */}
+          <button
+            onClick={handleFullscreen}
+            aria-label="Voir la vidéo en plein écran"
+            className="absolute top-3 right-16 lg:top-4 lg:right-[4.5rem] z-30 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover/block:opacity-60 hover:!opacity-100 transition-all cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+              />
+            </svg>
+          </button>
         </>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

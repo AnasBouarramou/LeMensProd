@@ -11,7 +11,11 @@ import LegalModal from "../common/LegalModal";
 const Footer = ({ onBack, setActivePage }) => {
   const [activeLegalModal, setActiveLegalModal] = useState(null);
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
+    let targetId = id;
+    if (id === "savoir-faire" && window.innerWidth >= 768) {
+      targetId = "savoir-faire-desktop";
+    }
+    const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
