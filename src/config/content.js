@@ -13,31 +13,31 @@ export const VIDEOS = {
 export const LOGOS = [
   {
     name: "Alina",
-    url: "public/img/Alina.png",
+    url: "/img/Alina.png",
   },
   {
     name: "Aurasun",
-    url: "public/img/AURASUN.png",
+    url: "/img/AURASUN.png",
   },
   {
     name: "Dalkia",
-    url: "public/img/Dalkia.png",
+    url: "/img/Dalkia.png",
   },
   {
     name: "Hotel du port",
-    url: "public/img/HDP.png.webp",
+    url: "/img/HDP.png.webp",
   },
   {
     name: "Lekk Africa",
-    url: "public/img/LekkAfrica.png",
+    url: "/img/LekkAfrica.png",
   },
   {
     name: "MrWorkout",
-    url: "public/img/MrWorkout.png",
+    url: "/img/MrWorkout.png",
   },
   {
     name: "Fitness Park",
-    url: "public/img/FitnessPark.png",
+    url: "/img/FitnessPark.png",
   },
 ];
 
