@@ -61,17 +61,13 @@ const KeyFigures = () => {
             </motion.p>
 
             {/* Grille des Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-12 mb-8 md:mb-12">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-0 md:gap-y-12 mb-8 md:mb-12">
               {LANDING_STATS.map((stat, i) => (
                 <motion.div
                   key={i}
-                  className={`flex flex-col pl-4 md:pl-6 ${
-                    i % 2 !== 0
-                      ? "border-l border-neutral-300"
-                      : "md:border-l md:border-neutral-300"
-                  } ${i === 0 ? "!border-l-0 !pl-0" : ""} ${
-                    i === 2 ? "md:!border-l border-l-0 pl-0 md:pl-6" : ""
-                  }`}
+                  className={`flex flex-col items-start text-left ${
+                    i > 0 ? "md:border-l md:border-neutral-300 md:pl-6" : ""
+                  } ${i % 2 !== 0 ? "border-l border-neutral-300 pl-4 md:pl-6" : "pl-0"}`}
                   variants={fadeInUp}
                 >
                   <span className="text-3xl md:text-5xl font-bold text-neutral-900 mb-1 md:mb-2 tracking-tighter">
@@ -83,16 +79,6 @@ const KeyFigures = () => {
                 </motion.div>
               ))}
             </div>
-
-            <motion.button
-              className="group relative px-6 md:px-8 py-3 md:py-4 bg-neutral-900 overflow-hidden rounded-xl md:rounded-2xl text-white w-fit mt-4 self-start md:self-end shadow-lg hover:shadow-xl transition-shadow"
-              variants={fadeInUp}
-            >
-              <div className="absolute inset-0 bg-neutral-700 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 font-bold uppercase tracking-widest text-[0.65rem] md:text-xs">
-                En savoir plus
-              </span>
-            </motion.button>
           </div>
         </div>
       </div>

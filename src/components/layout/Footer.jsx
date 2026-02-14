@@ -1,12 +1,35 @@
 // src/components/layout/Footer.jsx
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   serviceStagger,
   serviceFadeInUp,
   lineReveal,
 } from "../../config/animations";
+import LegalModal from "../common/LegalModal";
 
-const Footer = ({ onBack }) => {
+const Footer = ({ onBack, setActivePage }) => {
+  const [activeLegalModal, setActiveLegalModal] = useState(null);
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const NAV_LINKS = [
+    { label: "L'agence", action: () => scrollToSection("about") },
+    { label: "Savoir Faire", action: () => scrollToSection("savoir-faire") },
+    { label: "Projets", action: () => scrollToSection("projects") },
+    { label: "Contact", action: () => scrollToSection("contact") },
+  ];
+
+  const SERVICE_LINKS = [
+    { label: "Snack Content", action: () => setActivePage("snack") },
+    { label: "Production", action: () => setActivePage("production") },
+    { label: "Immobilier", action: () => setActivePage("immo") },
+    { label: "Live", action: () => setActivePage("live") },
+  ];
   return (
     <footer className="bg-neutral-900 text-white relative z-50 border-t border-neutral-800">
       <motion.div
@@ -39,7 +62,9 @@ const Footer = ({ onBack }) => {
             <div className="flex gap-3 md:gap-4 mt-1 md:mt-2">
               {/* Icône Instagram */}
               <motion.a
-                href="#"
+                href="https://www.instagram.com/lemensprod?igsh=MWoxdnNhNnRrMG82OQ=="
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Suivez Lemen's Prod sur Instagram"
                 className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-neutral-700 flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -63,7 +88,9 @@ const Footer = ({ onBack }) => {
               </motion.a>
               {/* Icône TikTok */}
               <motion.a
-                href="#"
+                href="https://www.tiktok.com/@lemensprod?_r=1&_t=ZN-93v8fZd8btW"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Suivez Lemen's Prod sur TikTok"
                 className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-neutral-700 flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -82,56 +109,50 @@ const Footer = ({ onBack }) => {
             </div>
           </motion.div>
 
-          {/* COLONNES 2, 3, 4 : Liens */}
-          {[
-            {
-              title: "Navigation",
-              items: ["L'agence", "Savoir Faire", "Projets", "Contact"],
-              link: true,
-            },
-            {
-              title: "Services",
-              items: ["Snack Content", "Production", "Immobilier", "Live"],
-              link: false,
-            },
-            {
-              title: "Contact",
-              items: ["contact@lemensprod.com", "Paris, France"],
-              link: false,
-            },
-          ].map((col, ci) => (
-            <motion.div
-              key={ci}
-              className="flex flex-col gap-3 md:gap-4"
-              variants={serviceFadeInUp}
-            >
-              <h4 className="font-bold text-[0.65rem] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-white mb-1 md:mb-2">
-                {col.title}
-              </h4>
-              {col.items.map((item) =>
-                col.link ? (
-                  <a
-                    key={item}
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (onBack) onBack();
-                    }}
-                    className="text-neutral-400 text-sm hover:text-white transition-colors duration-300 font-light"
-                  >
-                    {item}
-                  </a>
-                ) : (
-                  <span
-                    key={item}
-                    className="text-neutral-400 text-sm font-light break-all md:break-normal"
-                  >
-                    {item}
-                  </span>
-                ),
-              )}
-            </motion.div>
-          ))}
+          {/* COLONNE 2 : Navigation */}
+          <motion.div className="flex flex-col gap-3 md:gap-4" variants={serviceFadeInUp}>
+            <h4 className="font-bold text-[0.65rem] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-white mb-1 md:mb-2">
+              Navigation
+            </h4>
+            {NAV_LINKS.map((link) => (
+              <button
+                key={link.label}
+                onClick={link.action}
+                className="text-neutral-400 text-sm hover:text-white transition-colors duration-300 font-light text-left bg-transparent border-none cursor-pointer p-0"
+              >
+                {link.label}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* COLONNE 3 : Services */}
+          <motion.div className="flex flex-col gap-3 md:gap-4" variants={serviceFadeInUp}>
+            <h4 className="font-bold text-[0.65rem] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-white mb-1 md:mb-2">
+              Services
+            </h4>
+            {SERVICE_LINKS.map((link) => (
+              <button
+                key={link.label}
+                onClick={link.action}
+                className="text-neutral-400 text-sm hover:text-white transition-colors duration-300 font-light text-left bg-transparent border-none cursor-pointer p-0"
+              >
+                {link.label}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* COLONNE 4 : Contact */}
+          <motion.div className="flex flex-col gap-3 md:gap-4" variants={serviceFadeInUp}>
+            <h4 className="font-bold text-[0.65rem] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-white mb-1 md:mb-2">
+              Contact
+            </h4>
+            <span className="text-neutral-400 text-sm font-light break-all md:break-normal">
+              contact@lemensprod.com
+            </span>
+            <span className="text-neutral-400 text-sm font-light">
+              Paris, France
+            </span>
+          </motion.div>
         </div>
 
         {/* Ligne de séparation */}
@@ -151,17 +172,22 @@ const Footer = ({ onBack }) => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {["Mentions légales", "Confidentialité", "CGV"].map((item) => (
-              <a
+              <button
                 key={item}
-                href="#"
-                className="text-neutral-500 text-[0.65rem] md:text-xs font-light tracking-wide hover:text-white transition-colors duration-300"
+                onClick={() => setActiveLegalModal(item)}
+                className="text-neutral-500 text-[0.65rem] md:text-xs font-light tracking-wide hover:text-white transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </div>
         </motion.div>
       </motion.div>
+
+      <LegalModal
+        activeModal={activeLegalModal}
+        onClose={() => setActiveLegalModal(null)}
+      />
     </footer>
   );
 };

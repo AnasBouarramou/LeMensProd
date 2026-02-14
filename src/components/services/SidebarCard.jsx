@@ -1,4 +1,5 @@
 // src/components/services/SidebarCard.jsx
+import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
 
@@ -12,6 +13,8 @@ const SidebarCard = ({
   isUnmuted = false,
   onToggleAudio,
 }) => {
+  const videoRef = useRef(null);
+
   // Variantes d'animation optimisées avec GPU
   const ctaContainerVariants = {
     initial: { opacity: 0.6 },
@@ -47,6 +50,14 @@ const SidebarCard = ({
     onToggleAudio?.();
   };
 
+  const handleMouseEnter = () => {
+    videoRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    videoRef.current?.pause();
+  };
+
   return (
     <motion.div
       role="button"
@@ -54,6 +65,8 @@ const SidebarCard = ({
       aria-label={`Voir le service ${title} — ${subtitle}`}
       onClick={handleClick}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick?.(); } }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`w-full ${heightClass} ${bgColor} rounded-2xl lg:rounded-[2rem] overflow-hidden relative group cursor-pointer`}
       initial="initial"
       whileHover="hover"
@@ -64,7 +77,7 @@ const SidebarCard = ({
         className="absolute inset-0 w-full h-full grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
         style={{ willChange: "transform, filter" }}
       >
-        <VideoBackground videoSrc={videoSrc} isMuted={!isUnmuted} />
+        <VideoBackground ref={videoRef} videoSrc={videoSrc} isMuted={!isUnmuted} playOnHover />
       </div>
 
       {/* Indicateur audio animé */}

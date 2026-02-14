@@ -98,9 +98,7 @@ export default function App() {
 
       <TrustSlider />
 
-      <div id="about">
-        <About />
-      </div>
+      <About />
 
       <Testimonials />
 
@@ -113,9 +111,14 @@ export default function App() {
       </div>
 
       <FAQ />
-      <ContactForm />
+      <div id="contact">
+        <ContactForm />
+      </div>
 
-      <Footer onBack={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
+      <Footer
+        onBack={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        setActivePage={handleSetActivePage}
+      />
 
       {/* =========================================
           2. LES SURCOUCHES (Overlays / Modales)

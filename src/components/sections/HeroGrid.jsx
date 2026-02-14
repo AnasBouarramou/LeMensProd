@@ -329,7 +329,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
       {/* ========== VERSION MOBILE (< md) ========== */}
       <div className="block md:hidden bg-neutral-100" id="hero-mobile">
         {/* HERO SECTION MOBILE */}
-        <section className="relative h-[70vh] mx-4 mt-4 rounded-3xl overflow-hidden bg-neutral-900 shadow-[0_10px_40px_rgba(0,0,0,0.4)]">
+        <section className="relative h-[100dvh] mx-0 mt-0 overflow-hidden bg-neutral-900">
           {/* Hero mobile : ne rend la vidéo que si on est en mobile */}
           {isMobile && (
             <VideoBackground videoSrc={VIDEOS.hero} className="scale-[1.1]" />

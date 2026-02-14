@@ -158,14 +158,6 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
             LEMEN'S PROD
           </span>
         </div>
-        <div className="flex gap-4 md:gap-8 items-center">
-          <button
-            onClick={onBack}
-            className="uppercase text-[0.65rem] md:text-xs font-bold tracking-widest text-neutral-900 hover:opacity-50 transition-opacity border border-neutral-900 rounded-full px-3 md:px-4 py-1.5 md:py-2"
-          >
-            Fermer
-          </button>
-        </div>
       </motion.div>
 
       <div className="flex flex-col w-full">
@@ -574,7 +566,12 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                 variants={serviceFadeInUp}
               >
                 <motion.button
-                  onClick={onBack}
+                  onClick={() => {
+                    onBack();
+                    setTimeout(() => {
+                      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                    }, 500);
+                  }}
                   className="group relative px-6 md:px-8 py-3 md:py-4 bg-white overflow-hidden rounded-xl md:rounded-2xl text-neutral-900 w-full sm:w-auto"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
@@ -600,7 +597,12 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                   </span>
                 </motion.button>
                 <motion.button
-                  onClick={onBack}
+                  onClick={() => {
+                    onBack();
+                    setTimeout(() => {
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }, 500);
+                  }}
                   className="group relative px-6 md:px-8 py-3 md:py-4 bg-transparent overflow-hidden rounded-xl md:rounded-2xl text-white border border-white/20 hover:border-white/50 transition-colors w-full sm:w-auto"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
@@ -743,14 +745,26 @@ const BlockContent = ({
   setActiveAudioId,
   isHidden = false,
 }) => {
+  const blockVideoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    blockVideoRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    blockVideoRef.current?.pause();
+  };
+
   return (
     <motion.div
       style={{ x: blockX }}
       className="flex-1 relative overflow-hidden rounded-[2rem] bg-neutral-900 shadow-xl"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {!isHidden && (
         <>
-          <VideoBackground videoSrc={videoSrc} className="brightness-[0.7]" isMuted={activeAudioId !== audioId} />
+          <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" isMuted={activeAudioId !== audioId} playOnHover />
           <AudioToggleButton audioId={audioId} activeAudioId={activeAudioId} setActiveAudioId={setActiveAudioId} />
         </>
       )}

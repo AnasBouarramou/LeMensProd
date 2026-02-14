@@ -36,7 +36,7 @@ const Navbar = ({ progress }) => {
   const navItems = [
     { label: "l'agence", id: "about" },
     { label: "savoir faire", id: "savoir-faire" },
-    { label: "Projet", id: "projects" },
+    { label: "Votre projet", id: "projects" },
   ];
 
   // Variants pour le menu mobile
@@ -106,7 +106,9 @@ const Navbar = ({ progress }) => {
             style={{ backgroundColor: navIconBg }}
             className="w-6 h-6 md:w-8 md:h-8 rounded-full"
           />
-          <span className="font-bold tracking-tighter text-lg md:text-xl">LEMEN'S PROD</span>
+          <span className="font-bold tracking-tighter text-lg md:text-xl">
+            LEMEN'S PROD
+          </span>
         </motion.div>
 
         {/* Liens Desktop - cachés sur mobile */}
@@ -134,18 +136,17 @@ const Navbar = ({ progress }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-transparent border-none cursor-pointer"
+          className="md:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-black/20 backdrop-blur-md rounded-full border-none cursor-pointer"
           aria-label="Toggle menu"
         >
           <motion.span
             animate={{
               rotate: isMenuOpen ? 45 : 0,
               y: isMenuOpen ? 0 : -4,
-              backgroundColor: isMenuOpen ? "#171717" : undefined,
+              backgroundColor: isMenuOpen ? "#171717" : "#ffffff",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            style={{ backgroundColor: navIconBg }}
-            className="block w-6 h-0.5 absolute origin-center"
+            className="block w-6 h-0.5 absolute origin-center bg-white"
           />
           <motion.span
             animate={{
@@ -153,18 +154,16 @@ const Navbar = ({ progress }) => {
               scaleX: isMenuOpen ? 0 : 1,
             }}
             transition={{ duration: 0.2 }}
-            style={{ backgroundColor: navIconBg }}
-            className="block w-6 h-0.5 absolute origin-center"
+            className="block w-6 h-0.5 absolute origin-center bg-white"
           />
           <motion.span
             animate={{
               rotate: isMenuOpen ? -45 : 0,
               y: isMenuOpen ? 0 : 4,
-              backgroundColor: isMenuOpen ? "#171717" : undefined,
+              backgroundColor: isMenuOpen ? "#171717" : "#ffffff",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            style={{ backgroundColor: navIconBg }}
-            className="block w-6 h-0.5 absolute origin-center"
+            className="block w-6 h-0.5 absolute origin-center bg-white"
           />
         </motion.button>
       </motion.nav>

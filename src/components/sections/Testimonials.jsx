@@ -7,6 +7,9 @@ import { staggerContainer, fadeInUp } from "../../config/animations";
 const Testimonials = () => {
   const [active, setActive] = useState(0);
 
+  const goPrev = () => setActive((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  const goNext = () => setActive((prev) => (prev + 1) % TESTIMONIALS.length);
+
   return (
     <section className="bg-neutral-100 py-12 md:py-24 relative z-50">
       <div className="mx-auto px-4 md:px-0" style={{ width: "min(calc(82vw + 3rem), 100%)" }}>
@@ -26,28 +29,47 @@ const Testimonials = () => {
               <h2 className="font-montserrat font-light text-lg md:text-2xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800 leading-tight">
                 Lemen's Prod a changé la donne
               </h2>
-              <div className="flex items-center gap-2 mt-4 md:mt-6">
-                {TESTIMONIALS.map((t, index) => (
-                  <button
-                    key={t.id}
-                    onClick={() => setActive(index)}
-                    aria-label={`Voir le témoignage de ${t.name}, ${t.company}`}
-                    aria-current={active === index ? "true" : undefined}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      active === index
-                        ? "w-8 bg-neutral-900"
-                        : "w-1.5 bg-neutral-300 hover:bg-neutral-400"
-                    }`}
-                  />
-                ))}
+              <div className="flex items-center gap-3 mt-4 md:mt-6">
+                {/* Flèche précédent */}
+                <button
+                  onClick={goPrev}
+                  aria-label="Témoignage précédent"
+                  className="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 text-neutral-600 bg-transparent cursor-pointer shrink-0"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                {/* Dots */}
+                <div className="flex items-center gap-2">
+                  {TESTIMONIALS.map((t, index) => (
+                    <button
+                      key={t.id}
+                      onClick={() => setActive(index)}
+                      aria-label={`Voir le témoignage de ${t.name}, ${t.company}`}
+                      aria-current={active === index ? "true" : undefined}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        active === index
+                          ? "w-8 bg-neutral-900"
+                          : "w-1.5 bg-neutral-300 hover:bg-neutral-400"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Flèche suivant */}
+                <button
+                  onClick={goNext}
+                  aria-label="Témoignage suivant"
+                  className="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 text-neutral-600 bg-transparent cursor-pointer shrink-0"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <button aria-label="Lire la suite des témoignages clients" className="hidden lg:block group relative px-6 md:px-8 py-2.5 md:py-3 bg-neutral-900 overflow-hidden rounded-xl md:rounded-2xl text-white w-fit mt-auto">
-              <div className="absolute inset-0 bg-neutral-800 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 font-bold uppercase tracking-widest text-[0.65rem] md:text-xs">
-                Lire la suite
-              </span>
-            </button>
           </motion.div>
 
           {/* CENTRE - Image */}
@@ -113,18 +135,6 @@ const Testimonials = () => {
             </div>
           </motion.div>
 
-          {/* Bouton mobile en bas */}
-          <motion.div
-            className="col-span-1 flex justify-center lg:hidden order-4 mt-2"
-            variants={fadeInUp}
-          >
-            <button aria-label="Lire la suite des témoignages clients" className="group relative px-6 py-2.5 bg-neutral-900 overflow-hidden rounded-xl text-white w-fit">
-              <div className="absolute inset-0 bg-neutral-800 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 font-bold uppercase tracking-widest text-[0.65rem]">
-                Lire la suite
-              </span>
-            </button>
-          </motion.div>
         </motion.div>
       </div>
     </section>
