@@ -119,7 +119,7 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
         onPlaying={handlePlaying}
         onLoadedMetadata={handleLoadedMetadata}
         onSeeked={handleSeeked}
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-700 ${
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-700 [&:fullscreen]:!object-contain [&:-webkit-full-screen]:!object-contain [&:fullscreen]:!w-full [&:-webkit-full-screen]:!w-full [&:fullscreen]:!h-full [&:-webkit-full-screen]:!h-full [&:fullscreen]:!bg-black [&:-webkit-full-screen]:!bg-black [&:fullscreen]:!static [&:-webkit-full-screen]:!static [&:fullscreen]:!translate-x-0 [&:-webkit-full-screen]:!translate-x-0 [&:fullscreen]:!translate-y-0 [&:-webkit-full-screen]:!translate-y-0 [&:fullscreen]:!min-w-0 [&:-webkit-full-screen]:!min-w-0 [&:fullscreen]:!min-h-0 [&:-webkit-full-screen]:!min-h-0 ${
           isPlaying ? "opacity-100" : "opacity-0"
         }`}
       />

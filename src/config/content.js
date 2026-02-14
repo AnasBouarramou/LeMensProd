@@ -2,11 +2,11 @@
 
 // --- CONFIGURATION DES VIDÉOS (fichiers locaux dans public/video/) ---
 export const VIDEOS = {
-  hero: "/video/hdn.mp4",
-  leftTop: "/video/cuisine.mp4", // Snack Content
-  leftBottom: "/video/edf.mp4", // Production
-  rightTop: "/video/ImmoStory.mp4", // Immobilier
-  rightBottom: "/video/fp.mp4", // Live
+  hero: "/video/fp.mp4",
+  leftTop: "/video/cuisine_pres_snack.mp4", // Snack Content
+  leftBottom: "/video/Aurillac.mp4", // Production
+  rightTop: "/video/hdn.mp4", // Immobilier
+  rightBottom: "/video/mrwk.mp4", // Live
 };
 
 // --- LOGOS ---
@@ -139,38 +139,38 @@ export const SNACK_CONFIG = {
     "Agence spécialisée en création de snack content à Paris. Nous produisons des formats courts ultra-dynamiques pour TikTok, Instagram Reels et YouTube Shorts qui capturent l'attention dès la première frame.",
   blocks: [
     {
-      video: VIDEOS.leftTop,
+      video: "/video/cuisine.mp4",
       tag: "Format Court",
-      title: 'TikTok<br /><span class="text-orange-400">Fashion</span>',
-      expandTitle: 'TikTok <span class="text-orange-500">Fashion</span>',
+      title: 'Snack<br /><span class="text-orange-400">Culinaire</span>',
+      expandTitle: 'Snack <span class="text-orange-500">Culinaire</span>',
       subtitle:
-        "Contenu vertical ultra-dynamique pour capturer l'attention en moins de 3 secondes.",
+        "Vidéo dynamique et appétissante captant chaque geste en cuisine pour les réseaux sociaux.",
       expandDesc:
-        "Nous concevons des contenus verticaux ultra-percutants, pensés pour les algorithmes de TikTok, Instagram Reels et YouTube Shorts. Chaque vidéo est calibrée pour maximiser la rétention dès les 3 premières secondes.",
+        "Réalisation d'une vidéo culinaire ultra-dynamique, pensée pour capter l'attention dès la première seconde sur les réseaux sociaux. Chaque plan est chorégraphié pour sublimer les gestes, les textures et les couleurs des ingrédients, dans un format court calibré pour TikTok et Instagram Reels.",
       tags: [
-        "Hook visuel -3s",
-        "Sound design",
-        "Algo natif",
+        "Food content",
+        "Montage rythmé",
+        "Sound design ASMR",
         "Multi-plateformes",
       ],
-      client: "Client Modeiva",
+      client: "Client Restauration",
     },
     {
-      video: VIDEOS.rightTop,
-      tag: "Format Story",
-      title: 'Reel<br /><span class="text-orange-400">Food</span>',
-      expandTitle: 'Reel <span class="text-orange-500">Food</span>',
+      video: "/video/snack-content-immo.mp4",
+      tag: "Format Réel",
+      title: 'Réel<br /><span class="text-orange-400">Immobilier</span>',
+      expandTitle: 'Réel <span class="text-orange-500">Immobilier</span>',
       subtitle:
-        "Storytelling food vertical, du tournage à la post-production cinématographique.",
+        "Vidéo publicitaire façon Réel/TikTok pour agence immobilière, pensée pour la viralité.",
       expandDesc:
-        "Le food content exige une approche cinématographique unique : lumière naturelle sublimée, slow-motions texturés et une narration visuelle qui donne envie au premier regard.",
+        "Conception d'un contenu vertical percutant au format Réel/TikTok pour une agence immobilière. L'objectif : présenter des biens avec un dynamisme et un storytelling visuel qui génèrent des partages, des enregistrements et maximisent la portée organique sur les algorithmes des plateformes sociales.",
       tags: [
-        "Photo culinaire",
-        "Slow-motion",
-        "Storytelling sensoriel",
-        "Stories & Reels",
+        "Format vertical",
+        "Hook -3s",
+        "Immobilier viral",
+        "Algo natif",
       ],
-      client: "Client TastyBites",
+      client: "Client Agence Immobilière",
     },
   ],
   statsTitle:
@@ -223,38 +223,38 @@ export const PRODUCTION_CONFIG = {
     "Production audiovisuelle haut de gamme à Paris : films de marque, spots publicitaires, vidéos corporate et documentaires d'entreprise. Nous donnons vie à votre vision avec une exigence cinéma.",
   blocks: [
     {
-      video: VIDEOS.leftBottom,
-      tag: "Film de Marque",
-      title: 'Brand<br /><span class="text-rose-400">Film</span>',
-      expandTitle: 'Brand <span class="text-rose-500">Film</span>',
+      video: "/video/edf.mp4",
+      tag: "Institutionnel",
+      title: 'Dalkia<br /><span class="text-rose-400">Groupe EDF</span>',
+      expandTitle: 'Dalkia <span class="text-rose-500">Groupe EDF</span>',
       subtitle:
-        "Récits cinématographiques pour ancrer votre identité de marque dans l'émotion.",
+        "Vidéo publicitaire institutionnelle réalisée pour un leader de l'énergie.",
       expandDesc:
-        "Nous créons des films de marque qui transcendent le simple message publicitaire. Direction photo soignée, narration immersive et post-production haut de gamme pour des vidéos qui marquent les esprits durablement.",
+        "Réalisation d'une vidéo publicitaire institutionnelle pour Dalkia, filiale du groupe EDF, spécialiste des services énergétiques. Une production soignée mêlant plans terrain, interviews et motion design pour véhiculer l'expertise et les valeurs d'un acteur majeur de la transition énergétique.",
       tags: [
-        "Direction photo",
-        "Narration immersive",
+        "Corporate premium",
+        "Direction artistique",
         "Color grading",
-        "4K / 6K",
+        "4K broadcast",
       ],
-      client: "Client Skodia",
+      client: "Client Dalkia — Groupe EDF",
     },
     {
-      video: VIDEOS.hero,
-      tag: "Spot Publicitaire",
-      title: 'Spot<br /><span class="text-rose-400">Pub</span>',
-      expandTitle: 'Spot <span class="text-rose-500">Pub</span>',
+      video: "/video/Aurillac.mp4",
+      tag: "Showroom",
+      title: 'Aurasun<br /><span class="text-rose-400">Solaire</span>',
+      expandTitle: 'Aurasun <span class="text-rose-500">Solaire</span>',
       subtitle:
-        "Des publicités percutantes conçues pour convertir sur tous les écrans.",
+        "Valorisation du showroom et de l'équipe d'un spécialiste du solaire à Aurillac.",
       expandDesc:
-        "Du concept créatif au mixage final, nos spots publicitaires sont pensés pour maximiser l'impact. Casting, repérages, tournage multi-caméras et post-production VFX pour un rendu broadcast-ready.",
+        "Nous avons conçu une vidéo pour Aurasun, entreprise spécialisée dans le solaire basée à Aurillac, afin de valoriser leur showroom et leur équipe. À travers un tournage axé sur les espaces et l'humain, nous avons mis en avant leur expertise en énergie renouvelable, tout en reflétant leur engagement et l'environnement accueillant qu'ils proposent.",
       tags: [
-        "Casting & Repérage",
-        "Multi-caméras",
-        "VFX & Motion",
-        "Broadcast ready",
+        "Tournage terrain",
+        "Portraits d'équipe",
+        "Showroom",
+        "Énergie renouvelable",
       ],
-      client: "Client Architek",
+      client: "Client Aurasun",
     },
   ],
   statsTitle:
@@ -307,36 +307,36 @@ export const IMMO_CONFIG = {
     "Vidéo immobilière premium à Paris : visite virtuelle 360°, drone FPV intérieur-extérieur, photo HDR. Nous sublimeons chaque bien immobilier de prestige pour accélérer vos ventes.",
   blocks: [
     {
-      video: VIDEOS.rightTop,
-      tag: "Visite Virtuelle",
-      title: 'Tour<br /><span class="text-emerald-400">360°</span>',
-      expandTitle: 'Tour <span class="text-emerald-500">360°</span>',
+      video: "/video/hdn.mp4",
+      tag: "Hôtellerie",
+      title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
+      expandTitle: 'Espaces <span class="text-emerald-500">Événementiels</span>',
       subtitle:
-        "Immersion totale dans le bien, accessible à distance pour vos acquéreurs.",
+        "Vidéo immersive sublimant les volumes et l'ambiance d'un hôtel quatre étoiles.",
       expandDesc:
-        "Nos visites virtuelles offrent une immersion complète dans chaque propriété. Captation Matterport, intégration de plans interactifs et hébergement web inclus pour une expérience fluide et professionnelle.",
+        "Réalisation d'une vidéo immersive destinée à mettre en avant les espaces événementiels d'un hôtel quatre étoiles à Nogent sur Marne. L'objectif était de sublimer les volumes, l'ambiance et le potentiel des lieux afin de faciliter la projection des clients et renforcer l'attractivité des services proposés.",
       tags: [
-        "Matterport Pro",
-        "Plans interactifs",
-        "Hébergement web",
-        "Compatible mobile",
+        "Hôtellerie premium",
+        "Drone intérieur",
+        "Lumière naturelle",
+        "4K cinéma",
       ],
-      client: "Client Architek",
+      client: "Hôtel de Nogent",
     },
     {
-      video: VIDEOS.rightBottom,
-      tag: "Drone FPV",
-      title: 'Vol<br /><span class="text-emerald-400">Immersif</span>',
-      expandTitle: 'Vol <span class="text-emerald-500">Immersif</span>',
+      video: "/video/ImmoStory.mp4",
+      tag: "Format Story",
+      title: 'Visite<br /><span class="text-emerald-400">Immersive</span>',
+      expandTitle: 'Visite <span class="text-emerald-500">Immersive</span>',
       subtitle:
-        "Survol cinématographique en drone FPV pour révéler l'envergure de chaque propriété.",
+        "Visite immersive en format Story/Portrait conçue pour convertir sur mobile.",
       expandDesc:
-        "Le drone FPV traverse les espaces de manière fluide et spectaculaire, passant de l'extérieur à l'intérieur en un seul plan-séquence. Un format viral qui génère 5x plus d'engagement que les visites classiques.",
+        "Captation verticale optimisée pour le format Story, offrant une visite fluide et immersive de chaque bien. Ce format portrait natif maximise l'engagement sur Instagram Stories et TikTok, tout en donnant aux acquéreurs une expérience de visite naturelle et intuitive depuis leur smartphone.",
       tags: [
-        "Drone FPV indoor",
-        "Plan-séquence",
-        "4K stabilisé",
-        "Montage cinéma",
+        "Format portrait",
+        "Visite guidée",
+        "Optimisé Stories",
+        "Mobile-first",
       ],
       client: "Client Prestige Immo",
     },
@@ -391,33 +391,33 @@ export const LIVE_CONFIG = {
     "Captation live et événementielle à Paris : concerts, conférences, lancements produit. Nous filmons vos événements en multi-caméras avec une précision broadcast et streaming en direct.",
   blocks: [
     {
-      video: VIDEOS.rightBottom,
-      tag: "Multi-caméras",
-      title: 'Concert<br /><span class="text-violet-400">Live</span>',
-      expandTitle: 'Concert <span class="text-violet-500">Live</span>',
+      video: "/video/Spa.mp4",
+      tag: "Interviews",
+      title: 'Spa<br /><span class="text-violet-400">Témoignages</span>',
+      expandTitle: 'Spa <span class="text-violet-500">Témoignages</span>',
       subtitle:
-        "Captation multi-caméras avec régie live pour une expérience immersive totale.",
+        "Captation d'interviews et de témoignages clients in-situ pour une entreprise de spa.",
       expandDesc:
-        "Nous déployons un dispositif broadcast complet : caméras fixes, steadicam, caméra mobile, régie de mixage en temps réel et diffusion streaming simultanée pour toucher votre audience partout.",
-      tags: ["Multi-caméras", "Régie live", "Streaming HD", "Replay instant"],
-      client: "Client RedBull",
+        "Captation d'interviews et de témoignages clients réalisée directement sur site pour une entreprise de spa haut de gamme. Un dispositif léger mais soigné, pensé pour restituer l'atmosphère apaisante des lieux tout en donnant la parole aux clients avec authenticité et spontanéité.",
+      tags: ["Interview in-situ", "Témoignages clients", "Ambiance premium", "Captation son"],
+      client: "Client Spa Premium",
     },
     {
-      video: VIDEOS.leftBottom,
-      tag: "Corporate",
-      title: 'Event<br /><span class="text-violet-400">Corporate</span>',
-      expandTitle: 'Event <span class="text-violet-500">Corporate</span>',
+      video: "/video/mrwk.mp4",
+      tag: "Promotionnel",
+      title: 'MrWorkout<br /><span class="text-violet-400">Promo</span>',
+      expandTitle: 'MrWorkout <span class="text-violet-500">Promo</span>',
       subtitle:
-        "Conférences, keynotes et lancements de produit captés avec une qualité cinéma.",
+        "Vidéo promotionnelle dynamique de Florian présentant sa marque MrWorkout.",
       expandDesc:
-        "De la keynote intimiste au salon international, nous produisons des captations corporate élégantes et dynamiques. Interviews backstage, aftermovie et contenus dérivés inclus pour prolonger l'impact de votre événement.",
+        "Réalisation d'une vidéo promotionnelle haute énergie pour MrWorkout, la marque de Florian. Un montage percutant qui capture l'intensité du sport, la personnalité du fondateur et l'ADN de la marque dans un format pensé pour engager et convertir sur les réseaux sociaux.",
       tags: [
-        "Keynote capture",
-        "Interviews backstage",
-        "Aftermovie",
-        "Contenu dérivé",
+        "Vidéo promo",
+        "Personal branding",
+        "Montage dynamique",
+        "Réseaux sociaux",
       ],
-      client: "Client Samsung",
+      client: "Client MrWorkout",
     },
   ],
   statsTitle:
