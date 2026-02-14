@@ -3,41 +3,41 @@
 // --- CONFIGURATION DES VIDÉOS (fichiers locaux dans public/video/) ---
 export const VIDEOS = {
   hero: "/video/hdn.mp4",
-  leftTop: "/video/cuisine.mp4",       // Snack Content
-  leftBottom: "/video/edf.mp4",        // Production
-  rightTop: "/video/ImmoStory.mp4",    // Immobilier
-  rightBottom: "/video/fp.mp4",        // Live
+  leftTop: "/video/cuisine.mp4", // Snack Content
+  leftBottom: "/video/edf.mp4", // Production
+  rightTop: "/video/ImmoStory.mp4", // Immobilier
+  rightBottom: "/video/fp.mp4", // Live
 };
 
 // --- LOGOS ---
 export const LOGOS = [
   {
     name: "Alina",
-    url: "src/assets/img/Alina.png",
+    url: "public/img/Alina.png",
   },
   {
     name: "Aurasun",
-    url: "src/assets/img/AURASUN.png",
+    url: "public/img/AURASUN.png",
   },
   {
     name: "Dalkia",
-    url: "src/assets/img/Dalkia.png",
+    url: "public/img/Dalkia.png",
   },
   {
     name: "Hotel du port",
-    url: "src/assets/img/HDP.png.webp",
+    url: "public/img/HDP.png.webp",
   },
   {
     name: "Lekk Africa",
-    url: "src/assets/img/LekkAfrica.png",
+    url: "public/img/LekkAfrica.png",
   },
   {
     name: "MrWorkout",
-    url: "src/assets/img/MrWorkout.png",
+    url: "public/img/MrWorkout.png",
   },
   {
     name: "Fitness Park",
-    url: "src/assets/img/FitnessPark.png",
+    url: "public/img/FitnessPark.png",
   },
 ];
 
