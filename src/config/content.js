@@ -3,10 +3,15 @@
 // --- CONFIGURATION DES VIDÉOS (fichiers locaux dans public/video/) ---
 export const VIDEOS = {
   hero: "/video/fp.mp4",
+  heroPoster: "/img/fp.png",
   leftTop: "/video/cuisine_pres_snack.mp4", // Snack Content
+  leftTopPoster: "/img/cuisine_pres_snack.png",
   leftBottom: "/video/Aurillac.mp4", // Production
+  leftBottomPoster: "/img/Aurillac.png",
   rightTop: "/video/hdn.mp4", // Immobilier
+  rightTopPoster: "/img/hdn.png",
   rightBottom: "/video/mrwk.mp4", // Live
+  rightBottomPoster: "/img/mrwk.png",
 };
 
 // --- LOGOS ---
@@ -132,6 +137,7 @@ export const SNACK_CONFIG = {
   accentBg: "bg-orange-500",
   hoverAccent: "hover:bg-orange-500",
   heroVideo: VIDEOS.leftTop,
+  heroPoster: VIDEOS.leftTopPoster,
   heroTitle:
     'QUAND CHAQUE<br /><span class="text-orange-500 font-serif italic font-normal">Seconde</span> COMPTE',
   heroLabel: 'SNACK<br /><span class="text-orange-500">CONTENT</span>',
@@ -140,6 +146,7 @@ export const SNACK_CONFIG = {
   blocks: [
     {
       video: "/video/cuisine.mp4",
+      poster: "/img/cuisine.png",
       tag: "Format Court",
       title: 'Snack<br /><span class="text-orange-400">Culinaire</span>',
       expandTitle: 'Snack <span class="text-orange-500">Culinaire</span>',
@@ -157,6 +164,7 @@ export const SNACK_CONFIG = {
     },
     {
       video: "/video/snack-content-immo.mp4",
+      poster: "/img/snack-content-immo.png",
       tag: "Format Réel",
       title: 'Réel<br /><span class="text-orange-400">Immobilier</span>',
       expandTitle: 'Réel <span class="text-orange-500">Immobilier</span>',
@@ -216,6 +224,7 @@ export const PRODUCTION_CONFIG = {
   accentBg: "bg-rose-500",
   hoverAccent: "hover:bg-rose-500",
   heroVideo: VIDEOS.leftBottom,
+  heroPoster: VIDEOS.leftBottomPoster,
   heroTitle:
     'CHAQUE IMAGE<br /><span class="text-rose-400 font-serif italic font-normal">Raconte</span> UNE HISTOIRE',
   heroLabel: 'PRODUCTION<br /><span class="text-rose-400">AUDIOVISUELLE</span>',
@@ -224,6 +233,7 @@ export const PRODUCTION_CONFIG = {
   blocks: [
     {
       video: "/video/edf.mp4",
+      poster: "/img/edf.png",
       tag: "Institutionnel",
       title: 'Dalkia<br /><span class="text-rose-400">Groupe EDF</span>',
       expandTitle: 'Dalkia <span class="text-rose-500">Groupe EDF</span>',
@@ -241,6 +251,7 @@ export const PRODUCTION_CONFIG = {
     },
     {
       video: "/video/Aurillac.mp4",
+      poster: "/img/Aurillac.png",
       tag: "Showroom",
       title: 'Aurasun<br /><span class="text-rose-400">Solaire</span>',
       expandTitle: 'Aurasun <span class="text-rose-500">Solaire</span>',
@@ -300,6 +311,7 @@ export const IMMO_CONFIG = {
   accentBg: "bg-emerald-500",
   hoverAccent: "hover:bg-emerald-500",
   heroVideo: VIDEOS.rightTop,
+  heroPoster: VIDEOS.rightTopPoster,
   heroTitle:
     'RÉVÉLER<br /><span class="text-emerald-400 font-serif italic font-normal">l\'Essence</span> DES LIEUX',
   heroLabel: 'IMMOBILIER<br /><span class="text-emerald-400">PREMIUM</span>',
@@ -308,6 +320,7 @@ export const IMMO_CONFIG = {
   blocks: [
     {
       video: "/video/hdn.mp4",
+      poster: "/img/hdn.png",
       tag: "Hôtellerie",
       title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
       expandTitle: 'Espaces <span class="text-emerald-500">Événementiels</span>',
@@ -325,6 +338,7 @@ export const IMMO_CONFIG = {
     },
     {
       video: "/video/ImmoStory.mp4",
+      poster: "/img/ImmoStory.png",
       tag: "Format Story",
       title: 'Visite<br /><span class="text-emerald-400">Immersive</span>',
       expandTitle: 'Visite <span class="text-emerald-500">Immersive</span>',
@@ -384,6 +398,7 @@ export const LIVE_CONFIG = {
   accentBg: "bg-violet-500",
   hoverAccent: "hover:bg-violet-500",
   heroVideo: VIDEOS.rightBottom,
+  heroPoster: VIDEOS.rightBottomPoster,
   heroTitle:
     'CAPTURER<br /><span class="text-violet-400 font-serif italic font-normal">l\'Instant</span> EN DIRECT',
   heroLabel: 'LIVE<br /><span class="text-violet-400">EVENT</span>',
@@ -392,6 +407,7 @@ export const LIVE_CONFIG = {
   blocks: [
     {
       video: "/video/Spa.mp4",
+      poster: "/img/Spa.png",
       tag: "Interviews",
       title: 'Spa<br /><span class="text-violet-400">Témoignages</span>',
       expandTitle: 'Spa <span class="text-violet-500">Témoignages</span>',
@@ -404,6 +420,7 @@ export const LIVE_CONFIG = {
     },
     {
       video: "/video/mrwk.mp4",
+      poster: "/img/mrwk.png",
       tag: "Promotionnel",
       title: 'MrWorkout<br /><span class="text-violet-400">Promo</span>',
       expandTitle: 'MrWorkout <span class="text-violet-500">Promo</span>',

@@ -45,6 +45,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
     {
       bgColor: "bg-orange-500",
       videoSrc: VIDEOS.leftTop,
+      poster: VIDEOS.leftTopPoster,
       title: "Snack Content",
       subtitle: "Capter l'attention",
       page: "snack",
@@ -52,6 +53,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
     {
       bgColor: "bg-rose-500",
       videoSrc: VIDEOS.leftBottom,
+      poster: VIDEOS.leftBottomPoster,
       title: "Production",
       subtitle: "Raconter votre histoire",
       page: "production",
@@ -59,6 +61,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
     {
       bgColor: "bg-emerald-500",
       videoSrc: VIDEOS.rightTop,
+      poster: VIDEOS.rightTopPoster,
       title: "Immobilier",
       subtitle: "Révéler les espaces",
       page: "immo",
@@ -66,6 +69,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
     {
       bgColor: "bg-violet-500",
       videoSrc: VIDEOS.rightBottom,
+      poster: VIDEOS.rightBottomPoster,
       title: "Live",
       subtitle: "Connecter le réel",
       page: "live",
@@ -161,6 +165,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                     heightClass="h-full"
                     bgColor="bg-orange-500"
                     videoSrc={VIDEOS.leftTop}
+                    poster={VIDEOS.leftTopPoster}
                     title="Snack Content"
                     subtitle="Capter l'attention"
                     onClick={() => setActivePage("snack")}
@@ -174,6 +179,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                     heightClass="h-full"
                     bgColor="bg-rose-500"
                     videoSrc={VIDEOS.leftBottom}
+                    poster={VIDEOS.leftBottomPoster}
                     title="Production"
                     subtitle="Raconter votre histoire"
                     onClick={() => setActivePage("production")}
@@ -200,6 +206,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 {!isMobile && (
                   <VideoBackground
                     videoSrc={VIDEOS.hero}
+                    poster={VIDEOS.heroPoster}
                     className="scale-[1.1]"
                   />
                 )}
@@ -290,6 +297,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                     heightClass="h-full"
                     bgColor="bg-emerald-500"
                     videoSrc={VIDEOS.rightTop}
+                    poster={VIDEOS.rightTopPoster}
                     title="Immobilier"
                     subtitle="Révéler les espaces"
                     onClick={() => setActivePage("immo")}
@@ -303,6 +311,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                     heightClass="h-full"
                     bgColor="bg-violet-500"
                     videoSrc={VIDEOS.rightBottom}
+                    poster={VIDEOS.rightBottomPoster}
                     title="Live"
                     subtitle="Connecter le réel"
                     onClick={() => setActivePage("live")}
@@ -320,7 +329,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
         <section className="relative h-[100dvh] mx-0 mt-0 overflow-hidden bg-neutral-900">
           {/* Hero mobile : ne rend la vidéo que si on est en mobile */}
           {isMobile && (
-            <VideoBackground videoSrc={VIDEOS.hero} className="scale-[1.1]" />
+            <VideoBackground videoSrc={VIDEOS.hero} poster={VIDEOS.heroPoster} className="scale-[1.1]" />
           )}
 
           {/* Overlay dégradé */}
@@ -411,6 +420,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 heightClass="h-full"
                 bgColor={card.bgColor}
                 videoSrc={card.videoSrc}
+                poster={card.poster}
                 title={card.title}
                 subtitle={card.subtitle}
                 onClick={() => setActivePage(card.page)}

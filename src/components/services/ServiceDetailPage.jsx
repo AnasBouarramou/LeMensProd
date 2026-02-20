@@ -121,6 +121,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
                 {!isMobile && (
                   <VideoBackground
                     videoSrc={config.heroVideo}
+                    poster={config.heroPoster}
                     className="brightness-[0.8]"
                   />
                 )}
@@ -232,6 +233,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
             {isMobile && (
               <VideoBackground
                 videoSrc={config.heroVideo}
+                poster={config.heroPoster}
                 className="brightness-[0.7]"
               />
             )}
@@ -534,6 +536,7 @@ const MobileBlock = ({ block, index, configAccent, mobileBlockVariants }) => {
       <VideoBackground
         ref={videoRef}
         videoSrc={block.video}
+        poster={block.poster}
         className="brightness-[0.7]"
         playOnHover
       />
@@ -720,7 +723,7 @@ const BlockContent = ({
     >
       {!isHidden && (
         <>
-          <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" playOnHover />
+          <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} poster={blockConfig.poster} className="brightness-[0.7]" playOnHover />
           {/* Bouton Vimeo HD */}
           <button
             onClick={handleOpenVimeo}
