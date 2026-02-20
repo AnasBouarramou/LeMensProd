@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        yellowtail: ["Yellowtail", "cursive"],
+      },
       // 1. On définit les étapes de l'animation (Keyframes)
       keyframes: {
         scroll: {

@@ -109,12 +109,10 @@ const Navbar = ({ progress }) => {
             setIsMenuOpen(false);
           }}
         >
-          <motion.div
-            style={{ backgroundColor: navIconBg }}
-            className="w-6 h-6 md:w-8 md:h-8 rounded-full"
-          />
-          <span className="font-bold tracking-tighter text-lg md:text-xl">
-            LEMEN'S PROD
+          <span className="tracking-tighter text-lg md:text-xl">
+            <span className="font-yellowtail">lemen's</span>
+            {" "}
+            <span className="font-poppins font-semibold">Prod.</span>
           </span>
         </motion.div>
 
@@ -223,8 +221,10 @@ const Navbar = ({ progress }) => {
                   className="absolute bottom-8 left-8 right-8"
                 >
                   <div className="h-px bg-neutral-300 mb-4" />
-                  <p className="text-xs text-neutral-500 uppercase tracking-widest">
-                    LEMEN'S PROD
+                  <p className="text-xs text-neutral-500 tracking-widest">
+                    <span className="font-yellowtail">lemen's</span>
+                    {" "}
+                    <span className="font-poppins font-semibold">Prod.</span>
                   </p>
                 </motion.div>
               </div>

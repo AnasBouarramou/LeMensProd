@@ -54,9 +54,10 @@ const Footer = ({ onBack, setActivePage }) => {
               onClick={onBack}
               aria-label="Retour en haut de page — Lemen's Prod"
             >
-              <div className="w-7 h-7 md:w-9 md:h-9 bg-white rounded-full" />
-              <span className="font-bold tracking-tighter text-xl md:text-2xl uppercase">
-                Lemen's Prod
+              <span className="tracking-tighter text-xl md:text-2xl">
+                <span className="font-yellowtail">lemen's</span>
+                {" "}
+                <span className="font-poppins font-semibold">Prod.</span>
               </span>
             </button>
             <p className="text-neutral-400 text-sm leading-relaxed font-light">
