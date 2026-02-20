@@ -45,12 +45,7 @@ export default function App() {
   const [activePage, setActivePage] = useState(null);
   const [rootElement, setRootElement] = useState(null);
 
-  // Audio global exclusif : une seule source audio active sur tout le site
-  const [activeAudioId, setActiveAudioId] = useState(null);
-
-  // Coupe le son quand on change de section (landing ↔ detail)
   const handleSetActivePage = (page) => {
-    setActiveAudioId(null);
     setActivePage(page);
   };
 
@@ -92,8 +87,6 @@ export default function App() {
         progress={smoothProgress}
         setActivePage={handleSetActivePage}
         containerRef={containerRef}
-        activeAudioId={activeAudioId}
-        setActiveAudioId={setActiveAudioId}
       />
 
       <TrustSlider />
@@ -131,8 +124,6 @@ export default function App() {
           <ServiceDetailPage
             config={PAGE_CONFIGS[activePage]}
             onBack={() => handleSetActivePage(null)}
-            activeAudioId={activeAudioId}
-            setActiveAudioId={setActiveAudioId}
           />
         )}
       </AnimatePresence>

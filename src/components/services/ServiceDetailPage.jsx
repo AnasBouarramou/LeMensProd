@@ -1,6 +1,6 @@
 // src/components/services/ServiceDetailPage.jsx
-import { useRef, useState } from "react";
-import { motion, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useTransform, AnimatePresence, useInView } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
@@ -16,62 +16,7 @@ import {
   CUSTOM_EASE,
 } from "../../config/animations";
 
-// Bouton audio réutilisable pour toutes les vidéos
-const AudioToggleButton = ({ audioId, activeAudioId, setActiveAudioId }) => {
-  const isActive = activeAudioId === audioId;
-
-  const handleToggle = (e) => {
-    e.stopPropagation();
-    setActiveAudioId((prev) => (prev === audioId ? null : audioId));
-  };
-
-  return (
-    <button
-      onClick={handleToggle}
-      aria-label={isActive ? "Couper le son de la vidéo" : "Activer le son de la vidéo"}
-      className={`absolute top-3 right-3 lg:top-4 lg:right-4 z-30 w-10 h-10 lg:w-11 lg:h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full flex items-center justify-center border transition-all cursor-pointer ${
-        isActive
-          ? "bg-white/20 backdrop-blur-md border-white/30 hover:bg-white/30"
-          : "bg-black/30 backdrop-blur-md border-white/20 opacity-60 hover:opacity-100"
-      }`}
-    >
-      {isActive ? (
-        <div className="flex items-end gap-[2px] h-3.5">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="w-[2.5px] bg-white rounded-full"
-              animate={{ height: ["40%", "100%", "60%", "90%", "40%"] }}
-              transition={{
-                duration: 0.8,
-                repeat: Infinity,
-                delay: i * 0.15,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-      ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-4 h-4 text-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53l-4.72-3.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
-          />
-        </svg>
-      )}
-    </button>
-  );
-};
-
-const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) => {
+const ServiceDetailPage = ({ config, onBack }) => {
   const containerRef = useRef(null);
   const isMobile = useIsMobile();
 
@@ -154,8 +99,10 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
               />
             </svg>
           </div>
-          <span className="font-bold tracking-tighter text-lg md:text-xl text-neutral-900">
-            LEMEN'S PROD
+          <span className="tracking-tighter text-lg md:text-xl text-neutral-900">
+            <span className="font-yellowtail">lemen's</span>
+            {" "}
+            <span className="font-poppins font-semibold">Prod.</span>
           </span>
         </div>
       </motion.div>
@@ -174,14 +121,6 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                   <VideoBackground
                     videoSrc={config.heroVideo}
                     className="brightness-[0.8]"
-                    isMuted={activeAudioId !== "detail-hero"}
-                  />
-                )}
-                {!isMobile && (
-                  <AudioToggleButton
-                    audioId="detail-hero"
-                    activeAudioId={activeAudioId}
-                    setActiveAudioId={setActiveAudioId}
                   />
                 )}
                 <motion.div
@@ -257,9 +196,6 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                   contentY={blockContentY}
                   configAccent={config.accentBg}
                   index="01"
-                  audioId="detail-block-0"
-                  activeAudioId={activeAudioId}
-                  setActiveAudioId={setActiveAudioId}
                   isHidden={isMobile}
                 />
 
@@ -274,9 +210,6 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
                   configAccent={config.accentBg}
                   index="02"
                   isRight={true}
-                  audioId="detail-block-1"
-                  activeAudioId={activeAudioId}
-                  setActiveAudioId={setActiveAudioId}
                   isHidden={isMobile}
                 />
               </motion.div>
@@ -297,14 +230,6 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
               <VideoBackground
                 videoSrc={config.heroVideo}
                 className="brightness-[0.7]"
-                isMuted={activeAudioId !== "detail-hero-m"}
-              />
-            )}
-            {isMobile && (
-              <AudioToggleButton
-                audioId="detail-hero-m"
-                activeAudioId={activeAudioId}
-                setActiveAudioId={setActiveAudioId}
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
@@ -319,66 +244,27 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
               />
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full p-4">
+            <div className="absolute bottom-0 left-0 w-full p-4 flex flex-col gap-3">
               <h2
                 className="text-2xl font-black uppercase tracking-tighter text-white leading-none"
                 dangerouslySetInnerHTML={{ __html: config.heroLabel }}
               />
+              <p className="text-xs font-medium text-white/60 leading-relaxed drop-shadow-md">
+                {config.heroDesc}
+              </p>
             </div>
           </motion.section>
 
           {/* BLOCS MOBILE - Empilés verticalement */}
           <section className="px-3 py-4 flex flex-col gap-4">
             {config.blocks.map((block, i) => (
-              <motion.div
+              <MobileBlock
                 key={i}
-                variants={mobileBlockVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                className="relative h-[55vh] rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
-              >
-                {isMobile && (
-                  <VideoBackground
-                    videoSrc={block.video}
-                    className="brightness-[0.7]"
-                    isMuted={activeAudioId !== `detail-block-m-${i}`}
-                  />
-                )}
-                {isMobile && (
-                  <AudioToggleButton
-                    audioId={`detail-block-m-${i}`}
-                    activeAudioId={activeAudioId}
-                    setActiveAudioId={setActiveAudioId}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                <div className="absolute inset-0 flex flex-col justify-between p-5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-white text-[0.65rem] border border-white/30 rounded-full px-3 py-1 font-bold uppercase tracking-widest">
-                      0{i + 1}
-                    </span>
-                    <span className="text-white/50 text-[0.65rem] uppercase tracking-widest font-medium">
-                      {block.tag}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3
-                      className="text-3xl font-black uppercase tracking-tighter text-white leading-[0.95] mb-2"
-                      dangerouslySetInnerHTML={{ __html: block.title }}
-                    />
-                    <p className="text-white/50 text-sm font-medium mb-4 max-w-[280px]">
-                      {block.subtitle}
-                    </p>
-                    <MobileBlockExpand
-                      blockConfig={block}
-                      configAccent={config.accentBg}
-                    />
-                  </div>
-                </div>
-              </motion.div>
+                block={block}
+                index={i}
+                configAccent={config.accentBg}
+                mobileBlockVariants={mobileBlockVariants}
+              />
             ))}
           </section>
         </div>
@@ -619,6 +505,65 @@ const ServiceDetailPage = ({ config, onBack, activeAudioId, setActiveAudioId }) 
   );
 };
 
+// Sous-composant Mobile Block avec autoplay au scroll via useInView
+const MobileBlock = ({ block, index, configAccent, mobileBlockVariants }) => {
+  const blockRef = useRef(null);
+  const videoRef = useRef(null);
+  const isInView = useInView(blockRef, { margin: "-20% 0px" });
+
+  useEffect(() => {
+    if (isInView) {
+      videoRef.current?.play();
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [isInView]);
+
+  return (
+    <motion.div
+      ref={blockRef}
+      variants={mobileBlockVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      className="relative h-[55vh] rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
+    >
+      <VideoBackground
+        ref={videoRef}
+        videoSrc={block.video}
+        className="brightness-[0.7]"
+        playOnHover
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+      <div className="absolute inset-0 flex flex-col justify-between p-5">
+        <div className="flex items-center gap-2">
+          <span className="text-white text-[0.65rem] border border-white/30 rounded-full px-3 py-1 font-bold uppercase tracking-widest">
+            0{index + 1}
+          </span>
+          <span className="text-white/50 text-[0.65rem] uppercase tracking-widest font-medium">
+            {block.tag}
+          </span>
+        </div>
+
+        <div>
+          <h3
+            className="text-3xl font-black uppercase tracking-tighter text-white leading-[0.95] mb-2"
+            dangerouslySetInnerHTML={{ __html: block.title }}
+          />
+          <p className="text-white/50 text-sm font-medium mb-4 max-w-[280px]">
+            {block.subtitle}
+          </p>
+          <MobileBlockExpand
+            blockConfig={block}
+            configAccent={configAccent}
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 // Sous-composant pour l'expansion mobile
 const MobileBlockExpand = ({ blockConfig, configAccent }) => {
   const [expanded, setExpanded] = useState(false);
@@ -736,9 +681,6 @@ const BlockContent = ({
   configAccent,
   index,
   isRight = false,
-  audioId,
-  activeAudioId,
-  setActiveAudioId,
   isHidden = false,
 }) => {
   const blockVideoRef = useRef(null);
@@ -766,13 +708,12 @@ const BlockContent = ({
     >
       {!isHidden && (
         <>
-          <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" isMuted={activeAudioId !== audioId} playOnHover />
-          <AudioToggleButton audioId={audioId} activeAudioId={activeAudioId} setActiveAudioId={setActiveAudioId} />
+          <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" playOnHover />
           {/* Bouton Plein Écran */}
           <button
             onClick={handleFullscreen}
             aria-label="Voir la vidéo en plein écran"
-            className="absolute top-3 right-16 lg:top-4 lg:right-[4.5rem] z-30 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover/block:opacity-60 hover:!opacity-100 transition-all cursor-pointer"
+            className="absolute top-3 right-3 lg:top-4 lg:right-4 z-30 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover/block:opacity-60 hover:!opacity-100 transition-all cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

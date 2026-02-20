@@ -1,9 +1,6 @@
 import { useState, useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 
-// Registre global : garantit qu'une seule <video> est unmuted sur tout le DOM
-const videoRegistry = new Set();
-
-const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, playOnHover = false }, ref) => {
+const VideoBackground = forwardRef(({ videoSrc, className = "", playOnHover = false }, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
@@ -35,53 +32,10 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
     },
   }));
 
-  // Enregistrement / désenregistrement dans le registre global
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      videoRegistry.add(video);
-    }
-    return () => {
-      if (video) {
-        videoRegistry.delete(video);
-        // Nettoyage complet au démontage : stop audio + pause
-        video.muted = true;
-        video.pause();
-      }
-    };
-  }, []);
-
   // Quand la source change, reset propre
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
     setIsPlaying(false);
-
-    return () => {
-      video.muted = true;
-    };
   }, [videoSrc]);
-
-  // Synchronisation mute/unmute avec garantie d'exclusivité globale
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (!isMuted) {
-      // NUCLEAR : mute TOUTES les autres vidéos du registre d'abord
-      videoRegistry.forEach((v) => {
-        if (v !== video) {
-          v.muted = true;
-        }
-      });
-      // Puis unmute celle-ci
-      video.muted = false;
-    } else {
-      video.muted = true;
-    }
-  }, [isMuted]);
 
   const handlePlaying = useCallback(() => {
     setIsPlaying(true);
@@ -114,7 +68,7 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", isMuted = true, 
         autoPlay={!playOnHover}
         loop
         playsInline={true}
-        muted={isMuted}
+        muted
         preload={playOnHover ? "metadata" : "auto"}
         onPlaying={handlePlaying}
         onLoadedMetadata={handleLoadedMetadata}

@@ -5,13 +5,9 @@ import VideoBackground from "../common/VideoBackground";
 import { VIDEOS } from "../../config/content";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
-const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setActiveAudioId }) => {
+const HeroGrid = ({ progress, setActivePage, containerRef }) => {
   const ANIM_END = 0.5;
   const isMobile = useIsMobile();
-
-  const handleToggleAudio = (cardId) => {
-    setActiveAudioId((prev) => (prev === cardId ? null : cardId));
-  };
 
   // ========== ANIMATIONS DESKTOP (useTransform - appelés inconditionnellement) ==========
   const centerWidth = useTransform(progress, [0, 0.7], ["96vw", "32vw"]);
@@ -168,8 +164,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
                     title="Snack Content"
                     subtitle="Capter l'attention"
                     onClick={() => setActivePage("snack")}
-                    isUnmuted={!isMobile && activeAudioId === "grid-snack"}
-                    onToggleAudio={() => handleToggleAudio("grid-snack")}
                   />
                 </motion.div>
                 <motion.div
@@ -183,8 +177,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
                     title="Production"
                     subtitle="Raconter votre histoire"
                     onClick={() => setActivePage("production")}
-                    isUnmuted={!isMobile && activeAudioId === "grid-production"}
-                    onToggleAudio={() => handleToggleAudio("grid-production")}
                   />
                 </motion.div>
               </div>
@@ -301,8 +293,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
                     title="Immobilier"
                     subtitle="Révéler les espaces"
                     onClick={() => setActivePage("immo")}
-                    isUnmuted={!isMobile && activeAudioId === "grid-immo"}
-                    onToggleAudio={() => handleToggleAudio("grid-immo")}
                   />
                 </motion.div>
                 <motion.div
@@ -316,8 +306,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
                     title="Live"
                     subtitle="Connecter le réel"
                     onClick={() => setActivePage("live")}
-                    isUnmuted={!isMobile && activeAudioId === "grid-live"}
-                    onToggleAudio={() => handleToggleAudio("grid-live")}
                   />
                 </motion.div>
               </div>
@@ -426,8 +414,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef, activeAudioId, setAct
                 title={card.title}
                 subtitle={card.subtitle}
                 onClick={() => setActivePage(card.page)}
-                isUnmuted={isMobile && activeAudioId === `grid-${card.page}`}
-                onToggleAudio={() => handleToggleAudio(`grid-${card.page}`)}
               />
             </motion.div>
           ))}

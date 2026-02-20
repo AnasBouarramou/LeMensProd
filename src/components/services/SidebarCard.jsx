@@ -1,6 +1,6 @@
 // src/components/services/SidebarCard.jsx
-import { useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
 
 const SidebarCard = ({
@@ -10,10 +10,20 @@ const SidebarCard = ({
   subtitle,
   heightClass,
   onClick,
-  isUnmuted = false,
-  onToggleAudio,
 }) => {
   const videoRef = useRef(null);
+  const cardRef = useRef(null);
+
+  // Autoplay au scroll sur mobile (simule le hover)
+  const isInView = useInView(cardRef, { margin: "-20% 0px" });
+
+  useEffect(() => {
+    if (isInView) {
+      videoRef.current?.play();
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [isInView]);
 
   // Variantes d'animation optimisées avec GPU
   const ctaContainerVariants = {
@@ -40,8 +50,7 @@ const SidebarCard = ({
   };
 
   const handleClick = (e) => {
-    // Si on clique sur l'icone audio ou fullscreen, on ne navigue pas
-    if (e.target.closest("[data-audio-toggle]") || e.target.closest("[data-fullscreen]")) return;
+    if (e.target.closest("[data-fullscreen]")) return;
     onClick?.();
   };
 
@@ -49,11 +58,6 @@ const SidebarCard = ({
     e.stopPropagation();
     e.preventDefault();
     videoRef.current?.requestFullscreen();
-  };
-
-  const handleAudioToggle = (e) => {
-    e.stopPropagation();
-    onToggleAudio?.();
   };
 
   const handleMouseEnter = () => {
@@ -66,6 +70,7 @@ const SidebarCard = ({
 
   return (
     <motion.div
+      ref={cardRef}
       role="button"
       tabIndex={0}
       aria-label={`Voir le service ${title} — ${subtitle}`}
@@ -83,68 +88,8 @@ const SidebarCard = ({
         className="absolute inset-0 w-full h-full grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
         style={{ willChange: "transform, filter" }}
       >
-        <VideoBackground ref={videoRef} videoSrc={videoSrc} isMuted={!isUnmuted} playOnHover />
+        <VideoBackground ref={videoRef} videoSrc={videoSrc} playOnHover />
       </div>
-
-      {/* Indicateur audio animé */}
-      <AnimatePresence>
-        {isUnmuted && (
-          <motion.button
-            data-audio-toggle
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            onClick={handleAudioToggle}
-            aria-label={`Couper le son de la vidéo ${title}`}
-            className="absolute top-3 right-3 lg:top-4 lg:right-4 z-20 w-10 h-10 lg:w-11 lg:h-11 min-w-[2.75rem] min-h-[2.75rem] bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors cursor-pointer"
-          >
-            {/* Barres audio animées */}
-            <div className="flex items-end gap-[2px] h-3.5">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  className="w-[2.5px] bg-white rounded-full"
-                  animate={{
-                    height: ["40%", "100%", "60%", "90%", "40%"],
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    repeat: Infinity,
-                    delay: i * 0.15,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </div>
-          </motion.button>
-        )}
-      </AnimatePresence>
-
-      {/* Bouton mute quand le son est coupé (visible au hover) */}
-      {!isUnmuted && onToggleAudio && (
-        <button
-          data-audio-toggle
-          onClick={handleAudioToggle}
-          aria-label={`Activer le son de la vidéo ${title}`}
-          className="absolute top-3 right-3 lg:top-4 lg:right-4 z-20 w-10 h-10 lg:w-11 lg:h-11 min-w-[2.75rem] min-h-[2.75rem] bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover:opacity-70 hover:!opacity-100 transition-all cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53l-4.72-3.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
-            />
-          </svg>
-        </button>
-      )}
 
       {/* Bouton Plein Écran — visible au hover */}
       <button
