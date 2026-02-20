@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useTransform, AnimatePresence, useInView } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
+import VimeoModal from "../common/VimeoModal";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
 // Composants et Config
@@ -197,6 +198,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
                   configAccent={config.accentBg}
                   index="01"
                   isHidden={isMobile}
+                  vimeoId={config.blocks[0].vimeoId || ""}
                 />
 
                 <BlockContent
@@ -211,6 +213,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
                   index="02"
                   isRight={true}
                   isHidden={isMobile}
+                  vimeoId={config.blocks[1].vimeoId || ""}
                 />
               </motion.div>
             </div>
@@ -682,24 +685,33 @@ const BlockContent = ({
   index,
   isRight = false,
   isHidden = false,
+  vimeoId = "",
 }) => {
   const blockVideoRef = useRef(null);
+  const [isVimeoOpen, setIsVimeoOpen] = useState(false);
 
   const handleMouseEnter = () => {
-    blockVideoRef.current?.play();
+    if (!isVimeoOpen) blockVideoRef.current?.play();
   };
 
   const handleMouseLeave = () => {
-    blockVideoRef.current?.pause();
+    if (!isVimeoOpen) blockVideoRef.current?.pause();
   };
 
-  const handleFullscreen = (e) => {
+  const handleOpenVimeo = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    blockVideoRef.current?.requestFullscreen();
+    blockVideoRef.current?.pause();
+    setIsVimeoOpen(true);
+  };
+
+  const handleCloseVimeo = () => {
+    setIsVimeoOpen(false);
+    blockVideoRef.current?.play();
   };
 
   return (
+    <>
     <motion.div
       style={{ x: blockX }}
       className="flex-1 relative overflow-hidden rounded-[2rem] bg-neutral-900 shadow-xl group/block"
@@ -709,10 +721,10 @@ const BlockContent = ({
       {!isHidden && (
         <>
           <VideoBackground ref={blockVideoRef} videoSrc={videoSrc} className="brightness-[0.7]" playOnHover />
-          {/* Bouton Plein Écran */}
+          {/* Bouton Vimeo HD */}
           <button
-            onClick={handleFullscreen}
-            aria-label="Voir la vidéo en plein écran"
+            onClick={handleOpenVimeo}
+            aria-label="Voir la vidéo en HD"
             className="absolute top-3 right-3 lg:top-4 lg:right-4 z-30 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover/block:opacity-60 hover:!opacity-100 transition-all cursor-pointer"
           >
             <svg
@@ -726,7 +738,7 @@ const BlockContent = ({
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
               />
             </svg>
           </button>
@@ -913,6 +925,12 @@ const BlockContent = ({
         </div>
       </motion.div>
     </motion.div>
+    <VimeoModal
+      isOpen={isVimeoOpen}
+      onClose={handleCloseVimeo}
+      videoId={vimeoId}
+    />
+    </>
   );
 };
 

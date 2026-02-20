@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 
-const VideoBackground = forwardRef(({ videoSrc, className = "", playOnHover = false }, ref) => {
+const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHover = false }, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
@@ -18,17 +18,6 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", playOnHover = fa
       const video = videoRef.current;
       if (!video) return;
       video.pause();
-    },
-    requestFullscreen: () => {
-      const video = videoRef.current;
-      if (!video) return;
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-      }
     },
   }));
 
@@ -65,6 +54,7 @@ const VideoBackground = forwardRef(({ videoSrc, className = "", playOnHover = fa
       <video
         ref={videoRef}
         src={videoSrc}
+        poster={poster}
         autoPlay={!playOnHover}
         loop
         playsInline={true}
