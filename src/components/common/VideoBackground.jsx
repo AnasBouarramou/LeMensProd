@@ -49,7 +49,10 @@ const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHo
   return (
     <div
       className={`absolute inset-0 overflow-hidden pointer-events-none bg-neutral-900 ${className}`}
-      style={{ willChange: "transform" }}
+      style={{
+        willChange: "transform",
+        ...(poster ? { backgroundImage: `url(${poster})`, backgroundSize: "cover", backgroundPosition: "center" } : {}),
+      }}
     >
       <video
         ref={videoRef}
