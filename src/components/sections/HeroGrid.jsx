@@ -1,11 +1,15 @@
 // src/components/sections/HeroGrid.jsx
+import { useState, useRef } from "react";
 import { motion, useTransform } from "framer-motion";
 import SidebarCard from "../services/SidebarCard";
 import VideoBackground from "../common/VideoBackground";
+import VimeoModal from "../common/VimeoModal";
 import { VIDEOS } from "../../config/content";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
 const HeroGrid = ({ progress, setActivePage, containerRef }) => {
+  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
+  const heroVideoRef = useRef(null);
   const ANIM_END = 0.5;
   const isMobile = useIsMobile();
 
@@ -59,20 +63,20 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
       page: "production",
     },
     {
+      bgColor: "bg-violet-500",
+      videoSrc: VIDEOS.rightBottom,
+      poster: VIDEOS.rightBottomPoster,
+      title: "Live / Multicam",
+      subtitle: "Connecter le réel",
+      page: "live",
+    },
+    {
       bgColor: "bg-emerald-500",
       videoSrc: VIDEOS.rightTop,
       poster: VIDEOS.rightTopPoster,
       title: "Immobilier",
       subtitle: "Révéler les espaces",
       page: "immo",
-    },
-    {
-      bgColor: "bg-violet-500",
-      videoSrc: VIDEOS.rightBottom,
-      poster: VIDEOS.rightBottomPoster,
-      title: "Live",
-      subtitle: "Connecter le réel",
-      page: "live",
     },
   ];
 
@@ -205,6 +209,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 {/* Hero desktop : ne rend la vidéo que si on est pas en mobile */}
                 {!isMobile && (
                   <VideoBackground
+                    ref={heroVideoRef}
                     videoSrc={VIDEOS.hero}
                     poster={VIDEOS.heroPoster}
                     className="scale-[1.1]"
@@ -227,49 +232,72 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 </p>
               </motion.div>
 
+              {/* Barre de bas : scroll indicators + bouton Showreel centré */}
               <motion.div
                 style={{ opacity: textOpacity }}
-                className="absolute bottom-0 left-0 w-full p-8 flex justify-between items-end text-white z-20 pointer-events-none mix-blend-difference"
+                className="absolute bottom-0 left-0 w-full px-8 pb-8 grid grid-cols-3 items-end text-white z-20"
               >
-                <div className="flex flex-col gap-2 items-center opacity-80">
-                  <span className="uppercase text-[0.65rem] tracking-widest font-bold">
-                    Explorer
-                  </span>
+                {/* Gauche : Explorer */}
+                <div className="flex flex-col gap-2 items-center opacity-80 pointer-events-none mix-blend-difference w-fit">
+                  <span className="uppercase text-[0.65rem] tracking-widest font-bold">Explorer</span>
                   <motion.svg
                     animate={{ y: [0, 6, 0] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 1.5,
-                      ease: "easeInOut",
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2.5}
-                    stroke="currentColor"
-                    className="w-5 h-5"
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    strokeWidth={2.5} stroke="currentColor" className="w-5 h-5"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                   </motion.svg>
                 </div>
-                <div className="flex gap-4 items-center opacity-80">
+
+                {/* Centre : Bouton Showreel */}
+                <div className="flex items-center justify-center">
+                  <motion.button
+                    onClick={() => {
+                      heroVideoRef.current?.pause();
+                      setIsShowreelOpen(true);
+                    }}
+                    className="group flex items-center gap-4 cursor-pointer"
+                    whileHover="hover"
+                    initial="rest"
+                  >
+                    <motion.div
+                      variants={{ rest: { scaleX: 1 }, hover: { scaleX: 1.15 } }}
+                      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                      className="h-px w-10 bg-white/40 origin-right"
+                    />
+                    <div className="flex items-center gap-2.5 text-white">
+                      <motion.span
+                        variants={{ rest: { scale: 1 }, hover: { scale: 1.2 } }}
+                        transition={{ duration: 0.3 }}
+                        className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-colors duration-300"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                          className="w-2.5 h-2.5 translate-x-px text-white group-hover:text-neutral-900 transition-colors duration-300">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </motion.span>
+                      <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Voir le Showreel
+                      </span>
+                    </div>
+                    <motion.div
+                      variants={{ rest: { scaleX: 1 }, hover: { scaleX: 1.15 } }}
+                      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                      className="h-px w-10 bg-white/40 origin-left"
+                    />
+                  </motion.button>
+                </div>
+
+                {/* Droite : Scroll indicator */}
+                <div className="flex gap-4 items-center justify-end opacity-80 pointer-events-none mix-blend-difference">
                   <span className="uppercase text-[0.65rem] tracking-widest font-bold text-right hidden md:block">
-                    Scroller
-                    <br />
-                    Vers le bas
+                    Scroller<br />Vers le bas
                   </span>
                   <div className="w-5 h-8 rounded-full border-2 border-white flex justify-center p-1 relative overflow-hidden">
                     <motion.div
                       animate={{ y: [0, 12], opacity: [1, 0] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.5,
-                        ease: "easeOut",
-                      }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeOut" }}
                       className="w-1 h-1.5 bg-white rounded-full"
                     />
                   </div>
@@ -293,12 +321,12 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 >
                   <SidebarCard
                     heightClass="h-full"
-                    bgColor="bg-emerald-500"
-                    videoSrc={VIDEOS.rightTop}
-                    poster={VIDEOS.rightTopPoster}
-                    title="Immobilier"
-                    subtitle="Révéler les espaces"
-                    onClick={() => setActivePage("immo")}
+                    bgColor="bg-violet-500"
+                    videoSrc={VIDEOS.rightBottom}
+                    poster={VIDEOS.rightBottomPoster}
+                    title="Live / Multicam"
+                    subtitle="Connecter le réel"
+                    onClick={() => setActivePage("live")}
                   />
                 </motion.div>
                 <motion.div
@@ -307,12 +335,12 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 >
                   <SidebarCard
                     heightClass="h-full"
-                    bgColor="bg-violet-500"
-                    videoSrc={VIDEOS.rightBottom}
-                    poster={VIDEOS.rightBottomPoster}
-                    title="Live"
-                    subtitle="Connecter le réel"
-                    onClick={() => setActivePage("live")}
+                    bgColor="bg-emerald-500"
+                    videoSrc={VIDEOS.rightTop}
+                    poster={VIDEOS.rightTopPoster}
+                    title="Immobilier"
+                    subtitle="Révéler les espaces"
+                    onClick={() => setActivePage("immo")}
                   />
                 </motion.div>
               </div>
@@ -327,7 +355,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
         <section className="relative h-[100dvh] mx-0 mt-0 overflow-hidden bg-neutral-900">
           {/* Hero mobile : ne rend la vidéo que si on est en mobile */}
           {isMobile && (
-            <VideoBackground videoSrc={VIDEOS.hero} poster={VIDEOS.heroPoster} className="scale-[1.1]" />
+            <VideoBackground ref={heroVideoRef} videoSrc={VIDEOS.hero} poster={VIDEOS.heroPoster} className="scale-[1.1]" />
           )}
 
           {/* Overlay dégradé */}
@@ -338,7 +366,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center"
+            className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center pointer-events-none"
           >
             <img src="/img/logo.svg" alt="Lemen's Prod" className="h-24 sm:h-28 w-auto drop-shadow-lg" />
             <p className="mt-3 text-base sm:text-lg font-light tracking-wider uppercase drop-shadow-md max-w-xs">
@@ -346,36 +374,48 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
             </p>
           </motion.div>
 
-          {/* Indicateur scroll */}
+          {/* Bas du hero mobile : bouton Showreel + indicateur scroll */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white"
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="absolute bottom-0 left-0 w-full px-6 pb-8 flex flex-col items-center gap-5"
           >
-            <span className="uppercase text-[0.6rem] tracking-widest font-medium opacity-80">
-              Explorer
-            </span>
-            <motion.svg
-              animate={{ y: [0, 6, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.5,
-                ease: "easeInOut",
+            {/* Bouton Showreel */}
+            <button
+              onClick={() => {
+                heroVideoRef.current?.pause();
+                setIsShowreelOpen(true);
               }}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-5 h-5 opacity-80"
+              className="group flex items-center gap-3 text-white active:scale-95 transition-transform"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-              />
-            </motion.svg>
+              <div className="h-px w-8 bg-white/30" />
+              <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center group-active:bg-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  className="w-2.5 h-2.5 translate-x-px text-white group-active:text-neutral-900 transition-colors">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70">
+                Voir le Showreel
+              </span>
+              <div className="h-px w-8 bg-white/30" />
+            </button>
+
+            {/* Indicateur scroll */}
+            <div className="flex flex-col items-center gap-2 text-white">
+              <span className="uppercase text-[0.55rem] tracking-widest font-medium opacity-50">
+                Explorer
+              </span>
+              <motion.svg
+                animate={{ y: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth={2} stroke="currentColor" className="w-4 h-4 opacity-50"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </motion.svg>
+            </div>
           </motion.div>
         </section>
 
@@ -425,6 +465,16 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
           ))}
         </section>
       </div>
+
+      {/* Modale Showreel */}
+      <VimeoModal
+        isOpen={isShowreelOpen}
+        onClose={() => {
+          setIsShowreelOpen(false);
+          heroVideoRef.current?.play();
+        }}
+        videoId=""
+      />
     </>
   );
 };

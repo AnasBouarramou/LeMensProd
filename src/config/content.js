@@ -31,6 +31,7 @@ export const LOGOS = [
   {
     name: "Hotel du port",
     url: "/img/HDP.png.webp",
+    invert: true,
   },
   {
     name: "Lekk Africa",
@@ -155,7 +156,7 @@ export const SNACK_CONFIG = {
     'QUAND CHAQUE<br /><span class="text-orange-500 font-serif italic font-normal">Seconde</span> COMPTE',
   heroLabel: 'SNACK<br /><span class="text-orange-500">CONTENT</span>',
   heroDesc:
-    "Agence spécialisée en création de snack content à Paris. Nous produisons des formats courts ultra-dynamiques pour TikTok, Instagram Reels et YouTube Shorts qui capturent l'attention dès la première frame.",
+    "Création de formats courts percutants et viraux (TikTok, Reels, Shorts). Nous concevons un montage dynamique pensé pour capter l'attention dès la première seconde et engager massivement votre communauté.",
   blocks: [
     {
       video: "/video/cuisine.mp4",
@@ -173,6 +174,7 @@ export const SNACK_CONFIG = {
         "Sound design ASMR",
         "Multi-plateformes",
       ],
+      equipment: "Sony ZV-E10, DJI OM 6, Éclairage LED bi-couleur",
       client: "Client Restauration",
     },
     {
@@ -191,6 +193,7 @@ export const SNACK_CONFIG = {
         "Immobilier viral",
         "Algo natif",
       ],
+      equipment: "DJI Pocket 3, iPhone 15 Pro, Stabilisateur DJI RS3",
       client: "Client Agence Immobilière",
     },
   ],
@@ -242,7 +245,7 @@ export const PRODUCTION_CONFIG = {
     'CHAQUE IMAGE<br /><span class="text-rose-400 font-serif italic font-normal">Raconte</span> UNE HISTOIRE',
   heroLabel: 'PRODUCTION<br /><span class="text-rose-400">AUDIOVISUELLE</span>',
   heroDesc:
-    "Production audiovisuelle haut de gamme à Paris : films de marque, spots publicitaires, vidéos corporate et documentaires d'entreprise. Nous donnons vie à votre vision avec une exigence cinéma.",
+    "Réalisation de films institutionnels et publicitaires haut de gamme. De la direction artistique à l'étalonnage, nous mettons notre exigence cinématographique au service de votre image de marque.",
   blocks: [
     {
       video: "/video/edf.mp4",
@@ -260,6 +263,7 @@ export const PRODUCTION_CONFIG = {
         "Color grading",
         "4K broadcast",
       ],
+      equipment: "RED Komodo 6K, DJI RS3 Pro, Son Sennheiser MKH 50",
       client: "Client Dalkia — Groupe EDF",
     },
     {
@@ -278,6 +282,7 @@ export const PRODUCTION_CONFIG = {
         "Showroom",
         "Énergie renouvelable",
       ],
+      equipment: "Sony FX6, DJI Mavic 3 Cine, Stabilisateur RS3",
       client: "Client Aurasun",
     },
   ],
@@ -329,7 +334,7 @@ export const IMMO_CONFIG = {
     'RÉVÉLER<br /><span class="text-emerald-400 font-serif italic font-normal">l\'Essence</span> DES LIEUX',
   heroLabel: 'IMMOBILIER<br /><span class="text-emerald-400">PREMIUM</span>',
   heroDesc:
-    "Vidéo immobilière premium à Paris : visite virtuelle 360°, drone FPV intérieur-extérieur, photo HDR. Nous sublimeons chaque bien immobilier de prestige pour accélérer vos ventes.",
+    "Mise en valeur d'espaces de prestige. Grâce à des prises de vues immersives (Drone FPV, stabilisateurs) et une lumière maîtrisée, nous révélons les volumes pour déclencher le coup de cœur.",
   blocks: [
     {
       video: "/video/hdn.mp4",
@@ -347,6 +352,7 @@ export const IMMO_CONFIG = {
         "Lumière naturelle",
         "4K cinéma",
       ],
+      equipment: "DJI Mavic 3 Pro, Sony A7 IV, Drone FPV Cinématique",
       client: "Hôtel de Nogent",
     },
     {
@@ -365,6 +371,7 @@ export const IMMO_CONFIG = {
         "Optimisé Stories",
         "Mobile-first",
       ],
+      equipment: "iPhone 15 Pro Max, Stabilisateur DJI OM 6, Format Portrait Natif",
       client: "Client Prestige Immo",
     },
   ],
@@ -413,10 +420,10 @@ export const LIVE_CONFIG = {
   heroVideo: VIDEOS.rightBottom,
   heroPoster: VIDEOS.rightBottomPoster,
   heroTitle:
-    'CAPTURER<br /><span class="text-violet-400 font-serif italic font-normal">l\'Instant</span> EN DIRECT',
-  heroLabel: 'LIVE<br /><span class="text-violet-400">EVENT</span>',
+    'LIVE<br /><span class="text-violet-400 font-serif italic font-normal">Multicam</span> EN DIRECT',
+  heroLabel: 'LIVE<br /><span class="text-violet-400">MULTICAM</span>',
   heroDesc:
-    "Captation live et événementielle à Paris : concerts, conférences, lancements produit. Nous filmons vos événements en multi-caméras avec une précision broadcast et streaming en direct.",
+    "Captation fluide et diffusion en direct multi-caméras pour vos événements, conférences et interviews. Nous assurons une réalisation technique sans faille pour connecter le réel au digital en temps réel.",
   blocks: [
     {
       video: "/video/Spa.mp4",
@@ -429,6 +436,7 @@ export const LIVE_CONFIG = {
       expandDesc:
         "Captation d'interviews et de témoignages clients réalisée directement sur site pour une entreprise de spa haut de gamme. Un dispositif léger mais soigné, pensé pour restituer l'atmosphère apaisante des lieux tout en donnant la parole aux clients avec authenticité et spontanéité.",
       tags: ["Interview in-situ", "Témoignages clients", "Ambiance premium", "Captation son"],
+      equipment: "Sony FX3, Micro-cravate Rode Wireless GO II, Softbox LED",
       client: "Client Spa Premium",
     },
     {
@@ -447,11 +455,12 @@ export const LIVE_CONFIG = {
         "Montage dynamique",
         "Réseaux sociaux",
       ],
+      equipment: "Sony FX6, DJI RS3 Pro, Éclairage RGB portable",
       client: "Client MrWorkout",
     },
   ],
   statsTitle:
-    'Live & Event,<br /><span class="not-italic font-sans font-bold text-neutral-400">en chiffres</span>',
+    'Live & Multicam,<br /><span class="not-italic font-sans font-bold text-neutral-400">en chiffres</span>',
   statsDesc:
     "Captation événementielle professionnelle avec la qualité cinéma. Nous filmons chaque moment clé en multi-caméras avec streaming live, adapté à l'envergure de votre événement corporate ou concert.",
   stats: [

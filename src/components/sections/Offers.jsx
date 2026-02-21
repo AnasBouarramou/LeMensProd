@@ -71,6 +71,13 @@ const Offers = ({ onSelectOffer }) => {
                 </p>
 
                 <div className="mb-6 md:mb-8">
+                  {offer.price !== "Devis" && (
+                    <span
+                      className={`block text-sm font-light mb-1 ${offer.style === "black" ? "text-neutral-400" : "text-neutral-500"}`}
+                    >
+                      À partir de
+                    </span>
+                  )}
                   <span
                     className={`text-3xl md:text-4xl font-bold tracking-tighter ${offer.style === "black" ? "text-white" : "text-neutral-900"}`}
                   >

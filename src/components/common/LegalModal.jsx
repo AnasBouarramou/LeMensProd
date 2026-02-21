@@ -5,61 +5,83 @@ import { motion, AnimatePresence } from "framer-motion";
 const LEGAL_CONTENT = {
   "Mentions légales": {
     title: "Mentions Légales",
-    body: `Raison sociale : Lemen's Prod
-Forme juridique : [Forme juridique]
-Siège social : Paris, France
+    body: `Conformément aux dispositions des articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (L.C.E.N.), les présentes mentions légales sont portées à la connaissance des utilisateurs du site.
+
+ÉDITEUR DU SITE
+Raison sociale : Lemen's Prod
+Forme juridique : [À COMPLÉTER]
+Siège social : [À COMPLÉTER]
+SIRET : [À COMPLÉTER]
 Email : contact@lemensprod.com
+Directeur de la publication : [À COMPLÉTER]
 
-Directeur de la publication : [Nom du directeur]
+NOM DE DOMAINE
+Le site est accessible à l'adresse : lemensprod.pages.dev
 
-Hébergeur : [Nom de l'hébergeur], [Adresse de l'hébergeur]
+HÉBERGEMENT
+Le site est hébergé par :
+Cloudflare, Inc.
+101 Townsend St, San Francisco, CA 94107, USA
+Site : www.cloudflare.com
 
-Conformément aux dispositions des articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs du site les présentes mentions légales.
+PROPRIÉTÉ INTELLECTUELLE
+L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes) est la propriété exclusive de Lemen's Prod, sauf mentions contraires. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, est interdite sans autorisation écrite préalable.
 
-Le site est accessible à l'adresse suivante : [URL du site]. L'accès et l'utilisation du site sont soumis aux présentes "Mentions légales" détaillées ci-après ainsi qu'aux lois et/ou règlements applicables.
-
-La connexion, l'utilisation et l'accès à ce site impliquent l'acceptation intégrale et sans réserve de l'internaute de toutes les dispositions des présentes Mentions Légales.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+RESPONSABILITÉ
+Lemen's Prod s'efforce de maintenir les informations publiées sur ce site aussi précises et à jour que possible. Toutefois, la société ne pourra être tenue responsable des omissions, inexactitudes ou carences dans la mise à jour, qu'elles soient de son fait ou du fait de tiers.`,
   },
   Confidentialité: {
     title: "Politique de Confidentialité",
-    body: `Lemen's Prod s'engage à protéger la vie privée des utilisateurs de son site internet. La présente politique de confidentialité a pour but d'informer les utilisateurs du site de la manière dont leurs informations personnelles sont collectées et traitées.
+    body: `Lemen's Prod s'engage à protéger la vie privée des utilisateurs de son site lemensprod.pages.dev. La présente politique vous informe de la manière dont vos données personnelles sont collectées et traitées, conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
 
-1. Collecte des données personnelles
-Les données personnelles collectées sur ce site sont les suivantes : nom, prénom, adresse email, numéro de téléphone (le cas échéant). Ces données sont collectées lorsque l'utilisateur remplit le formulaire de contact ou prend rendez-vous via l'outil de réservation intégré.
+1. RESPONSABLE DU TRAITEMENT
+Lemen's Prod — contact@lemensprod.com
 
-2. Utilisation des données
-Les données collectées sont utilisées uniquement dans le cadre de la relation commerciale entre Lemen's Prod et ses clients ou prospects. Elles ne sont en aucun cas cédées ou vendues à des tiers.
+2. DONNÉES COLLECTÉES
+Les seules données personnelles collectées sont celles que vous saisissez volontairement dans le formulaire de contact : nom, adresse e-mail, et message. Aucune donnée n'est collectée automatiquement à des fins de profilage ou de publicité.
 
-3. Durée de conservation
-Les données personnelles sont conservées pour une durée maximale de 3 ans à compter du dernier contact avec l'utilisateur.
+3. FINALITÉ DU TRAITEMENT
+Les données sont utilisées exclusivement pour répondre à vos demandes de contact et, avec votre accord, vous adresser des informations relatives à nos prestations. Elles ne sont jamais revendues ni cédées à des tiers.
 
-4. Droits des utilisateurs
-Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez-nous à : contact@lemensprod.com
+4. HÉBERGEMENT ET COOKIES TECHNIQUES
+Ce site est hébergé sur l'infrastructure de Cloudflare, Inc. (101 Townsend St, San Francisco, CA 94107, USA). Cloudflare peut déposer des cookies techniques strictement nécessaires au bon fonctionnement du réseau de diffusion (CDN) et à la protection contre les attaques. Ces cookies ne nécessitent pas de consentement au titre du RGPD.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`,
+5. DURÉE DE CONSERVATION
+Vos données sont conservées pour une durée maximale de 3 ans à compter du dernier contact, puis supprimées.
+
+6. VOS DROITS
+Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité de vos données. Pour exercer ces droits : contact@lemensprod.com
+
+7. RÉCLAMATION
+Vous pouvez adresser une réclamation à la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés.`,
   },
   CGV: {
     title: "Conditions Générales de Vente",
-    body: `Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Lemen's Prod et ses clients.
+    body: `Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Lemen's Prod (ci-après « le Prestataire ») et tout client ayant recours à ses prestations (ci-après « le Client »).
 
-1. Objet
-Les présentes CGV ont pour objet de définir les droits et obligations des parties dans le cadre de la vente de prestations de services audiovisuels proposées par Lemen's Prod.
+1. OBJET
+Les présentes CGV définissent les droits et obligations des parties dans le cadre de la fourniture de prestations de production audiovisuelle : snack content, films institutionnels et publicitaires, vidéo immobilière, captation et diffusion live multi-caméras.
 
-2. Prestations
-Lemen's Prod propose des prestations de production audiovisuelle incluant notamment : snack content, production vidéo, vidéo immobilière par drone FPV, et captation live.
+2. DEVIS ET COMMANDES
+Toute prestation fait l'objet d'un devis détaillé et personnalisé, valable 30 jours à compter de sa date d'émission. La commande est ferme et définitive après retour du devis signé et versement de l'acompte prévu.
 
-3. Devis et commandes
-Toute prestation fait l'objet d'un devis préalable détaillé et personnalisé. Le devis est valable 30 jours à compter de sa date d'émission. La commande est considérée comme ferme et définitive après signature du devis et versement de l'acompte.
+3. MODALITÉS DE PAIEMENT
+Les tarifs sont exprimés en euros hors taxes (HT). Un acompte de [X]% du montant total est exigible à la signature du devis, afin de bloquer les dates de tournage et lancer la pré-production. Le solde est dû à la livraison finale, dans un délai de 30 jours à réception de facture. Tout retard de paiement entraîne des pénalités au taux légal en vigueur.
 
-4. Tarifs et paiement
-Les tarifs sont indiqués en euros et hors taxes. Un acompte de 30% du montant total est demandé à la signature du devis. Le solde est payable à réception de la facture, dans un délai de 30 jours.
+4. DÉLAIS DE LIVRAISON
+Les délais indicatifs sont précisés dans le devis. Ils sont susceptibles d'évoluer en cas de modifications demandées par le Client en cours de production. Lemen's Prod ne saurait être tenu responsable des retards imputables au Client (défaut de validation, fourniture tardive de documents).
 
-5. Propriété intellectuelle
-Sauf accord contraire écrit, Lemen's Prod conserve l'intégralité des droits de propriété intellectuelle sur les contenus produits jusqu'au paiement intégral de la prestation.
+5. DROITS DE CESSION ET PROPRIÉTÉ INTELLECTUELLE
+Les fichiers sources et droits de propriété intellectuelle sur les contenus produits restent la propriété de Lemen's Prod jusqu'au paiement intégral de la prestation. À réception du solde, le Client dispose d'une licence d'utilisation non exclusive sur les supports convenus (web, réseaux sociaux, usage interne). Toute diffusion TV, cinéma ou exploitation commerciale élargie fera l'objet d'un contrat de cession de droits spécifique.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+6. DROIT À L'IMAGE
+Le Client est responsable d'obtenir les autorisations nécessaires auprès des personnes filmées (droit à l'image, droit à la voix). Lemen's Prod ne pourra être tenu responsable en cas de litige lié à l'absence d'autorisation.
+
+7. RÉSILIATION
+En cas d'annulation par le Client après signature du devis, l'acompte versé reste acquis au Prestataire à titre d'indemnité forfaitaire. Si le tournage a déjà eu lieu, le montant correspondant aux jours de production effectués sera facturé.
+
+8. DROIT APPLICABLE
+Les présentes CGV sont soumises au droit français. Tout litige relève de la compétence exclusive des tribunaux de Paris.`,
   },
 };
 

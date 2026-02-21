@@ -44,11 +44,11 @@ const TrustSlider = () => {
             style={{ willChange: "transform" }}
           >
             {[...LOGOS, ...LOGOS].map((logo, index) => (
-              <div key={index} className="mx-8 md:mx-16 cursor-pointer group flex-shrink-0">
+              <div key={index} className="mx-8 md:mx-16 cursor-pointer group flex-shrink-0 flex items-center">
                 <img
                   src={logo.url}
                   alt={logo.name}
-                  className="h-14 md:h-20 w-auto object-contain brightness-0 opacity-40 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                  className={`h-12 md:h-16 lg:h-20 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300${logo.invert ? " invert" : ""}`}
                   loading="lazy"
                 />
               </div>

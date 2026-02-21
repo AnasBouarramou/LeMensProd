@@ -99,7 +99,7 @@ const Testimonials = () => {
                     <img
                       src={TESTIMONIALS[active].logo}
                       alt={TESTIMONIALS[active].company}
-                      className="h-8 md:h-12 w-auto object-contain"
+                      className="h-12 md:h-16 w-auto object-contain"
                     />
                   ) : (
                     <span className="font-bold text-base md:text-xl tracking-tighter flex items-center gap-2 text-neutral-900">

@@ -32,7 +32,7 @@ const Footer = ({ onBack, setActivePage }) => {
     { label: "Snack Content", action: () => setActivePage("snack") },
     { label: "Production", action: () => setActivePage("production") },
     { label: "Immobilier", action: () => setActivePage("immo") },
-    { label: "Live", action: () => setActivePage("live") },
+    { label: "Live / Multicam", action: () => setActivePage("live") },
   ];
   return (
     <footer className="bg-neutral-900 text-white relative z-50 border-t border-neutral-800">

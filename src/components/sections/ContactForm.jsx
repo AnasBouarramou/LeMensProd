@@ -41,14 +41,9 @@ const ContactForm = () => {
               className="text-neutral-500 text-base md:text-lg font-light leading-relaxed mb-8 md:mb-12 max-w-md"
               variants={fadeInUp}
             >
-              Les offres{" "}
-              <span className="font-medium text-neutral-900">Essentiel</span> et{" "}
-              <span className="font-medium text-neutral-900">Signature</span> ne
-              correspondent pas exactement à votre besoin ?<br />
-              <br />
-              Vous avez des questions spécifiques ou un projet d'envergure ?
-              Remplissez ce formulaire pour une approche{" "}
-              <strong>100% Sur-Mesure</strong>. Nous vous recontactons sous 24h.
+              Vous avez une question avant de vous lancer ? Besoin d'un conseil
+              technique ou d'affiner votre idée ? Discutons-en en détail pour
+              construire la solution vidéo parfaitement adaptée à vos objectifs.
             </motion.p>
 
             <motion.div className="flex flex-col gap-4 md:gap-6" variants={fadeInUp}>
@@ -164,6 +159,30 @@ const ContactForm = () => {
               </div>
             </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="flex flex-col gap-2">
+                <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">
+                  Budget estimé
+                </label>
+                <select className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                  <option className="bg-white text-neutral-500">À définir</option>
+                  <option className="bg-white text-neutral-900">Moins de 2 000€</option>
+                  <option className="bg-white text-neutral-900">2 000€ - 5 000€</option>
+                  <option className="bg-white text-neutral-900">Plus de 5 000€</option>
+                </select>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">
+                  Délai souhaité
+                </label>
+                <select className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                  <option className="bg-white text-neutral-900">Urgent (&lt; 2 semaines)</option>
+                  <option className="bg-white text-neutral-900">Dans le mois</option>
+                  <option className="bg-white text-neutral-900">Projet à moyen terme</option>
+                </select>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-2">
               <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">
                 Message
@@ -175,29 +194,34 @@ const ContactForm = () => {
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              className="group relative px-6 md:px-8 py-3 md:py-4 bg-neutral-900 overflow-hidden rounded-xl md:rounded-2xl text-white w-full md:w-fit mt-2 md:mt-4 md:self-end shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="absolute inset-0 bg-neutral-800 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3 font-bold uppercase tracking-widest text-[0.65rem] md:text-xs">
-                Envoyer la demande
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </span>
-            </button>
+            <div className="flex flex-col items-stretch md:items-end gap-3 mt-2 md:mt-4">
+              <button
+                type="submit"
+                className="group relative px-6 md:px-8 py-3 md:py-4 bg-neutral-900 overflow-hidden rounded-xl md:rounded-2xl text-white w-full md:w-fit shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="absolute inset-0 bg-neutral-800 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3 font-bold uppercase tracking-widest text-[0.65rem] md:text-xs">
+                  Envoyer la demande
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <p className="text-[0.65rem] md:text-xs text-neutral-400 font-light tracking-wide text-center md:text-right">
+                Réponse sous 24h&nbsp;•&nbsp;Accompagnement sur-mesure
+              </p>
+            </div>
           </motion.form>
         </div>
       </div>
