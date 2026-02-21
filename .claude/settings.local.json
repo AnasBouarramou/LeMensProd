@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "mcp__ide__getDiagnostics",
-      "Bash(npx vite build:*)"
+      "Bash(npx vite build:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(tr:*)",
+      "Bash(ls:*)"
     ]
   }
 }

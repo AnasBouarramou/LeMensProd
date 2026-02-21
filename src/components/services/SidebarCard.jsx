@@ -1,8 +1,7 @@
 // src/components/services/SidebarCard.jsx
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
-import VimeoModal from "../common/VimeoModal";
 
 const SidebarCard = ({
   videoSrc,
@@ -12,23 +11,20 @@ const SidebarCard = ({
   subtitle,
   heightClass,
   onClick,
-  vimeoId = "",
 }) => {
   const videoRef = useRef(null);
   const cardRef = useRef(null);
-  const [isVimeoOpen, setIsVimeoOpen] = useState(false);
 
   // Autoplay au scroll sur mobile (simule le hover)
   const isInView = useInView(cardRef, { margin: "-20% 0px" });
 
   useEffect(() => {
-    if (isVimeoOpen) return; // Ne pas relancer si la modale est ouverte
     if (isInView) {
       videoRef.current?.play();
     } else {
       videoRef.current?.pause();
     }
-  }, [isInView, isVimeoOpen]);
+  }, [isInView]);
 
   // Variantes d'animation optimisées avec GPU
   const ctaContainerVariants = {
@@ -54,43 +50,25 @@ const SidebarCard = ({
     },
   };
 
-  const handleClick = (e) => {
-    if (e.target.closest("[data-fullscreen]")) return;
-    onClick?.();
-  };
-
-  const handleOpenVimeo = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    videoRef.current?.pause();
-    setIsVimeoOpen(true);
-  };
-
-  const handleCloseVimeo = () => {
-    setIsVimeoOpen(false);
+  const handleMouseEnter = () => {
     videoRef.current?.play();
   };
 
-  const handleMouseEnter = () => {
-    if (!isVimeoOpen) videoRef.current?.play();
-  };
-
   const handleMouseLeave = () => {
-    if (!isVimeoOpen) videoRef.current?.pause();
+    videoRef.current?.pause();
   };
 
   return (
-    <>
       <motion.div
         ref={cardRef}
         role="button"
         tabIndex={0}
         aria-label={`Voir le service ${title} — ${subtitle}`}
-        onClick={handleClick}
+        onClick={() => onClick?.()}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick?.(); } }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`w-full ${heightClass} ${bgColor} rounded-2xl lg:rounded-[2rem] overflow-hidden relative group cursor-pointer`}
+        className={`w-full ${heightClass} ${bgColor} rounded-2xl lg:rounded-[2rem] overflow-hidden relative group cursor-pointer `}
         initial="initial"
         whileHover="hover"
         style={{ willChange: "transform" }}
@@ -102,29 +80,6 @@ const SidebarCard = ({
         >
           <VideoBackground ref={videoRef} videoSrc={videoSrc} poster={poster} playOnHover />
         </div>
-
-        {/* Bouton Vimeo HD — visible au hover */}
-        <button
-          data-fullscreen
-          onClick={handleOpenVimeo}
-          aria-label={`Voir la vidéo ${title} en HD`}
-          className="absolute bottom-3 right-3 lg:bottom-4 lg:right-4 z-20 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover:opacity-70 hover:!opacity-100 transition-all cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-            />
-          </svg>
-        </button>
 
         {/* Overlay dégradé pour lisibilité */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -169,13 +124,6 @@ const SidebarCard = ({
           </motion.div>
         </div>
       </motion.div>
-
-      <VimeoModal
-        isOpen={isVimeoOpen}
-        onClose={handleCloseVimeo}
-        videoId={vimeoId}
-      />
-    </>
   );
 };
 
