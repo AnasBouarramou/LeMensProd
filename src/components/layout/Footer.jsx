@@ -54,11 +54,11 @@ const Footer = ({ onBack, setActivePage }) => {
               onClick={onBack}
               aria-label="Retour en haut de page — Lemen's Prod"
             >
-              <span className="tracking-tighter text-xl md:text-2xl">
-                <span className="font-yellowtail">lemen's</span>
-                {" "}
-                <span className="font-poppins font-semibold">Prod.</span>
-              </span>
+              <img
+                src="/img/logo.svg"
+                alt="Lemen's Prod"
+                className="h-8 md:h-9 w-auto"
+              />
             </button>
             <p className="text-neutral-400 text-sm leading-relaxed font-light">
               Agence de production audiovisuelle à Paris. Snack content, vidéo

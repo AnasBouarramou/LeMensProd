@@ -57,33 +57,46 @@ export const SNACK_PROJECTS = [
 export const TESTIMONIALS = [
   {
     id: 0,
-    company: "Fitness Park",
+    company: "Dalkia (Groupe EDF)",
+    logo: "/img/Dalkia.png",
     image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
     quote:
-      "Lemen's Prod a complètement transformé ma façon d'aborder la création de contenu. Au lieu de me sentir submergée par les choix, j'ai eu l'impression d'avoir un directeur artistique à mes côtés 24/7.",
-    name: "Sophia Martinez",
-    role: "CMO & Passionnée de Marque",
+      "Une exigence cinéma au service du corporate. Lemen's Prod a su sublimer notre image institutionnelle avec une fluidité de production remarquable. Le rendu dépasse largement les standards du secteur.",
+    name: "Claire Lefèvre",
+    role: "Responsable Communication",
   },
   {
     id: 1,
     company: "Architek",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
     quote:
-      "Une vision cinématographique qui a sublimé nos projets immobiliers. Le rendu est au-delà de nos espérances, avec une précision technique rare.",
-    name: "Thomas Verdier",
-    role: "Fondateur & Architecte",
+      "Les visites immersives en drone FPV et 360° ont transformé notre manière de présenter les biens. Nos clients se projettent immédiatement et les ventes s'accélèrent nettement depuis qu'on travaille avec eux.",
+    name: "Marc Dupont",
+    role: "Directeur d'Agence",
   },
   {
     id: 2,
-    company: "Fitness Park",
+    company: "MrWorkout",
+    logo: "/img/MrWorkout.png",
     image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2942&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
     quote:
-      "Réactivité, créativité et une maîtrise de l'image impressionnante. Lemen's Prod est devenu notre partenaire incontournable pour chaque campagne.",
-    name: "Elise Dubois",
-    role: "Directrice Artistique",
+      "Un montage ultra-dynamique qui colle parfaitement à l'identité de ma marque. Depuis nos collaborations, l'impact sur mes réseaux sociaux est énorme — mes vidéos n'ont jamais autant performé.",
+    name: "Florian",
+    role: "Fondateur",
+  },
+  {
+    id: 3,
+    company: "Aurasun",
+    logo: "/img/AURASUN.png",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+    quote:
+      "Ils ont su mettre en valeur nos équipes et nos locaux avec un tournage très humain. On sentait une vraie écoute et le résultat reflète exactement ce qu'on voulait transmettre.",
+    name: "Antoine Moreau",
+    role: "Gérant",
   },
 ];
 
@@ -187,8 +200,8 @@ export const SNACK_CONFIG = {
     "Nos contenus snack content pour TikTok, Instagram Reels et YouTube Shorts sont pensés pour la viralité. Ils captent l'attention, génèrent de l'engagement et transforment vos vues en résultats concrets.",
   stats: [
     { value: 12, suffix: "M+", label: "Vues Générées" },
-    { value: 150, suffix: "+", label: "Vidéos Livrées" },
-    { value: 3, suffix: "x", label: "Engagement Moyen" },
+    { value: 200, suffix: "+", label: "Vidéos Livrées" },
+    { value: 3, prefix: "x", suffix: "", label: "Engagement Moyen" },
     { value: 48, suffix: "h", label: "Délai de Livraison" },
   ],
   process: [
@@ -273,10 +286,10 @@ export const PRODUCTION_CONFIG = {
   statsDesc:
     "Notre société de production audiovisuelle à Paris met son approche cinématographique au service de votre marque. Chaque film corporate est une création unique, de la pré-production à la livraison finale.",
   stats: [
-    { value: 35, suffix: "+", label: "Films Produits" },
+    { value: 50, suffix: "+", label: "Films Produits" },
     { value: 4, suffix: "K", label: "Résolution Standard" },
     { value: 98, suffix: "%", label: "Satisfaction Client" },
-    { value: 15, suffix: " j", label: "Délai Moyen" },
+    { value: 10, suffix: " j", label: "Délai Moyen" },
   ],
   process: [
     {
@@ -362,7 +375,7 @@ export const IMMO_CONFIG = {
   stats: [
     { value: 200, suffix: "+", label: "Biens Filmés" },
     { value: 40, suffix: "%", label: "Vente Plus Rapide" },
-    { value: 5, suffix: "x", label: "Plus de Visites" },
+    { value: 5, prefix: "x", suffix: "", label: "Plus de Visites" },
     { value: 24, suffix: "h", label: "Livraison Express" },
   ],
   process: [
@@ -443,7 +456,7 @@ export const LIVE_CONFIG = {
     "Captation événementielle professionnelle avec la qualité cinéma. Nous filmons chaque moment clé en multi-caméras avec streaming live, adapté à l'envergure de votre événement corporate ou concert.",
   stats: [
     { value: 80, suffix: "+", label: "Événements Captés" },
-    { value: 6, suffix: "", label: "Caméras Simultanées" },
+    { value: 8, suffix: "", label: "Caméras Simultanées" },
     { value: 50, suffix: "K+", label: "Viewers Live" },
     { value: 100, suffix: "%", label: "Uptime Streaming" },
   ],

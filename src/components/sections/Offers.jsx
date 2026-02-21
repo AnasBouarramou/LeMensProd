@@ -6,7 +6,10 @@ import { staggerContainer, fadeInUp } from "../../config/animations";
 const Offers = ({ onSelectOffer }) => {
   return (
     <section className="bg-neutral-900 py-16 md:py-32 relative z-50">
-      <div className="mx-auto px-4 md:px-0" style={{ width: "min(calc(82vw + 3rem), 100%)" }}>
+      <div
+        className="mx-auto px-4 md:px-0"
+        style={{ width: "min(calc(82vw + 3rem), 100%)" }}
+      >
         {/* Titre */}
         <motion.div
           className="flex flex-col items-center mb-10 md:mb-16 w-full"
@@ -117,7 +120,9 @@ const Offers = ({ onSelectOffer }) => {
                     : "bg-neutral-900 text-white hover:bg-neutral-800"
                 }`}
               >
-                {offer.price === "Devis" ? "Nous contacter" : "Choisir ce plan"}
+                {offer.price === "Devis"
+                  ? "Choisir ce plan"
+                  : "Choisir ce plan"}
               </button>
             </motion.div>
           ))}

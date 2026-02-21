@@ -221,11 +221,9 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                   filter: textBlur,
                 }}
               >
-                <h1 className="text-6xl md:text-9xl font-bold tracking-tighter uppercase drop-shadow-lg">
-                  LEMEN'S PROD
-                </h1>
+                <img src="/img/logo.svg" alt="Lemen's Prod" className="h-28 md:h-48 w-auto drop-shadow-lg" />
                 <p className="mt-4 text-xl md:text-2xl font-light tracking-widest uppercase drop-shadow-md">
-                  Sublimer le réel. Capturer l'essentiel.
+                  Positionnement. Image. Impact.
                 </p>
               </motion.div>
 
@@ -342,11 +340,9 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tighter uppercase drop-shadow-lg">
-              LEMEN'S PROD
-            </h1>
+            <img src="/img/logo.svg" alt="Lemen's Prod" className="h-24 sm:h-28 w-auto drop-shadow-lg" />
             <p className="mt-3 text-base sm:text-lg font-light tracking-wider uppercase drop-shadow-md max-w-xs">
-              Sublimer le réel. Capturer l'essentiel.
+              Positionnement. Image. Impact.
             </p>
           </motion.div>
 

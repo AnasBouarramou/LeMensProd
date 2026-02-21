@@ -95,10 +95,18 @@ const Testimonials = () => {
                   <div className="absolute inset-0 bg-neutral-900/10 mix-blend-overlay"></div>
                 </div>
                 <div className="bg-white w-full rounded-xl md:rounded-[1.5rem] p-3 md:p-4 flex items-center justify-center h-14 md:h-20 shadow-sm">
-                  <span className="font-bold text-base md:text-xl tracking-tighter flex items-center gap-2 text-neutral-900">
-                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-current"></div>
-                    {TESTIMONIALS[active].company}
-                  </span>
+                  {TESTIMONIALS[active].logo ? (
+                    <img
+                      src={TESTIMONIALS[active].logo}
+                      alt={TESTIMONIALS[active].company}
+                      className="h-8 md:h-12 w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="font-bold text-base md:text-xl tracking-tighter flex items-center gap-2 text-neutral-900">
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-current"></div>
+                      {TESTIMONIALS[active].company}
+                    </span>
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>

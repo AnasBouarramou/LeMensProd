@@ -84,14 +84,14 @@ const ServiceDetailPage = ({ config, onBack }) => {
           className="flex items-center gap-2 cursor-pointer group"
           onClick={onBack}
         >
-          <div className="w-7 h-7 md:w-8 md:h-8 bg-neutral-900 rounded-full flex items-center justify-center transition-transform group-hover:-translate-x-1">
+          <div className="w-6 h-6 md:w-7 md:h-7 bg-[#40556C] rounded-full flex items-center justify-center transition-transform group-hover:-translate-x-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={2.5}
               stroke="currentColor"
-              className="w-3.5 h-3.5 md:w-4 md:h-4 text-white"
+              className="w-3 h-3 md:w-3.5 md:h-3.5 text-white"
             >
               <path
                 strokeLinecap="round"
@@ -100,11 +100,11 @@ const ServiceDetailPage = ({ config, onBack }) => {
               />
             </svg>
           </div>
-          <span className="tracking-tighter text-lg md:text-xl text-neutral-900">
-            <span className="font-yellowtail">lemen's</span>
-            {" "}
-            <span className="font-poppins font-semibold">Prod.</span>
-          </span>
+          <img
+            src="/img/logo blue.svg"
+            alt="Lemen's Prod"
+            className="h-6 md:h-7 w-auto"
+          />
         </div>
       </motion.div>
 
@@ -318,6 +318,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
                       <span className="text-3xl md:text-5xl font-bold text-neutral-900 mb-1 md:mb-2 tracking-tighter">
                         <AnimatedNumber
                           value={stat.value}
+                          prefix={stat.prefix}
                           suffix={stat.suffix}
                           rootRef={containerRef}
                         />

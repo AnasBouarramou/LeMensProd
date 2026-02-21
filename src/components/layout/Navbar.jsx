@@ -22,6 +22,10 @@ const Navbar = ({ progress }) => {
     ["#ffffff", "#171717"],
   );
 
+  // Transition du logo : blanc → bleu selon le scroll
+  const whiteLogoOpacity = useTransform(progress, [0.05, 0.15], [1, 0]);
+  const blueLogoOpacity = useTransform(progress, [0.05, 0.15], [0, 1]);
+
   // CORRECTION 2 : Le fond solide apparaît plus tôt (dès 70% de scroll)
   const backdropOpacity = useTransform(progress, [0.7, 0.8], [0, 1]);
 
@@ -109,11 +113,20 @@ const Navbar = ({ progress }) => {
             setIsMenuOpen(false);
           }}
         >
-          <span className="tracking-tighter text-lg md:text-xl">
-            <span className="font-yellowtail">lemen's</span>
-            {" "}
-            <span className="font-poppins font-semibold">Prod.</span>
-          </span>
+          <div className="relative h-6 md:h-7 w-auto">
+            <motion.img
+              src="/img/logo.svg"
+              alt="Lemen's Prod"
+              className="h-full w-auto absolute top-0 left-0"
+              style={{ opacity: whiteLogoOpacity }}
+            />
+            <motion.img
+              src="/img/logo blue.svg"
+              alt="Lemen's Prod"
+              className="h-full w-auto"
+              style={{ opacity: blueLogoOpacity }}
+            />
+          </div>
         </motion.div>
 
         {/* Liens Desktop - cachés sur mobile */}
@@ -221,11 +234,11 @@ const Navbar = ({ progress }) => {
                   className="absolute bottom-8 left-8 right-8"
                 >
                   <div className="h-px bg-neutral-300 mb-4" />
-                  <p className="text-xs text-neutral-500 tracking-widest">
-                    <span className="font-yellowtail">lemen's</span>
-                    {" "}
-                    <span className="font-poppins font-semibold">Prod.</span>
-                  </p>
+                  <img
+                    src="/img/logo blue.svg"
+                    alt="Lemen's Prod"
+                    className="h-6 w-auto opacity-50"
+                  />
                 </motion.div>
               </div>
             </motion.div>

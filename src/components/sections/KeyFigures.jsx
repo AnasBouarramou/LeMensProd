@@ -10,8 +10,8 @@ import {
 const KeyFigures = () => {
   const LANDING_STATS = [
     { value: 98, suffix: "%", label: "Satisfaction Client" },
-    { value: 50, suffix: "+", label: "Projets Livrés" },
-    { value: 2, suffix: "M+", label: "Vues Cumulées" },
+    { value: 150, suffix: "+", label: "Projets Livrés" },
+    { value: 5, suffix: "M+", label: "Vues Cumulées" },
     { value: 24, suffix: "h", label: "Réactivité Moyenne" },
   ];
 
