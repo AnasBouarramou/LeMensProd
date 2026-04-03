@@ -90,7 +90,7 @@ const Navbar = ({ progress }) => {
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-0 w-full z-[100] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-[100] px-4 md:px-[2vw] py-6 md:py-10 flex justify-between items-center pointer-events-none"
         style={{ color: navTextColor }}
       >
         {/* Le fond de la navbar qui devient opaque au scroll */}
@@ -134,13 +134,13 @@ const Navbar = ({ progress }) => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="hidden md:flex gap-8 items-center relative z-10 pointer-events-auto"
+          className="hidden lg:flex gap-5 items-center relative z-10 pointer-events-auto mr-[2vw]"
         >
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => scrollToSection(item.id)}
-              className="uppercase text-xs font-bold tracking-widest hover:opacity-50 transition-opacity bg-transparent border-none cursor-pointer"
+              className="uppercase text-xs font-bold tracking-wider hover:opacity-50 transition-opacity bg-transparent border-none cursor-pointer whitespace-nowrap"
               style={{ color: "inherit" }}
             >
               {item.label}
@@ -154,7 +154,7 @@ const Navbar = ({ progress }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-black/20 backdrop-blur-md rounded-full border-none cursor-pointer"
+          className="lg:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-black/20 backdrop-blur-md rounded-full border-none cursor-pointer"
           aria-label="Toggle menu"
         >
           <motion.span
@@ -197,7 +197,7 @@ const Navbar = ({ progress }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setIsMenuOpen(false)}
-              className="md:hidden fixed inset-0 bg-black/50 z-[90] backdrop-blur-sm"
+              className="lg:hidden fixed inset-0 bg-black/50 z-[90] backdrop-blur-sm"
             />
 
             {/* Panneau du menu */}
@@ -206,7 +206,7 @@ const Navbar = ({ progress }) => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="md:hidden fixed top-0 right-0 w-4/5 max-w-sm h-full bg-neutral-100 z-[95] shadow-2xl"
+              className="lg:hidden fixed top-0 right-0 w-4/5 max-w-sm h-full bg-neutral-100 z-[95] shadow-2xl"
             >
               {/* Contenu du menu */}
               <div className="flex flex-col justify-center h-full px-8 py-20">

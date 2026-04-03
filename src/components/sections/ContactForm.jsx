@@ -41,9 +41,7 @@ const ContactForm = () => {
               className="text-neutral-500 text-base md:text-lg font-light leading-relaxed mb-8 md:mb-12 max-w-md"
               variants={fadeInUp}
             >
-              Vous avez une question avant de vous lancer ? Besoin d'un conseil
-              technique ou d'affiner votre idée ? Discutons-en en détail pour
-              construire la solution vidéo parfaitement adaptée à vos objectifs.
+              Remplissez ce formulaire pour obtenir une analyse de votre stratégie visuelle actuelle. Nous vous répondrons sous 24h avec un plan d'action clair.
             </motion.p>
 
             <motion.div className="flex flex-col gap-4 md:gap-6" variants={fadeInUp}>
@@ -93,7 +91,7 @@ const ContactForm = () => {
                   <p className="text-[0.65rem] md:text-xs text-neutral-400 uppercase tracking-widest font-bold mb-0.5 md:mb-1">
                     Téléphone
                   </p>
-                  <p className="text-base md:text-lg font-medium">01 23 45 67 89</p>
+                  <p className="text-base md:text-lg font-medium">06 47 55 11 40</p>
                 </div>
               </div>
             </motion.div>
@@ -201,7 +199,7 @@ const ContactForm = () => {
               >
                 <div className="absolute inset-0 bg-neutral-800 w-full h-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3 font-bold uppercase tracking-widest text-[0.65rem] md:text-xs">
-                  Envoyer la demande
+                  Obtenir ma stratégie visuelle
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

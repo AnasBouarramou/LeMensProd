@@ -19,31 +19,38 @@ export const LOGOS = [
   {
     name: "Alina",
     url: "/img/Alina.png",
+    scale: 1.3,
   },
   {
     name: "Aurasun",
     url: "/img/AURASUN.png",
+    scale: 1.2,
   },
   {
     name: "Dalkia",
     url: "/img/Dalkia.png",
+    scale: 1.3,
   },
   {
     name: "Hotel du port",
     url: "/img/HDP.png.webp",
     invert: true,
+    scale: 1.2,
   },
   {
     name: "Lekk Africa",
     url: "/img/LekkAfrica.png",
+    scale: 1.2,
   },
   {
     name: "MrWorkout",
     url: "/img/MrWorkout.png",
+    scale: 1.3,
   },
   {
     name: "Fitness Park",
     url: "/img/FitnessPark.png",
+    scale: 1.3,
   },
 ];
 
@@ -63,7 +70,7 @@ export const TESTIMONIALS = [
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
     quote:
-      "Une exigence cinéma au service du corporate. Lemen's Prod a su sublimer notre image institutionnelle avec une fluidité de production remarquable. Le rendu dépasse largement les standards du secteur.",
+      "Un rendu qui dépasse largement les standards du secteur. Lemen's Prod a su sublimer notre image avec une fluidité remarquable. C'est un investissement qui transforme la perception de notre marque.",
     name: "Claire Lefèvre",
     role: "Responsable Communication",
   },
@@ -104,7 +111,7 @@ export const TESTIMONIALS = [
 // --- OFFRES ---
 export const OFFERS = [
   {
-    title: "Essentiel (A determiner)",
+    title: "Montage uniquement",
     price: "600€",
     desc: "Idéal pour les marques qui débutent en vidéo marketing.",
     features: [
@@ -116,7 +123,7 @@ export const OFFERS = [
     style: "white",
   },
   {
-    title: "Signature (A determiner)",
+    title: "Production audiovisuelle",
     price: "3 500€",
     desc: "Production audiovisuelle complète avec direction artistique.",
     features: [
@@ -130,7 +137,7 @@ export const OFFERS = [
     badge: "Best Seller",
   },
   {
-    title: "Sur-Mesure",
+    title: "Sur-mesure",
     price: "Devis",
     desc: "Productions vidéo d'envergure avec équipe cinéma.",
     features: [

@@ -7,10 +7,10 @@ export const useScrollProgress = (scrollOptions = {}, springOptions = {}) => {
 
   // 2. Configuration par défaut du lissage (type "Spring")
   const defaultSpringConfig = {
-    mass: 0.5,
-    stiffness: 80,
-    damping: 20,
-    restDelta: 0.001,
+    mass: 0.3,
+    stiffness: 120,
+    damping: 28,
+    restDelta: 0.0001,
     ...springOptions, // Permet d'écraser la config par défaut si besoin
   };
 

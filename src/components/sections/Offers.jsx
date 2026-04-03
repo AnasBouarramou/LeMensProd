@@ -25,7 +25,7 @@ const Offers = ({ onSelectOffer }) => {
             Nos Offres
           </motion.h2>
           <motion.div
-            className="w-16 md:w-24 h-[2px] bg-white mt-4 md:mt-6"
+            className="w-24 h-[2px] bg-white mt-4 md:mt-6"
             variants={{
               hidden: { width: 0 },
               visible: { width: 96, transition: { duration: 1 } },
@@ -34,7 +34,7 @@ const Offers = ({ onSelectOffer }) => {
         </motion.div>
 
         {/* Grille */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-stretch">
           {OFFERS.map((offer, index) => (
             <motion.div
               key={index}
@@ -48,8 +48,8 @@ const Offers = ({ onSelectOffer }) => {
               }}
               className={`relative rounded-2xl md:rounded-[2rem] p-6 md:p-10 flex flex-col justify-between transition-all duration-300 ${
                 offer.style === "black"
-                  ? "bg-neutral-800 border border-neutral-700 shadow-2xl z-10 min-h-[550px] md:min-h-[650px] md:scale-105"
-                  : "bg-white text-neutral-900 shadow-sm min-h-[480px] md:min-h-[550px]"
+                  ? "bg-neutral-800 border border-neutral-700 shadow-2xl z-10 md:scale-105"
+                  : "bg-white text-neutral-900 shadow-sm"
               }`}
             >
               {offer.badge && (

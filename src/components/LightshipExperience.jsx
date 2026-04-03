@@ -1842,7 +1842,7 @@ export default function LightshipFullPage() {
   const [selectedOffer, setSelectedOffer] = useState(null);
 
   // 2. Ton lien unique pour tous les rendez-vous
-  const CALENDLY_URL = "https://calendly.com/anasbouarramou/sur-mesure";
+  const CALENDLY_URL = "https://calendly.com/lemensprod/45min";
 
   const [rootElement, setRootElement] = useState(null);
 
@@ -2752,7 +2752,7 @@ ${
                     <p className="text-xs text-neutral-400 uppercase tracking-widest font-bold mb-1">
                       Téléphone
                     </p>
-                    <p className="text-lg font-medium">01 23 45 67 89</p>
+                    <p className="text-lg font-medium">06 47 55 11 40</p>
                   </div>
                 </div>
               </motion.div>

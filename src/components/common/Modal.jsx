@@ -3,7 +3,7 @@ import { PopupModal } from "react-calendly";
 
 const Modal = ({ selectedOffer, onClose, rootElement }) => {
   // Lien unique pour tes rendez-vous
-  const CALENDLY_URL = "https://calendly.com/anasbouarramou/sur-mesure";
+  const CALENDLY_URL = "https://calendly.com/lemensprod/45min";
 
   // Si aucun rootElement ou aucune offre sélectionnée, on ne rend rien
   if (!rootElement || !selectedOffer) return null;

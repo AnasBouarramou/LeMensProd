@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 
-const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHover = false }, ref) => {
+const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHover = false, eager = false, rootMargin = "200px" }, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [srcLoaded, setSrcLoaded] = useState(false);
   const videoRef = useRef(null);
+  const divRef = useRef(null);
 
   // Expose play/pause/fullscreen au parent via ref
   useImperativeHandle(ref, () => ({
@@ -20,6 +22,32 @@ const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHo
       video.pause();
     },
   }));
+
+  // Lazy loading : charge le src uniquement quand l'élément est proche du viewport
+  useEffect(() => {
+    if (!videoSrc) return;
+
+    if (eager) {
+      setSrcLoaded(true);
+      return;
+    }
+
+    const el = divRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSrcLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [videoSrc, eager, rootMargin]);
 
   // Quand la source change, reset propre
   useEffect(() => {
@@ -48,6 +76,7 @@ const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHo
 
   return (
     <div
+      ref={divRef}
       className={`absolute inset-0 overflow-hidden pointer-events-none bg-neutral-900 ${className}`}
       style={{
         willChange: "transform",
@@ -56,13 +85,13 @@ const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHo
     >
       <video
         ref={videoRef}
-        src={videoSrc}
+        src={srcLoaded ? videoSrc : undefined}
         poster={poster}
-        autoPlay={!playOnHover}
+        autoPlay={srcLoaded && !playOnHover}
         loop
         playsInline={true}
         muted
-        preload={playOnHover ? "metadata" : "auto"}
+        preload={srcLoaded ? (playOnHover ? "metadata" : "auto") : "none"}
         onPlaying={handlePlaying}
         onLoadedMetadata={handleLoadedMetadata}
         onSeeked={handleSeeked}

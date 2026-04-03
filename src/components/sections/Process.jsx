@@ -32,7 +32,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="bg-neutral-100 py-16 md:pb-32 md:pt-0 relative z-50">
+    <section className="bg-neutral-100 py-16 md:py-32 relative z-50">
       <div className="mx-auto px-4 md:px-0" style={{ width: "min(calc(82vw + 3rem), 100%)" }}>
         <motion.div
           className="flex flex-col items-center mb-12 md:mb-20"

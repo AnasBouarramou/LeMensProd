@@ -10,9 +10,9 @@ import {
 const KeyFigures = () => {
   const LANDING_STATS = [
     { value: 100, suffix: "%", label: "Satisfaction Client" },
-    { value: 150, suffix: "+", label: "Projets Livrés" },
-    { value: 5, suffix: "M+", label: "Vues Cumulées" },
-    { value: 24, suffix: "h", label: "Réactivité Moyenne" },
+    { value: 150, suffix: "+", label: "Projets Réalisés" },
+    { value: 30, suffix: "M+", label: "Vues Générées" },
+    { value: 3, suffix: " ans", label: "D'Expérience" },
   ];
 
   return (
@@ -61,7 +61,7 @@ const KeyFigures = () => {
             </motion.p>
 
             {/* Grille des Stats */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-0 md:gap-y-12 mb-8 md:mb-12">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-0 md:gap-y-12">
               {LANDING_STATS.map((stat, i) => (
                 <motion.div
                   key={i}
