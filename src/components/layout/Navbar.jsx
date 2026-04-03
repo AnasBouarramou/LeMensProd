@@ -1,9 +1,11 @@
 // src/components/layout/Navbar.jsx
 import { useState } from "react";
 import { motion, useTransform, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const Navbar = ({ progress }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   // Apparition initiale du logo
   const logoOpacity = useTransform(progress, [0.15, 0.3], [0, 1]);
@@ -91,20 +93,20 @@ const Navbar = ({ progress }) => {
     <>
       <motion.nav
         className="fixed top-0 left-0 w-full z-[100] px-4 md:px-[2vw] py-6 md:py-10 flex justify-between items-center pointer-events-none"
-        style={{ color: navTextColor }}
+        style={{ color: isMobile ? "#171717" : navTextColor }}
       >
         {/* Le fond de la navbar qui devient opaque au scroll */}
         <motion.div
-          style={{ opacity: backdropOpacity }}
+          style={{ opacity: isMobile ? 1 : backdropOpacity }}
           className="absolute inset-0 bg-neutral-100/95 backdrop-blur-md border-b border-neutral-200 pointer-events-auto"
         />
 
         {/* Logo */}
         <motion.div
           style={{
-            opacity: logoOpacity,
-            y: logoY,
-            scale: logoScale,
+            opacity: isMobile ? 1 : logoOpacity,
+            y: isMobile ? 0 : logoY,
+            scale: isMobile ? 1 : logoScale,
             transformOrigin: "left center",
           }}
           className="flex items-center gap-2 cursor-pointer relative z-10 pointer-events-auto"
@@ -118,13 +120,13 @@ const Navbar = ({ progress }) => {
               src="/img/logo.svg"
               alt="Lemen's Prod"
               className="h-full w-auto absolute top-0 left-0"
-              style={{ opacity: whiteLogoOpacity }}
+              style={{ opacity: isMobile ? 0 : whiteLogoOpacity }}
             />
             <motion.img
               src="/img/logo blue.svg"
               alt="Lemen's Prod"
               className="h-full w-auto"
-              style={{ opacity: blueLogoOpacity }}
+              style={{ opacity: isMobile ? 1 : blueLogoOpacity }}
             />
           </div>
         </motion.div>
@@ -154,17 +156,17 @@ const Navbar = ({ progress }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-black/20 backdrop-blur-md rounded-full border-none cursor-pointer"
+          className="lg:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-neutral-200 rounded-full border-none cursor-pointer"
           aria-label="Toggle menu"
         >
           <motion.span
             animate={{
               rotate: isMenuOpen ? 45 : 0,
               y: isMenuOpen ? 0 : -4,
-              backgroundColor: isMenuOpen ? "#171717" : "#ffffff",
+              backgroundColor: "#171717",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="block w-6 h-0.5 absolute origin-center bg-white"
+            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
           />
           <motion.span
             animate={{
@@ -172,16 +174,16 @@ const Navbar = ({ progress }) => {
               scaleX: isMenuOpen ? 0 : 1,
             }}
             transition={{ duration: 0.2 }}
-            className="block w-6 h-0.5 absolute origin-center bg-white"
+            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
           />
           <motion.span
             animate={{
               rotate: isMenuOpen ? -45 : 0,
               y: isMenuOpen ? 0 : 4,
-              backgroundColor: isMenuOpen ? "#171717" : "#ffffff",
+              backgroundColor: "#171717",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="block w-6 h-0.5 absolute origin-center bg-white"
+            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
           />
         </motion.button>
       </motion.nav>

@@ -79,37 +79,20 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
             <p className="mt-2 font-montserrat font-light uppercase tracking-[0.25em] text-[0.6rem] opacity-60 drop-shadow-md text-center">
               Nous créons de l'attention.
             </p>
-            <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="group pointer-events-auto mt-8 flex items-center gap-4 text-white cursor-pointer"
-            >
-              <div className="h-px w-8 bg-white/30" />
-              <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70">Créer votre projet</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 opacity-70 group-active:translate-x-1 transition-transform duration-300">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-              <div className="h-px w-8 bg-white/30" />
-            </button>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="absolute bottom-0 left-0 w-full px-6 pb-8 flex flex-col items-center gap-5"
+            className="absolute bottom-0 left-0 w-full px-6 pb-10 flex flex-col items-center"
           >
             <button
-              onClick={handleOpenShowreel}
-              className="group flex items-center gap-3 text-white active:scale-95 transition-transform"
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="group pointer-events-auto flex items-center gap-4 text-white cursor-pointer"
             >
               <div className="h-px w-8 bg-white/30" />
-              <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center group-active:bg-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  className="w-2.5 h-2.5 translate-x-px text-white group-active:text-neutral-900 transition-colors">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-              <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70">Voir le Showreel</span>
+              <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70">Créer votre projet</span>
               <div className="h-px w-8 bg-white/30" />
             </button>
           </motion.div>

@@ -8,7 +8,6 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "", rootRef }) => {
   // NOUVEAU : On passe le root à useInView. S'il est undefined (Landing Page), il utilisera window par défaut !
   const isInView = useInView(ref, {
     once: true,
-    margin: "-20%",
     root: rootRef,
   });
 
