@@ -1,11 +1,22 @@
 // src/components/layout/Navbar.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useTransform, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
 const Navbar = ({ progress }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const [pastHero, setPastHero] = useState(false);
+
+  // Sur mobile : détecte quand on a dépassé la première vidéo (100dvh)
+  useEffect(() => {
+    if (!isMobile) return;
+    const handleScroll = () => {
+      setPastHero(window.scrollY > window.innerHeight * 0.85);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile]);
 
   // Apparition initiale du logo
   const logoOpacity = useTransform(progress, [0.15, 0.3], [0, 1]);
@@ -93,18 +104,20 @@ const Navbar = ({ progress }) => {
     <>
       <motion.nav
         className="fixed top-0 left-0 w-full z-[100] px-4 md:px-[2vw] py-6 md:py-10 flex justify-between items-center pointer-events-none"
-        style={{ color: isMobile ? "#171717" : navTextColor }}
+        style={{ color: isMobile ? (pastHero ? "#171717" : "#ffffff") : navTextColor }}
       >
         {/* Le fond de la navbar qui devient opaque au scroll */}
         <motion.div
-          style={{ opacity: isMobile ? 1 : backdropOpacity }}
+          animate={{ opacity: isMobile ? (pastHero ? 1 : 0) : undefined }}
+          style={{ opacity: isMobile ? undefined : backdropOpacity }}
+          transition={{ duration: 0.4 }}
           className="absolute inset-0 bg-neutral-100/95 backdrop-blur-md border-b border-neutral-200 pointer-events-auto"
         />
 
         {/* Logo */}
         <motion.div
           style={{
-            opacity: isMobile ? 1 : logoOpacity,
+            opacity: isMobile ? (pastHero ? 1 : 0) : logoOpacity,
             y: isMobile ? 0 : logoY,
             scale: isMobile ? 1 : logoScale,
             transformOrigin: "left center",
@@ -126,7 +139,7 @@ const Navbar = ({ progress }) => {
               src="/img/logo blue.svg"
               alt="Lemen's Prod"
               className="h-full w-auto"
-              style={{ opacity: isMobile ? 1 : blueLogoOpacity }}
+              style={{ opacity: isMobile ? (pastHero ? 1 : 0) : blueLogoOpacity }}
             />
           </div>
         </motion.div>
@@ -156,34 +169,36 @@ const Navbar = ({ progress }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto bg-neutral-200 rounded-full border-none cursor-pointer"
+          className="lg:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center pointer-events-auto rounded-full border-none cursor-pointer"
+          style={{ backgroundColor: pastHero ? "#e5e5e5" : "rgba(0,0,0,0.25)" }}
           aria-label="Toggle menu"
         >
           <motion.span
             animate={{
               rotate: isMenuOpen ? 45 : 0,
               y: isMenuOpen ? 0 : -4,
-              backgroundColor: "#171717",
+              backgroundColor: pastHero ? "#171717" : "#ffffff",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
+            className="block w-5 h-0.5 absolute origin-center"
           />
           <motion.span
             animate={{
               opacity: isMenuOpen ? 0 : 1,
               scaleX: isMenuOpen ? 0 : 1,
+              backgroundColor: pastHero ? "#171717" : "#ffffff",
             }}
             transition={{ duration: 0.2 }}
-            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
+            className="block w-5 h-0.5 absolute origin-center"
           />
           <motion.span
             animate={{
               rotate: isMenuOpen ? -45 : 0,
               y: isMenuOpen ? 0 : 4,
-              backgroundColor: "#171717",
+              backgroundColor: pastHero ? "#171717" : "#ffffff",
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="block w-5 h-0.5 absolute origin-center bg-neutral-900"
+            className="block w-5 h-0.5 absolute origin-center"
           />
         </motion.button>
       </motion.nav>
