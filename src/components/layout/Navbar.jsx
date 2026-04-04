@@ -259,7 +259,7 @@ const Navbar = ({ progress }) => {
                   <img
                     src="/img/logo_white.webp"
                     alt="Lemen's Prod"
-                    className="h-6 w-auto opacity-50 invert"
+                    className="h-10 w-auto opacity-50 invert"
                   />
                 </motion.div>
               </div>

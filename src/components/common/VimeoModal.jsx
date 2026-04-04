@@ -36,14 +36,14 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-sm pt-40 md:pt-48"
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-sm md:pt-48"
           onClick={onClose}
         >
           {/* Bouton fermeture */}
           <button
             onClick={onClose}
             aria-label="Fermer la vidéo"
-            className="absolute top-24 right-4 md:top-28 md:right-8 z-[1000] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
+            className="absolute top-4 right-4 md:top-28 md:right-8 z-[1000] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,13 +61,13 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
             </svg>
           </button>
 
-          {/* Conteneur vidéo 16:9 */}
+          {/* Conteneur vidéo : portrait sur mobile, 16:9 sur desktop */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-6xl mx-4 md:mx-auto aspect-video"
+            className="relative mx-4 md:mx-auto md:w-full md:max-w-6xl aspect-[9/16] w-[85vw] max-h-[85dvh] md:aspect-video"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe

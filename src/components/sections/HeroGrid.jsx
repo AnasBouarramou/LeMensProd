@@ -1,12 +1,10 @@
 // src/components/sections/HeroGrid.jsx
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroGridDesktop from "./HeroGridDesktop";
 import SidebarCard from "../services/SidebarCard";
 import VideoBackground from "../common/VideoBackground";
-import VimeoModal from "../common/VimeoModal";
 import { VIDEOS } from "../../config/content";
-import { useIsMobile } from "../../hooks/useIsMobile";
 
 const cards = [
   { bgColor: "bg-orange-500", videoSrc: VIDEOS.leftTop,     poster: VIDEOS.leftTopPoster,    title: "Snack Content",  subtitle: "Capter l'attention",     page: "snack" },
@@ -26,36 +24,31 @@ const mobileTitleVariants = {
 };
 
 const HeroGrid = ({ progress, setActivePage, containerRef }) => {
-  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
   const heroVideoRef = useRef(null);
-  const isMobile = useIsMobile();
-
-  const handleOpenShowreel = () => {
-    heroVideoRef.current?.pause();
-    setIsShowreelOpen(true);
-  };
-
-  const handleCloseShowreel = () => {
-    setIsShowreelOpen(false);
-    heroVideoRef.current?.play();
-  };
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== "undefined" && window.innerWidth >= 1024
+  );
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
     <>
-      {/* ========== VERSION DESKTOP ========== */}
-      {!isMobile && (
+      {/* ========== VERSION DESKTOP (>= 1024px) ========== */}
+      {isDesktop && (
         <HeroGridDesktop
           progress={progress}
           setActivePage={setActivePage}
           containerRef={containerRef}
           heroVideoRef={heroVideoRef}
-          onOpenShowreel={handleOpenShowreel}
         />
       )}
 
-      {/* ========== VERSION MOBILE ========== */}
-      {isMobile && (
-      <div className="bg-neutral-100" id="hero-mobile">
+      {/* ========== VERSION MOBILE + TABLETTE (< 1024px) ========== */}
+      {!isDesktop && (
+      <div className="bg-white" id="hero-mobile">
         <section className="relative h-[100dvh] mx-0 mt-0 overflow-hidden bg-neutral-900">
           <VideoBackground
             ref={heroVideoRef}
@@ -146,11 +139,6 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
       </div>
       )}
 
-      <VimeoModal
-        isOpen={isShowreelOpen}
-        onClose={handleCloseShowreel}
-        videoId=""
-      />
     </>
   );
 };

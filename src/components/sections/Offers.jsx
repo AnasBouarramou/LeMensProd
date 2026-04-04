@@ -34,7 +34,7 @@ const Offers = ({ onSelectOffer }) => {
         </motion.div>
 
         {/* Grille */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 w-full items-stretch">
           {OFFERS.map((offer, index) => (
             <motion.div
               key={index}
@@ -48,7 +48,7 @@ const Offers = ({ onSelectOffer }) => {
               }}
               className={`relative rounded-2xl md:rounded-[2rem] p-6 md:p-10 flex flex-col justify-between ${
                 offer.style === "black"
-                  ? "bg-neutral-800 border border-neutral-700 shadow-2xl z-10 md:scale-105"
+                  ? "bg-neutral-800 border border-neutral-700 shadow-2xl z-10 lg:scale-105"
                   : "bg-white text-neutral-900 shadow-sm"
               }`}
             >

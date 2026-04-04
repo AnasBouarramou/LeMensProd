@@ -10,14 +10,14 @@ const About = () => {
         style={{ width: "min(calc(82vw + 3rem), 100%)" }}
       >
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-stretch"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
           <motion.div
-            className="relative w-full h-[350px] md:h-[600px] rounded-2xl md:rounded-[2rem] overflow-hidden order-2 md:order-1"
+            className="relative w-full h-[350px] md:h-[500px] lg:h-[600px] rounded-2xl lg:rounded-[2rem] overflow-hidden order-2 lg:order-1"
             variants={fadeInUp}
           >
             <motion.img
@@ -30,7 +30,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-col justify-start order-1 md:order-2"
+            className="flex flex-col justify-start order-1 lg:order-2"
             variants={staggerContainer}
           >
             <motion.h2

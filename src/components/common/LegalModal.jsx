@@ -9,14 +9,10 @@ const LEGAL_CONTENT = {
 
 ÉDITEUR DU SITE
 Raison sociale : Lemen's Prod
-Forme juridique : [À COMPLÉTER]
-Siège social : [À COMPLÉTER]
-SIRET : [À COMPLÉTER]
-Email : contact@lemensprod.com
-Directeur de la publication : [À COMPLÉTER]
+Email : lemensprod@gmail.com
 
 NOM DE DOMAINE
-Le site est accessible à l'adresse : lemensprod.pages.dev
+Le site est accessible à l'adresse : lemensprod.com
 
 HÉBERGEMENT
 Le site est hébergé par :
@@ -32,10 +28,10 @@ Lemen's Prod s'efforce de maintenir les informations publiées sur ce site aussi
   },
   Confidentialité: {
     title: "Politique de Confidentialité",
-    body: `Lemen's Prod s'engage à protéger la vie privée des utilisateurs de son site lemensprod.pages.dev. La présente politique vous informe de la manière dont vos données personnelles sont collectées et traitées, conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
+    body: `Lemen's Prod s'engage à protéger la vie privée des utilisateurs de son site lemensprod.com. La présente politique vous informe de la manière dont vos données personnelles sont collectées et traitées, conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
 
 1. RESPONSABLE DU TRAITEMENT
-Lemen's Prod — contact@lemensprod.com
+Lemen's Prod — lemensprod@gmail.com
 
 2. DONNÉES COLLECTÉES
 Les seules données personnelles collectées sont celles que vous saisissez volontairement dans le formulaire de contact : nom, adresse e-mail, et message. Aucune donnée n'est collectée automatiquement à des fins de profilage ou de publicité.
@@ -50,7 +46,7 @@ Ce site est hébergé sur l'infrastructure de Cloudflare, Inc. (101 Townsend St,
 Vos données sont conservées pour une durée maximale de 3 ans à compter du dernier contact, puis supprimées.
 
 6. VOS DROITS
-Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité de vos données. Pour exercer ces droits : contact@lemensprod.com
+Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité de vos données. Pour exercer ces droits : lemensprod@gmail.com
 
 7. RÉCLAMATION
 Vous pouvez adresser une réclamation à la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés.`,
@@ -66,7 +62,7 @@ Les présentes CGV définissent les droits et obligations des parties dans le ca
 Toute prestation fait l'objet d'un devis détaillé et personnalisé, valable 30 jours à compter de sa date d'émission. La commande est ferme et définitive après retour du devis signé et versement de l'acompte prévu.
 
 3. MODALITÉS DE PAIEMENT
-Les tarifs sont exprimés en euros hors taxes (HT). Un acompte de [X]% du montant total est exigible à la signature du devis, afin de bloquer les dates de tournage et lancer la pré-production. Le solde est dû à la livraison finale, dans un délai de 30 jours à réception de facture. Tout retard de paiement entraîne des pénalités au taux légal en vigueur.
+Les tarifs sont exprimés en euros hors taxes (HT). Un acompte dont le montant est précisé dans le devis est exigible à la signature, afin de bloquer les dates de tournage et lancer la pré-production. Le solde est dû à la livraison finale, dans un délai de 30 jours à réception de facture. Tout retard de paiement entraîne des pénalités au taux légal en vigueur.
 
 4. DÉLAIS DE LIVRAISON
 Les délais indicatifs sont précisés dans le devis. Ils sont susceptibles d'évoluer en cas de modifications demandées par le Client en cours de production. Lemen's Prod ne saurait être tenu responsable des retards imputables au Client (défaut de validation, fourniture tardive de documents).

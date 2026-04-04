@@ -33,24 +33,6 @@ export const staggerContainer = {
   },
 };
 
-// Animation de zoom
-export const scaleIn = {
-  hidden: {
-    opacity: 0,
-    scale: 0.9,
-    willChange: "opacity, transform"
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    willChange: "auto",
-    transition: {
-      duration: 0.6,
-      ease: CUSTOM_EASE
-    },
-  },
-};
-
 // Animation pour les pages de services
 export const serviceFadeInUp = {
   hidden: {
@@ -109,11 +91,3 @@ export const widthReveal = {
   },
 };
 
-// Animation rapide pour éléments interactifs
-export const quickFade = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.3 },
-  },
-};

@@ -12,7 +12,6 @@ const HeroGridDesktop = ({
   setActivePage,
   containerRef,
   heroVideoRef,
-  onOpenShowreel,
 }) => {
   // Acte 2 — Centre se contracte (après dissolution du texte)
   const centerWidth  = useTransform(progress, [0.12, 0.52], ["96vw", "32vw"]);

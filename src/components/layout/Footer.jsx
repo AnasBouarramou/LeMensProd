@@ -43,10 +43,10 @@ const Footer = ({ onBack, setActivePage }) => {
         viewport={{ once: true, amount: 0.15 }}
         variants={serviceStagger}
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 lg:mb-16">
           {/* COLONNE 1 : Informations de la marque */}
           <motion.div
-            className="col-span-2 md:col-span-1 flex flex-col gap-4 md:gap-5"
+            className="col-span-2 lg:col-span-1 flex flex-col gap-4 md:gap-5"
             variants={serviceFadeInUp}
           >
             <button
@@ -152,7 +152,7 @@ const Footer = ({ onBack, setActivePage }) => {
               Contact
             </h4>
             <span className="text-neutral-400 text-sm font-light break-all md:break-normal">
-              contact@lemensprod.com
+              lemensprod@gmail.com
             </span>
             <span className="text-neutral-400 text-sm font-light">
               Paris, France
@@ -173,7 +173,7 @@ const Footer = ({ onBack, setActivePage }) => {
           variants={serviceFadeInUp}
         >
           <p className="text-neutral-500 text-[0.65rem] md:text-xs font-light tracking-wide text-center md:text-left">
-            ©2026 – Lemen's Prod – Tous droits réservés
+            ©2026 – Lemen's Prod – Tous droits réservés — Site conçu par Anas Bouarramou
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {["Mentions légales", "Confidentialité", "CGV"].map((item) => (

@@ -67,7 +67,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 1,
-    company: "Architek",
+    company: "",
     quote:
       "Les visites immersives en drone FPV et 360° ont transformé notre manière de présenter les biens. Nos clients se projettent immédiatement et les ventes s'accélèrent nettement depuis qu'on travaille avec eux.",
     name: "Marc Dupont",
@@ -177,12 +177,7 @@ export const SNACK_CONFIG = {
         "Vidéo publicitaire façon Réel/TikTok pour agence immobilière, pensée pour la viralité.",
       expandDesc:
         "Conception d'un contenu vertical percutant au format Réel/TikTok pour une agence immobilière. L'objectif : présenter des biens avec un dynamisme et un storytelling visuel qui génèrent des partages, des enregistrements et maximisent la portée organique sur les algorithmes des plateformes sociales.",
-      tags: [
-        "Format vertical",
-        "Hook -3s",
-        "Immobilier viral",
-        "Algo natif",
-      ],
+      tags: ["Format vertical", "Hook -3s", "Immobilier viral", "Algo natif"],
       equipment: "DJI Pocket 3, iPhone 15 Pro, Stabilisateur DJI RS3",
       client: "Client Agence Immobilière",
       vimeoId: "1172106179",
@@ -334,7 +329,8 @@ export const IMMO_CONFIG = {
       poster: "/img/immo3.webp",
       tag: "Hôtellerie",
       title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
-      expandTitle: 'Espaces <span class="text-emerald-500">Événementiels</span>',
+      expandTitle:
+        'Espaces <span class="text-emerald-500">Événementiels</span>',
       subtitle:
         "Vidéo immersive sublimant les volumes et l'ambiance d'un hôtel quatre étoiles.",
       expandDesc:
@@ -365,7 +361,8 @@ export const IMMO_CONFIG = {
         "Optimisé Stories",
         "Mobile-first",
       ],
-      equipment: "iPhone 15 Pro Max, Stabilisateur DJI OM 6, Format Portrait Natif",
+      equipment:
+        "iPhone 15 Pro Max, Stabilisateur DJI OM 6, Format Portrait Natif",
       client: "Client Prestige Immo",
       vimeoId: "1172105625",
     },
@@ -430,7 +427,12 @@ export const LIVE_CONFIG = {
         "Captation d'interviews et de témoignages clients in-situ pour une entreprise de spa.",
       expandDesc:
         "Captation d'interviews et de témoignages clients réalisée directement sur site pour une entreprise de spa haut de gamme. Un dispositif léger mais soigné, pensé pour restituer l'atmosphère apaisante des lieux tout en donnant la parole aux clients avec authenticité et spontanéité.",
-      tags: ["Interview in-situ", "Témoignages clients", "Ambiance premium", "Captation son"],
+      tags: [
+        "Interview in-situ",
+        "Témoignages clients",
+        "Ambiance premium",
+        "Captation son",
+      ],
       equipment: "Sony FX3, Micro-cravate Rode Wireless GO II, Softbox LED",
       client: "Client Spa Premium",
       vimeoId: "1172105448",

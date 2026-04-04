@@ -11,6 +11,7 @@ import { MobileBlock } from "./MobileBlock";
 import ServiceStats from "./ServiceStats";
 import ServiceProcess from "./ServiceProcess";
 import ServiceCTA from "./ServiceCTA";
+import Footer from "../layout/Footer";
 
 const ServiceDetailPage = ({ config, onBack }) => {
   const containerRef = useRef(null);
@@ -72,7 +73,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
         {/* ========== VERSION DESKTOP ========== */}
         {!isMobile && (<div className="h-[250vh] relative">
           <div className="sticky top-0 z-20 w-full flex flex-col h-screen pt-[76px]">
-            <div className="flex flex-col flex-1 min-h-0 px-4 pb-4 gap-0 bg-neutral-100">
+            <div className="flex flex-col flex-1 min-h-0 px-4 pb-4 gap-0 bg-white">
               {/* HERO DESKTOP */}
               <motion.div
                 style={{ height: heroHeight, opacity: heroOpacity }}
@@ -218,6 +219,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
         <ServiceStats config={config} containerRef={containerRef} />
         <ServiceProcess config={config} containerRef={containerRef} />
         <ServiceCTA config={config} containerRef={containerRef} onBack={onBack} />
+        <Footer />
       </div>
     </motion.div>
   );
