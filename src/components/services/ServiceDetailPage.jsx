@@ -72,7 +72,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
         {/* ========== VERSION DESKTOP ========== */}
         {!isMobile && (<div className="h-[250vh] relative">
           <div className="sticky top-0 z-20 w-full flex flex-col h-screen pt-[76px]">
-            <div className="flex flex-col flex-1 min-h-0 px-4 pb-4 gap-0">
+            <div className="flex flex-col flex-1 min-h-0 px-4 pb-4 gap-0 bg-neutral-100">
               {/* HERO DESKTOP */}
               <motion.div
                 style={{ height: heroHeight, opacity: heroOpacity }}

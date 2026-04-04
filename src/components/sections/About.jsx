@@ -21,7 +21,7 @@ const About = () => {
             variants={fadeInUp}
           >
             <motion.img
-              src="/img/Tito.jpg"
+              src="/img/Tito.webp"
               alt="Tournage"
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.05 }}

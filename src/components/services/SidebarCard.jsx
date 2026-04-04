@@ -54,10 +54,6 @@ const SidebarCard = ({
     videoRef.current?.play();
   };
 
-  const handleMouseLeave = () => {
-    videoRef.current?.pause();
-  };
-
   return (
       <motion.div
         ref={cardRef}
@@ -67,7 +63,6 @@ const SidebarCard = ({
         onClick={() => onClick?.()}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick?.(); } }}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         className={`w-full ${heightClass} ${bgColor} rounded-2xl lg:rounded-[2rem] overflow-hidden relative group cursor-pointer `}
         initial="initial"
         whileHover="hover"

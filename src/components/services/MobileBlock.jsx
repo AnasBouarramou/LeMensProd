@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import VideoBackground from "../common/VideoBackground";
+import VimeoModal from "../common/VimeoModal";
 
 const mobileBlockVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.98 },
@@ -17,6 +18,7 @@ export const MobileBlock = ({ block, index, configAccent }) => {
   const blockRef = useRef(null);
   const videoRef = useRef(null);
   const isInView = useInView(blockRef, { margin: "-20% 0px" });
+  const [isVimeoOpen, setIsVimeoOpen] = useState(false);
 
   useEffect(() => {
     if (isInView) {
@@ -25,6 +27,17 @@ export const MobileBlock = ({ block, index, configAccent }) => {
       videoRef.current?.pause();
     }
   }, [isInView]);
+
+  const handleOpenVimeo = (e) => {
+    e.stopPropagation();
+    videoRef.current?.pause();
+    setIsVimeoOpen(true);
+  };
+
+  const handleCloseVimeo = () => {
+    setIsVimeoOpen(false);
+    if (isInView) videoRef.current?.play();
+  };
 
   return (
     <motion.div
@@ -43,6 +56,17 @@ export const MobileBlock = ({ block, index, configAccent }) => {
         playOnHover
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      {block.vimeoId && (
+        <button
+          onClick={handleOpenVimeo}
+          aria-label="Voir la vidéo en HD"
+          className="absolute top-3 right-3 z-30 w-9 h-9 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-white">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+          </svg>
+        </button>
+      )}
 
       <div className="absolute inset-0 flex flex-col justify-between p-5">
         <div className="flex items-center gap-2">
@@ -65,6 +89,11 @@ export const MobileBlock = ({ block, index, configAccent }) => {
           <MobileBlockExpand blockConfig={block} configAccent={configAccent} />
         </div>
       </div>
+      <VimeoModal
+        isOpen={isVimeoOpen}
+        onClose={handleCloseVimeo}
+        videoId={block.vimeoId || ""}
+      />
     </motion.div>
   );
 };

@@ -4,14 +4,14 @@
 export const VIDEOS = {
   hero: "/video/fp.mp4",
   heroPoster: "/img/fp.webp",
-  leftTop: "/video/cuisine_pres_snack.mp4", // Snack Content
-  leftTopPoster: "/img/cuisine_pres_snack.webp",
-  leftBottom: "/video/Aurillac.mp4", // Production
-  leftBottomPoster: "/img/Aurillac.webp",
-  rightTop: "/video/hdn.mp4", // Immobilier
-  rightTopPoster: "/img/hdn.webp",
-  rightBottom: "/video/mrwk.mp4", // Live
-  rightBottomPoster: "/img/mrwk.webp",
+  leftTop: "/video/sc1.mp4", // Snack Content
+  leftTopPoster: "/img/sc1.webp",
+  leftBottom: "/video/av1.mp4", // Audiovisuelle
+  leftBottomPoster: "/img/av1.webp",
+  rightTop: "/video/immo1.mp4", // Immobilier
+  rightTopPoster: "/img/immo1.webp",
+  rightBottom: "/video/live1.mp4", // Live
+  rightBottomPoster: "/img/live1.webp",
 };
 
 // --- LOGOS ---
@@ -54,21 +54,12 @@ export const LOGOS = [
   },
 ];
 
-export const SNACK_PROJECTS = [
-  { id: 1, title: "TikTok Fashion", client: "Modeiva", color: "bg-orange-500" },
-  { id: 2, title: "Reel Food", client: "TastyBites", color: "bg-neutral-800" },
-  { id: 3, title: "Story Event", client: "RedBull", color: "bg-neutral-800" },
-  { id: 4, title: "Shorts Tech", client: "Samsung", color: "bg-orange-500" },
-];
-
 // --- TEMOIGNAGES ---
 export const TESTIMONIALS = [
   {
     id: 0,
     company: "Dalkia (Groupe EDF)",
-    logo: "/img/Dalkia.png",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+    logo: "/img/Dalkia.webp",
     quote:
       "Un rendu qui dépasse largement les standards du secteur. Lemen's Prod a su sublimer notre image avec une fluidité remarquable. C'est un investissement qui transforme la perception de notre marque.",
     name: "Claire Lefèvre",
@@ -77,8 +68,6 @@ export const TESTIMONIALS = [
   {
     id: 1,
     company: "Architek",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
     quote:
       "Les visites immersives en drone FPV et 360° ont transformé notre manière de présenter les biens. Nos clients se projettent immédiatement et les ventes s'accélèrent nettement depuis qu'on travaille avec eux.",
     name: "Marc Dupont",
@@ -87,9 +76,7 @@ export const TESTIMONIALS = [
   {
     id: 2,
     company: "MrWorkout",
-    logo: "/img/MrWorkout.png",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
+    logo: "/img/MrWorkout.webp",
     quote:
       "Un montage ultra-dynamique qui colle parfaitement à l'identité de ma marque. Depuis nos collaborations, l'impact sur mes réseaux sociaux est énorme — mes vidéos n'ont jamais autant performé.",
     name: "Florian",
@@ -98,9 +85,7 @@ export const TESTIMONIALS = [
   {
     id: 3,
     company: "Aurasun",
-    logo: "/img/AURASUN.png",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+    logo: "/img/AURASUN.webp",
     quote:
       "Ils ont su mettre en valeur nos équipes et nos locaux avec un tournage très humain. On sentait une vraie écoute et le résultat reflète exactement ce qu'on voulait transmettre.",
     name: "Antoine Moreau",
@@ -154,7 +139,7 @@ export const OFFERS = [
 export const SNACK_CONFIG = {
   accentBg: "bg-orange-500",
   hoverAccent: "hover:bg-orange-500",
-  heroVideo: VIDEOS.leftTop,
+  heroVideo: VIDEOS.leftTop, // sc1
   heroPoster: VIDEOS.leftTopPoster,
   heroTitle:
     'QUAND CHAQUE<br /><span class="text-orange-500 font-serif italic font-normal">Seconde</span> COMPTE',
@@ -163,8 +148,8 @@ export const SNACK_CONFIG = {
     "Création de formats courts percutants et viraux (TikTok, Reels, Shorts). Nous concevons un montage dynamique pensé pour capter l'attention dès la première seconde et engager massivement votre communauté.",
   blocks: [
     {
-      video: "/video/cuisine.mp4",
-      poster: "/img/cuisine.webp",
+      video: "/video/sc2.mp4",
+      poster: "/img/sc2.webp",
       tag: "Format Court",
       title: 'Snack<br /><span class="text-orange-400">Culinaire</span>',
       expandTitle: 'Snack <span class="text-orange-500">Culinaire</span>',
@@ -180,10 +165,11 @@ export const SNACK_CONFIG = {
       ],
       equipment: "Sony ZV-E10, DJI OM 6, Éclairage LED bi-couleur",
       client: "Client Restauration",
+      vimeoId: "1172106406",
     },
     {
-      video: "/video/snack-content-immo.mp4",
-      poster: "/img/snack-content-immo.webp",
+      video: "/video/sc3.mp4",
+      poster: "/img/sc3.webp",
       tag: "Format Réel",
       title: 'Réel<br /><span class="text-orange-400">Immobilier</span>',
       expandTitle: 'Réel <span class="text-orange-500">Immobilier</span>',
@@ -199,6 +185,7 @@ export const SNACK_CONFIG = {
       ],
       equipment: "DJI Pocket 3, iPhone 15 Pro, Stabilisateur DJI RS3",
       client: "Client Agence Immobilière",
+      vimeoId: "1172106179",
     },
   ],
   statsTitle:
@@ -206,7 +193,7 @@ export const SNACK_CONFIG = {
   statsDesc:
     "Nos contenus snack content pour TikTok, Instagram Reels et YouTube Shorts sont pensés pour la viralité. Ils captent l'attention, génèrent de l'engagement et transforment vos vues en résultats concrets.",
   stats: [
-    { value: 12, suffix: "M+", label: "Vues Générées" },
+    { value: 6, suffix: "M+", label: "Vues Générées" },
     { value: 200, suffix: "+", label: "Vidéos Livrées" },
     { value: 3, prefix: "x", suffix: "", label: "Engagement Moyen" },
     { value: 48, suffix: "h", label: "Délai de Livraison" },
@@ -243,7 +230,7 @@ export const SNACK_CONFIG = {
 export const PRODUCTION_CONFIG = {
   accentBg: "bg-rose-500",
   hoverAccent: "hover:bg-rose-500",
-  heroVideo: VIDEOS.leftBottom,
+  heroVideo: VIDEOS.leftBottom, // av1
   heroPoster: VIDEOS.leftBottomPoster,
   heroTitle:
     'CHAQUE IMAGE<br /><span class="text-rose-400 font-serif italic font-normal">Raconte</span> UNE HISTOIRE',
@@ -252,8 +239,8 @@ export const PRODUCTION_CONFIG = {
     "Réalisation de films institutionnels et publicitaires haut de gamme. De la direction artistique à l'étalonnage, nous mettons notre exigence cinématographique au service de votre image de marque.",
   blocks: [
     {
-      video: "/video/edf.mp4",
-      poster: "/img/edf.webp",
+      video: "/video/av2.mp4",
+      poster: "/img/av2.webp",
       tag: "Institutionnel",
       title: 'Dalkia<br /><span class="text-rose-400">Groupe EDF</span>',
       expandTitle: 'Dalkia <span class="text-rose-500">Groupe EDF</span>',
@@ -269,10 +256,11 @@ export const PRODUCTION_CONFIG = {
       ],
       equipment: "RED Komodo 6K, DJI RS3 Pro, Son Sennheiser MKH 50",
       client: "Client Dalkia — Groupe EDF",
+      vimeoId: "1172105953",
     },
     {
-      video: "/video/Aurillac.mp4",
-      poster: "/img/Aurillac.webp",
+      video: "/video/av3.mp4",
+      poster: "/img/av3.webp",
       tag: "Showroom",
       title: 'Aurasun<br /><span class="text-rose-400">Solaire</span>',
       expandTitle: 'Aurasun <span class="text-rose-500">Solaire</span>',
@@ -288,6 +276,7 @@ export const PRODUCTION_CONFIG = {
       ],
       equipment: "Sony FX6, DJI Mavic 3 Cine, Stabilisateur RS3",
       client: "Client Aurasun",
+      vimeoId: "1172105874",
     },
   ],
   statsTitle:
@@ -332,7 +321,7 @@ export const PRODUCTION_CONFIG = {
 export const IMMO_CONFIG = {
   accentBg: "bg-emerald-500",
   hoverAccent: "hover:bg-emerald-500",
-  heroVideo: VIDEOS.rightTop,
+  heroVideo: VIDEOS.rightTop, // immo1
   heroPoster: VIDEOS.rightTopPoster,
   heroTitle:
     'RÉVÉLER<br /><span class="text-emerald-400 font-serif italic font-normal">l\'Essence</span> DES LIEUX',
@@ -341,8 +330,8 @@ export const IMMO_CONFIG = {
     "Mise en valeur d'espaces de prestige. Grâce à des prises de vues immersives (Drone FPV, stabilisateurs) et une lumière maîtrisée, nous révélons les volumes pour déclencher le coup de cœur.",
   blocks: [
     {
-      video: "/video/hdn.mp4",
-      poster: "/img/hdn.webp",
+      video: "/video/immo3.mp4",
+      poster: "/img/immo3.webp",
       tag: "Hôtellerie",
       title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
       expandTitle: 'Espaces <span class="text-emerald-500">Événementiels</span>',
@@ -358,10 +347,11 @@ export const IMMO_CONFIG = {
       ],
       equipment: "DJI Mavic 3 Pro, Sony A7 IV, Drone FPV Cinématique",
       client: "Hôtel de Nogent",
+      vimeoId: "1172105831",
     },
     {
-      video: "/video/ImmoStory.mp4",
-      poster: "/img/ImmoStory.webp",
+      video: "/video/immo2.mp4",
+      poster: "/img/immo2.webp",
       tag: "Format Story",
       title: 'Visite<br /><span class="text-emerald-400">Immersive</span>',
       expandTitle: 'Visite <span class="text-emerald-500">Immersive</span>',
@@ -377,6 +367,7 @@ export const IMMO_CONFIG = {
       ],
       equipment: "iPhone 15 Pro Max, Stabilisateur DJI OM 6, Format Portrait Natif",
       client: "Client Prestige Immo",
+      vimeoId: "1172105625",
     },
   ],
   statsTitle:
@@ -384,7 +375,7 @@ export const IMMO_CONFIG = {
   statsDesc:
     "Nos vidéos immobilières et visites virtuelles 360° accélèrent les ventes et augmentent la valeur perçue de chaque bien de prestige. La vidéo drone FPV au service de vos mandats.",
   stats: [
-    { value: 200, suffix: "+", label: "Biens Filmés" },
+    { value: 100, suffix: "+", label: "Biens Filmés" },
     { value: 40, suffix: "%", label: "Vente Plus Rapide" },
     { value: 5, prefix: "x", suffix: "", label: "Plus de Visites" },
     { value: 24, suffix: "h", label: "Livraison Express" },
@@ -421,7 +412,7 @@ export const IMMO_CONFIG = {
 export const LIVE_CONFIG = {
   accentBg: "bg-violet-500",
   hoverAccent: "hover:bg-violet-500",
-  heroVideo: VIDEOS.rightBottom,
+  heroVideo: VIDEOS.rightBottom, // live1
   heroPoster: VIDEOS.rightBottomPoster,
   heroTitle:
     'LIVE<br /><span class="text-violet-400 font-serif italic font-normal">Multicam</span> EN DIRECT',
@@ -430,8 +421,8 @@ export const LIVE_CONFIG = {
     "Captation fluide et diffusion en direct multi-caméras pour vos événements, conférences et interviews. Nous assurons une réalisation technique sans faille pour connecter le réel au digital en temps réel.",
   blocks: [
     {
-      video: "/video/Spa.mp4",
-      poster: "/img/Spa.webp",
+      video: "/video/live2.mp4",
+      poster: "/img/live2.webp",
       tag: "Interviews",
       title: 'Spa<br /><span class="text-violet-400">Témoignages</span>',
       expandTitle: 'Spa <span class="text-violet-500">Témoignages</span>',
@@ -442,10 +433,11 @@ export const LIVE_CONFIG = {
       tags: ["Interview in-situ", "Témoignages clients", "Ambiance premium", "Captation son"],
       equipment: "Sony FX3, Micro-cravate Rode Wireless GO II, Softbox LED",
       client: "Client Spa Premium",
+      vimeoId: "1172105448",
     },
     {
-      video: "/video/mrwk.mp4",
-      poster: "/img/mrwk.webp",
+      video: "/video/live3.mp4",
+      poster: "/img/live3.webp",
       tag: "Promotionnel",
       title: 'MrWorkout<br /><span class="text-violet-400">Promo</span>',
       expandTitle: 'MrWorkout <span class="text-violet-500">Promo</span>',
@@ -461,6 +453,7 @@ export const LIVE_CONFIG = {
       ],
       equipment: "Sony FX6, DJI RS3 Pro, Éclairage RGB portable",
       client: "Client MrWorkout",
+      vimeoId: "1172106103",
     },
   ],
   statsTitle:
@@ -468,7 +461,7 @@ export const LIVE_CONFIG = {
   statsDesc:
     "Captation événementielle professionnelle avec la qualité cinéma. Nous filmons chaque moment clé en multi-caméras avec streaming live, adapté à l'envergure de votre événement corporate ou concert.",
   stats: [
-    { value: 80, suffix: "+", label: "Événements Captés" },
+    { value: 40, suffix: "+", label: "Événements Captés" },
     { value: 8, suffix: "", label: "Caméras Simultanées" },
     { value: 50, suffix: "K+", label: "Viewers Live" },
     { value: 100, suffix: "%", label: "Uptime Streaming" },

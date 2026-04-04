@@ -80,7 +80,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-[0.65rem] md:text-xs text-neutral-400 uppercase tracking-widest font-bold mb-0.5 md:mb-1">Email</p>
-                  <p className="text-base md:text-lg font-medium">contact@lemensprod.com</p>
+                  <p className="text-base md:text-lg font-medium">lemensprod@gmail.com</p>
                 </div>
               </div>
 
@@ -119,6 +119,7 @@ const ContactForm = () => {
                   type="text"
                   name="company"
                   placeholder="Nom de l'entreprise"
+                  required
                   className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 placeholder-neutral-400 focus:border-black focus:outline-none transition-colors duration-300 text-base"
                 />
               </div>
@@ -137,8 +138,8 @@ const ContactForm = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Sujet</label>
-                <select name="type_projet" className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
-                  <option className="bg-white text-neutral-500">Sélectionnez un sujet</option>
+                <select name="type_projet" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                  <option value="" className="bg-white text-neutral-500">Sélectionnez un sujet</option>
                   <option className="bg-white text-neutral-900">Demande Sur-Mesure</option>
                   <option className="bg-white text-neutral-900">Snack Content</option>
                   <option className="bg-white text-neutral-900">Production Visuelle</option>
@@ -150,16 +151,18 @@ const ContactForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="flex flex-col gap-2">
                 <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Budget estimé</label>
-                <select name="budget" className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
-                  <option className="bg-white text-neutral-500">À définir</option>
-                  <option className="bg-white text-neutral-900">Moins de 2 000€</option>
+                <select name="budget" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                  <option value="" className="bg-white text-neutral-500">À définir</option>
+                  <option className="bg-white text-neutral-900">Moins de 1 000€</option>
+                  <option className="bg-white text-neutral-900">1 000€ - 2 000€</option>
                   <option className="bg-white text-neutral-900">2 000€ - 5 000€</option>
                   <option className="bg-white text-neutral-900">Plus de 5 000€</option>
                 </select>
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Délai souhaité</label>
-                <select name="deadline" className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                <select name="deadline" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                  <option value="" className="bg-white text-neutral-500">Sélectionnez un délai</option>
                   <option className="bg-white text-neutral-900">Urgent (&lt; 2 semaines)</option>
                   <option className="bg-white text-neutral-900">Dans le mois</option>
                   <option className="bg-white text-neutral-900">Projet à moyen terme</option>

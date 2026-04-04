@@ -2,15 +2,19 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VimeoModal = ({ isOpen, onClose, videoId }) => {
-  // Bloque le scroll du body quand la modale est ouverte
+  // Bloque le scroll du body ET des conteneurs scrollables quand la modale est ouverte
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    if (!isOpen) return;
+    document.body.style.overflow = "hidden";
+
+    const prevent = (e) => e.preventDefault();
+    window.addEventListener("wheel", prevent, { passive: false });
+    window.addEventListener("touchmove", prevent, { passive: false });
+
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("wheel", prevent);
+      window.removeEventListener("touchmove", prevent);
     };
   }, [isOpen]);
 
@@ -32,14 +36,14 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-sm"
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-sm pt-40 md:pt-48"
           onClick={onClose}
         >
           {/* Bouton fermeture */}
           <button
             onClick={onClose}
             aria-label="Fermer la vidéo"
-            className="absolute top-4 right-4 md:top-8 md:right-8 z-10 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
+            className="absolute top-24 right-4 md:top-28 md:right-8 z-[1000] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

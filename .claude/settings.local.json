@@ -16,7 +16,10 @@
       "Bash(sed -i '' 's|/img/Dalkia\\\\.webp|/img/Dalkia.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
       "Bash(sed -i '' 's|/img/LekkAfrica\\\\.webp|/img/LekkAfrica.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
       "Bash(sed -i '' 's|/img/MrWorkout\\\\.webp|/img/MrWorkout.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npm audit:*)",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\('vulns:', JSON.stringify\\(d.metadata?.vulnerabilities\\)\\); console.log\\('total:', d.metadata?.vulnerabilities?.total ?? 0\\)\")",
+      "Bash(find /Users/anas/Desktop/Projet/nomobo-app/public -type f \\\\\\( -name \"*.mp4\" -o -name \"*.webp\" \\\\\\) -exec ls -lh {} \\\\;)"
     ]
   }
 }
