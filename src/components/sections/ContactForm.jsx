@@ -9,7 +9,7 @@ import {
 const ContactForm = () => {
   return (
     <motion.section
-      className="bg-neutral-100 py-16 md:pb-32 md:pt-0 relative z-50"
+      className="bg-neutral-100 py-16 md:py-32 relative z-50"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -20,7 +20,7 @@ const ContactForm = () => {
           {/* Colonne Gauche : Intro */}
           <div className="flex flex-col justify-start">
             <motion.h2
-              className="font-montserrat font-light text-xl md:text-3xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-900"
+              className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-900"
               variants={fadeInUp}
             >
               Parlons de <br /> votre projet

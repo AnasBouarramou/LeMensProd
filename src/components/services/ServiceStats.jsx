@@ -15,15 +15,10 @@ const ServiceStats = ({ config, containerRef }) => (
       className="mx-auto px-4 md:px-0"
       style={{ width: "min(calc(82vw + 3rem), 100%)" }}
     >
-      <motion.div
-        className="w-full h-px bg-neutral-300 mb-12 md:mb-20"
-        variants={lineReveal}
-        style={{ originX: 0 }}
-      />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
         <div className="lg:col-span-4">
           <motion.h2
-            className="text-3xl md:text-5xl font-serif italic text-neutral-900 leading-[1.1]"
+            className="text-4xl md:text-6xl font-serif italic text-neutral-900 leading-[1.1]"
             variants={serviceFadeInUp}
             dangerouslySetInnerHTML={{ __html: config.statsTitle }}
           />

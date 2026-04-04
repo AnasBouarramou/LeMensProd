@@ -62,7 +62,9 @@ const ServiceDetailPage = ({ config, onBack }) => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </div>
-          <img src="/img/logo blue.svg" alt="Lemen's Prod" className="h-6 md:h-7 w-auto" />
+          <div className="relative h-6 md:h-7 w-auto scale-[2] origin-left">
+            <img src="/img/Logo.webp" alt="Lemen's Prod" className="h-full w-auto" />
+          </div>
         </div>
       </motion.div>
 

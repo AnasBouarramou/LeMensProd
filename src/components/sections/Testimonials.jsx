@@ -28,7 +28,7 @@ const Testimonials = () => {
           >
             {/* Bloc titre */}
             <div>
-              <h2 className="font-montserrat font-light text-xl md:text-3xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800 leading-tight">
+              <h2 className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800 leading-tight">
                 Lemen's Prod a changé la donne
               </h2>
               <div className="w-24 h-[2px] bg-neutral-900 mt-4 md:mt-6 mb-6 md:mb-10" />

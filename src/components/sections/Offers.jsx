@@ -19,7 +19,7 @@ const Offers = ({ onSelectOffer }) => {
           variants={staggerContainer}
         >
           <motion.h2
-            className="font-montserrat font-light text-xl md:text-3xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-white"
+            className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-white"
             variants={fadeInUp}
           >
             Nos Offres
@@ -46,7 +46,7 @@ const Offers = ({ onSelectOffer }) => {
                 duration: 0.8,
                 ease: "easeOut",
               }}
-              className={`relative rounded-2xl md:rounded-[2rem] p-6 md:p-10 flex flex-col justify-between transition-all duration-300 ${
+              className={`relative rounded-2xl md:rounded-[2rem] p-6 md:p-10 flex flex-col justify-between ${
                 offer.style === "black"
                   ? "bg-neutral-800 border border-neutral-700 shadow-2xl z-10 md:scale-105"
                   : "bg-white text-neutral-900 shadow-sm"
@@ -69,28 +69,6 @@ const Offers = ({ onSelectOffer }) => {
                 >
                   {offer.desc}
                 </p>
-
-                <div className="mb-6 md:mb-8">
-                  {offer.price !== "Devis" && (
-                    <span
-                      className={`block text-sm font-light mb-1 ${offer.style === "black" ? "text-neutral-400" : "text-neutral-500"}`}
-                    >
-                      À partir de
-                    </span>
-                  )}
-                  <span
-                    className={`text-3xl md:text-4xl font-bold tracking-tighter ${offer.style === "black" ? "text-white" : "text-neutral-900"}`}
-                  >
-                    {offer.price}
-                  </span>
-                  {offer.price !== "Devis" && (
-                    <span
-                      className={`text-sm ml-1 ${offer.style === "black" ? "text-neutral-400" : "text-neutral-500"}`}
-                    >
-                      / projet
-                    </span>
-                  )}
-                </div>
 
                 <ul className="flex flex-col gap-3 md:gap-4">
                   {offer.features.map((feat, i) => (
@@ -127,9 +105,7 @@ const Offers = ({ onSelectOffer }) => {
                     : "bg-neutral-900 text-white hover:bg-neutral-800"
                 }`}
               >
-                {offer.price === "Devis"
-                  ? "Choisir ce plan"
-                  : "Choisir ce plan"}
+                Réserver mon appel gratuit
               </button>
             </motion.div>
           ))}

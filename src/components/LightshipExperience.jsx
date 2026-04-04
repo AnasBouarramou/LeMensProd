@@ -1150,7 +1150,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-4">
                 <motion.h2
-                  className="text-4xl md:text-5xl font-serif italic text-neutral-900 leading-[1.1]"
+                  className="text-4xl md:text-6xl font-serif italic text-neutral-900 leading-[1.1]"
                   variants={serviceFadeInUp}
                   dangerouslySetInnerHTML={{ __html: config.statsTitle }}
                 />
@@ -1200,7 +1200,7 @@ const ServiceDetailPage = ({ config, onBack }) => {
               variants={serviceStagger}
             >
               <motion.h2
-                className="font-montserrat font-light text-2xl md:text-3xl text-center uppercase tracking-[0.2em] text-neutral-800"
+                className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.2em] text-neutral-800"
                 variants={serviceFadeInUp}
               >
                 Notre Process
@@ -1944,7 +1944,7 @@ export default function LightshipFullPage() {
               y: sfTitleY,
             }}
           >
-            <h2 className="font-montserrat font-light text-2xl md:text-3xl text-center uppercase tracking-[0.2em] text-neutral-800">
+            <h2 className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.2em] text-neutral-800">
               Savoir Faire
             </h2>
             <motion.div
@@ -2130,7 +2130,7 @@ export default function LightshipFullPage() {
       >
         <div className="container mx-auto px-6 mb-16 flex flex-col items-center">
           <motion.h2
-            className="font-montserrat font-light text-2xl md:text-3xl text-center uppercase tracking-[0.2em] text-neutral-800"
+            className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.2em] text-neutral-800"
             variants={fadeInUp}
           >
             Ils nous ont fait confiance
@@ -2201,7 +2201,7 @@ export default function LightshipFullPage() {
               variants={staggerContainer}
             >
               <motion.h2
-                className="font-montserrat font-light text-2xl md:text-3xl uppercase tracking-[0.2em] text-neutral-800"
+                className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.2em] text-neutral-800"
                 variants={fadeInUp}
               >
                 Qui sommes-nous ?
@@ -2305,7 +2305,7 @@ export default function LightshipFullPage() {
               variants={fadeInUp}
             >
               <div>
-                <h2 className="font-montserrat font-light text-2xl md:text-2xl uppercase tracking-[0.2em] text-neutral-800 leading-tight">
+                <h2 className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.2em] text-neutral-800 leading-tight">
                   Lemen's Prod a changé la donne
                 </h2>
                 <div className="flex items-center gap-2 mt-6">
@@ -2425,7 +2425,7 @@ export default function LightshipFullPage() {
             {/* COLONNE GAUCHE : Titre */}
             <div className="lg:col-span-4">
               <motion.h2
-                className="text-4xl md:text-5xl font-serif italic text-neutral-900 leading-[1.1]"
+                className="text-4xl md:text-6xl font-serif italic text-neutral-900 leading-[1.1]"
                 variants={fadeInUp}
               >
                 Impact,
@@ -2509,7 +2509,7 @@ export default function LightshipFullPage() {
             variants={staggerContainer}
           >
             <motion.h2
-              className="font-montserrat font-light text-2xl md:text-3xl text-center uppercase tracking-[0.2em] text-white"
+              className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.2em] text-white"
               variants={fadeInUp}
             >
               Nos Offres
@@ -2665,7 +2665,7 @@ ${
             {/* Colonne Gauche : Intro */}
             <div className="flex flex-col justify-start">
               <motion.h2
-                className="font-montserrat font-light text-2xl md:text-3xl uppercase tracking-[0.2em] text-neutral-900"
+                className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.2em] text-neutral-900"
                 variants={fadeInUp}
               >
                 Parlons de

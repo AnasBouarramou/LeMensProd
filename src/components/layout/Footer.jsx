@@ -55,9 +55,9 @@ const Footer = ({ onBack, setActivePage }) => {
               aria-label="Retour en haut de page — Lemen's Prod"
             >
               <img
-                src="/img/logo.svg"
+                src="/img/logo_white.webp"
                 alt="Lemen's Prod"
-                className="h-8 md:h-9 w-auto"
+                className="h-12 md:h-14 w-auto"
               />
             </button>
             <p className="text-neutral-400 text-sm leading-relaxed font-light">

@@ -103,7 +103,7 @@ const Navbar = ({ progress }) => {
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-0 w-full z-[100] px-4 md:px-[2vw] py-6 md:py-10 flex justify-between items-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-[100] px-4 md:px-[2vw] pt-7 pb-5 md:pt-10 md:pb-8 flex justify-between items-center pointer-events-none"
         style={{ color: isMobile ? (pastHero ? "#171717" : "#ffffff") : navTextColor }}
       >
         {/* Le fond de la navbar qui devient opaque au scroll */}
@@ -128,18 +128,23 @@ const Navbar = ({ progress }) => {
             setIsMenuOpen(false);
           }}
         >
-          <div className="relative h-6 md:h-7 w-auto">
+          <div className="relative h-6 md:h-7 w-auto scale-[2] origin-left">
             <motion.img
-              src="/img/logo.svg"
+              src="/img/logo_white.webp"
               alt="Lemen's Prod"
               className="h-full w-auto absolute top-0 left-0"
+              fetchPriority="high"
               style={{ opacity: isMobile ? 0 : whiteLogoOpacity }}
             />
             <motion.img
-              src="/img/logo blue.svg"
+              src="/img/logo_white.webp"
               alt="Lemen's Prod"
               className="h-full w-auto"
-              style={{ opacity: isMobile ? (pastHero ? 1 : 0) : blueLogoOpacity }}
+              fetchPriority="high"
+              style={{
+                opacity: isMobile ? (pastHero ? 1 : 0) : blueLogoOpacity,
+                filter: "invert(1)",
+              }}
             />
           </div>
         </motion.div>
@@ -252,7 +257,7 @@ const Navbar = ({ progress }) => {
                 >
                   <div className="h-px bg-neutral-300 mb-4" />
                   <img
-                    src="/img/logo blue.svg"
+                    src="/img/Logo.webp"
                     alt="Lemen's Prod"
                     className="h-6 w-auto opacity-50"
                   />

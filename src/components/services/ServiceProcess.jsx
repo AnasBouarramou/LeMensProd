@@ -17,7 +17,7 @@ const ServiceProcess = ({ config, containerRef }) => (
         variants={serviceStagger}
       >
         <motion.h2
-          className="font-montserrat font-light text-xl md:text-3xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
+          className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
           variants={serviceFadeInUp}
         >
           Notre Process

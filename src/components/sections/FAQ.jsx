@@ -79,7 +79,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="bg-neutral-100 py-16 md:py-32 relative z-50" id="faq">
+    <section className="bg-neutral-100 pt-16 pb-8 md:pt-32 md:pb-16 relative z-50" id="faq">
       <div
         className="mx-auto px-4 md:px-0"
         style={{ width: "min(calc(82vw + 3rem), 100%)" }}
@@ -94,7 +94,7 @@ const FAQ = () => {
           {/* COLONNE GAUCHE : Titre */}
           <div className="lg:col-span-4 flex flex-col">
             <motion.h2
-              className="font-montserrat font-light text-xl md:text-3xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-900"
+              className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-900"
               variants={fadeInUp}
             >
               Questions <br className="hidden md:block" /> Fréquentes

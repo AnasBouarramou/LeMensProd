@@ -17,25 +17,18 @@ const KeyFigures = () => {
 
   return (
     <motion.section
-      className="bg-neutral-100 py-16 md:pb-32 md:pt-0 relative z-50"
+      className="bg-neutral-100 py-16 md:py-32 relative z-50"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
       variants={staggerContainer}
     >
       <div className="mx-auto px-4 md:px-0" style={{ width: "min(calc(82vw + 3rem), 100%)" }}>
-        {/* Ligne de séparation */}
-        <motion.div
-          className="w-full h-px bg-neutral-200 mb-12 md:mb-20"
-          variants={lineReveal}
-          style={{ originX: 0 }}
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* COLONNE GAUCHE : Titre */}
           <div className="lg:col-span-4">
             <motion.h2
-              className="text-3xl md:text-5xl font-serif italic text-neutral-900 leading-[1.1]"
+              className="text-4xl md:text-6xl font-serif italic text-neutral-900 leading-[1.1]"
               variants={fadeInUp}
             >
               Impact,

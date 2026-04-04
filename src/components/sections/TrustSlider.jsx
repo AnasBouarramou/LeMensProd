@@ -6,7 +6,7 @@ import { staggerContainer, fadeInUp } from "../../config/animations";
 const TrustSlider = () => {
   return (
     <motion.section
-      className="bg-neutral-100 pt-8 md:pt-12 pb-16 md:pb-32 overflow-hidden relative z-50"
+      className="bg-neutral-100 pt-16 pb-8 md:pt-32 md:pb-16 overflow-hidden relative z-50"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
@@ -14,7 +14,7 @@ const TrustSlider = () => {
     >
       <div className="container mx-auto px-4 md:px-6 mb-10 md:mb-16 flex flex-col items-center">
         <motion.h2
-          className="font-montserrat font-light text-xl md:text-3xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
+          className="font-montserrat font-light text-2xl md:text-4xl text-center uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
           variants={fadeInUp}
         >
           Ils nous ont fait confiance
@@ -44,7 +44,7 @@ const TrustSlider = () => {
             style={{ willChange: "transform" }}
           >
             {[...LOGOS, ...LOGOS].map((logo, index) => (
-              <div key={index} className="mx-8 md:mx-14 cursor-pointer group flex-shrink-0 flex items-center justify-center w-24 md:w-32 h-10 md:h-12">
+              <div key={index} className="mx-8 md:mx-14 cursor-pointer group flex-shrink-0 flex items-center justify-center w-36 md:w-48 h-16 md:h-20">
                 <img
                   src={logo.url}
                   alt={logo.name}

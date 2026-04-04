@@ -3,54 +3,54 @@
 // --- CONFIGURATION DES VIDÉOS (fichiers locaux dans public/video/) ---
 export const VIDEOS = {
   hero: "/video/fp.mp4",
-  heroPoster: "/img/fp.png",
+  heroPoster: "/img/fp.webp",
   leftTop: "/video/cuisine_pres_snack.mp4", // Snack Content
-  leftTopPoster: "/img/cuisine_pres_snack.png",
+  leftTopPoster: "/img/cuisine_pres_snack.webp",
   leftBottom: "/video/Aurillac.mp4", // Production
-  leftBottomPoster: "/img/Aurillac.png",
+  leftBottomPoster: "/img/Aurillac.webp",
   rightTop: "/video/hdn.mp4", // Immobilier
-  rightTopPoster: "/img/hdn.png",
+  rightTopPoster: "/img/hdn.webp",
   rightBottom: "/video/mrwk.mp4", // Live
-  rightBottomPoster: "/img/mrwk.png",
+  rightBottomPoster: "/img/mrwk.webp",
 };
 
 // --- LOGOS ---
 export const LOGOS = [
   {
     name: "Alina",
-    url: "/img/Alina.png",
-    scale: 1.3,
+    url: "/img/Alina.webp",
+    scale: 2.2,
   },
   {
     name: "Aurasun",
-    url: "/img/AURASUN.png",
-    scale: 1.2,
+    url: "/img/AURASUN.webp",
+    scale: 1,
   },
   {
     name: "Dalkia",
-    url: "/img/Dalkia.png",
-    scale: 1.3,
+    url: "/img/Dalkia.webp",
+    scale: 2.2,
   },
   {
     name: "Hotel du port",
     url: "/img/HDP.png.webp",
     invert: true,
-    scale: 1.2,
+    scale: 1,
   },
   {
     name: "Lekk Africa",
-    url: "/img/LekkAfrica.png",
+    url: "/img/LekkAfrica.webp",
     scale: 1.2,
   },
   {
     name: "MrWorkout",
-    url: "/img/MrWorkout.png",
-    scale: 1.3,
+    url: "/img/MrWorkout.webp",
+    scale: 1.8,
   },
   {
     name: "Fitness Park",
-    url: "/img/FitnessPark.png",
-    scale: 1.3,
+    url: "/img/FitnessPark.webp",
+    scale: 2.2,
   },
 ];
 
@@ -111,21 +111,19 @@ export const TESTIMONIALS = [
 // --- OFFRES ---
 export const OFFERS = [
   {
-    title: "Montage uniquement",
-    price: "600€",
-    desc: "Idéal pour les marques qui débutent en vidéo marketing.",
+    title: "Montage seul",
+    desc: "Idéal pour les marques qui ont déjà leurs rushes et veulent un rendu dynamique.",
     features: [
-      "Tournage 1/2 journée",
       "Montage dynamique",
       "1 format (Reel/TikTok)",
+      "Sous-titres & Motion",
       "Livraison J+3",
     ],
     style: "white",
   },
   {
-    title: "Production audiovisuelle",
-    price: "3 500€",
-    desc: "Production audiovisuelle complète avec direction artistique.",
+    title: "Captation + Montage",
+    desc: "Production complète de A à Z avec direction artistique.",
     features: [
       "Tournage journée complète",
       "Direction Artistique",
@@ -137,9 +135,8 @@ export const OFFERS = [
     badge: "Best Seller",
   },
   {
-    title: "Sur-mesure",
-    price: "Devis",
-    desc: "Productions vidéo d'envergure avec équipe cinéma.",
+    title: "Sur devis",
+    desc: "Productions d'envergure avec équipe cinéma et besoins spécifiques.",
     features: [
       "Équipe cinéma complète",
       "Casting & Repérages",
@@ -167,7 +164,7 @@ export const SNACK_CONFIG = {
   blocks: [
     {
       video: "/video/cuisine.mp4",
-      poster: "/img/cuisine.png",
+      poster: "/img/cuisine.webp",
       tag: "Format Court",
       title: 'Snack<br /><span class="text-orange-400">Culinaire</span>',
       expandTitle: 'Snack <span class="text-orange-500">Culinaire</span>',
@@ -186,7 +183,7 @@ export const SNACK_CONFIG = {
     },
     {
       video: "/video/snack-content-immo.mp4",
-      poster: "/img/snack-content-immo.png",
+      poster: "/img/snack-content-immo.webp",
       tag: "Format Réel",
       title: 'Réel<br /><span class="text-orange-400">Immobilier</span>',
       expandTitle: 'Réel <span class="text-orange-500">Immobilier</span>',
@@ -256,7 +253,7 @@ export const PRODUCTION_CONFIG = {
   blocks: [
     {
       video: "/video/edf.mp4",
-      poster: "/img/edf.png",
+      poster: "/img/edf.webp",
       tag: "Institutionnel",
       title: 'Dalkia<br /><span class="text-rose-400">Groupe EDF</span>',
       expandTitle: 'Dalkia <span class="text-rose-500">Groupe EDF</span>',
@@ -275,7 +272,7 @@ export const PRODUCTION_CONFIG = {
     },
     {
       video: "/video/Aurillac.mp4",
-      poster: "/img/Aurillac.png",
+      poster: "/img/Aurillac.webp",
       tag: "Showroom",
       title: 'Aurasun<br /><span class="text-rose-400">Solaire</span>',
       expandTitle: 'Aurasun <span class="text-rose-500">Solaire</span>',
@@ -345,7 +342,7 @@ export const IMMO_CONFIG = {
   blocks: [
     {
       video: "/video/hdn.mp4",
-      poster: "/img/hdn.png",
+      poster: "/img/hdn.webp",
       tag: "Hôtellerie",
       title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
       expandTitle: 'Espaces <span class="text-emerald-500">Événementiels</span>',
@@ -364,7 +361,7 @@ export const IMMO_CONFIG = {
     },
     {
       video: "/video/ImmoStory.mp4",
-      poster: "/img/ImmoStory.png",
+      poster: "/img/ImmoStory.webp",
       tag: "Format Story",
       title: 'Visite<br /><span class="text-emerald-400">Immersive</span>',
       expandTitle: 'Visite <span class="text-emerald-500">Immersive</span>',
@@ -434,7 +431,7 @@ export const LIVE_CONFIG = {
   blocks: [
     {
       video: "/video/Spa.mp4",
-      poster: "/img/Spa.png",
+      poster: "/img/Spa.webp",
       tag: "Interviews",
       title: 'Spa<br /><span class="text-violet-400">Témoignages</span>',
       expandTitle: 'Spa <span class="text-violet-500">Témoignages</span>',
@@ -448,7 +445,7 @@ export const LIVE_CONFIG = {
     },
     {
       video: "/video/mrwk.mp4",
-      poster: "/img/mrwk.png",
+      poster: "/img/mrwk.webp",
       tag: "Promotionnel",
       title: 'MrWorkout<br /><span class="text-violet-400">Promo</span>',
       expandTitle: 'MrWorkout <span class="text-violet-500">Promo</span>',
@@ -523,10 +520,5 @@ export const FAQ_DATA = [
     question: "Les droits d'utilisation sont-ils inclus ?",
     answer:
       "Oui, tous nos devis et offres packagées incluent les droits de diffusion pour une utilisation sur le web et les réseaux sociaux. Pour une diffusion TV ou Cinéma, nous établissons un contrat de cession de droits spécifique.",
-  },
-  {
-    question: "Comment se déroule le paiement ?",
-    answer:
-      "Nous demandons un acompte de 50% à la signature du devis pour bloquer les dates de tournage et lancer la pré-production. Le solde est réglé à la livraison finale du projet.",
   },
 ];

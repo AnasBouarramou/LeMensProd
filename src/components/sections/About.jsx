@@ -34,7 +34,7 @@ const About = () => {
             variants={staggerContainer}
           >
             <motion.h2
-              className="font-montserrat font-light text-xl md:text-3xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
+              className="font-montserrat font-light text-2xl md:text-4xl uppercase tracking-[0.15em] md:tracking-[0.2em] text-neutral-800"
               variants={fadeInUp}
             >
               Le standard cinéma au service de votre croissance.

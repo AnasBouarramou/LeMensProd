@@ -72,7 +72,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center pointer-events-none"
           >
-            <img src="/img/logo.svg" alt="Lemen's Prod" className="h-24 sm:h-28 w-auto drop-shadow-lg" />
+            <img src="/img/logo_white.webp" alt="Lemen's Prod" className="h-32 sm:h-36 w-auto drop-shadow-lg" />
             <p className="mt-5 font-serif italic text-xl sm:text-2xl drop-shadow-md text-center leading-snug">
               Vos concurrents font des vidéos.
             </p>

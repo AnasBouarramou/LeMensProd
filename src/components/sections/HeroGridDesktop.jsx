@@ -26,7 +26,7 @@ const HeroGridDesktop = ({
 
   // Acte 2 — Layout conteneur (aligné sur la même phase)
   const gap         = useTransform(progress, [0.25, 0.52], ["0rem", "1.5rem"]);
-  const containerPt = useTransform(progress, [0.18, 0.52], ["0px",  "180px"]);
+  const containerPt = useTransform(progress, [0.18, 0.52], ["0px",  "140px"]);
 
   // Acte 1 — Texte hero se dissout doucement
   const textOpacity = useTransform(progress, [0,    0.12], [1,     0]);
@@ -56,7 +56,7 @@ const HeroGridDesktop = ({
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-neutral-100">
         {/* Titre Savoir Faire */}
         <motion.div
-          className="absolute top-[120px] left-0 right-0 flex flex-col items-center z-[60] pointer-events-none"
+          className="absolute top-[140px] left-0 right-0 flex flex-col items-center z-[60] pointer-events-none"
           style={{ opacity: sfTitleOpacity, y: sfTitleY }}
         >
           <h2 className="font-montserrat font-light text-2xl md:text-3xl text-center uppercase tracking-[0.2em] text-neutral-800">
@@ -122,7 +122,7 @@ const HeroGridDesktop = ({
               className="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center pointer-events-none"
               style={{ opacity: textOpacity, scale: textScale, y: textY, filter: textBlur }}
             >
-              <img src="/img/logo.svg" alt="Lemen's Prod" className="h-28 md:h-48 w-auto drop-shadow-lg" />
+              <img src="/img/logo_white.webp" alt="Lemen's Prod" className="h-36 md:h-64 w-auto drop-shadow-lg" />
               <p className="mt-6 font-serif italic text-2xl md:text-4xl drop-shadow-md text-center leading-snug">
                 Vos concurrents font des vidéos.
               </p>
@@ -133,10 +133,10 @@ const HeroGridDesktop = ({
 
             <motion.div
               style={{ opacity: textOpacity }}
-              className="absolute bottom-0 left-0 w-full px-8 pb-12 flex items-end justify-center text-white z-20"
+              className="absolute bottom-0 left-0 w-full px-8 pb-12 flex items-end justify-between text-white z-20"
             >
-              {/* Centre : Créer votre projet + Showreel */}
-              <div className="flex flex-row items-center gap-6">
+              {/* Centre : Créer votre projet */}
+              <div className="flex-1 flex justify-center">
                 <button
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   className="group pointer-events-auto flex items-center gap-4 text-white cursor-pointer"
@@ -147,41 +147,19 @@ const HeroGridDesktop = ({
                   </span>
                   <div className="h-px w-10 bg-white/30 group-hover:bg-white/60 transition-colors duration-300" />
                 </button>
-
-                <motion.button
-                  onClick={onOpenShowreel}
-                  className="group flex items-center gap-4 cursor-pointer"
-                  whileHover="hover"
-                  initial="rest"
-                >
-                  <motion.div
-                    variants={{ rest: { scaleX: 1 }, hover: { scaleX: 1.15 } }}
-                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                    className="h-px w-10 bg-white/40 origin-right"
-                  />
-                  <div className="flex items-center gap-2.5 text-white">
-                    <motion.span
-                      variants={{ rest: { scale: 1 }, hover: { scale: 1.2 } }}
-                      transition={{ duration: 0.3 }}
-                      className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-colors duration-300"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                        className="w-2.5 h-2.5 translate-x-px text-white group-hover:text-neutral-900 transition-colors duration-300">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </motion.span>
-                    <span className="uppercase text-[0.6rem] tracking-[0.2em] font-bold opacity-70 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                      Voir le Showreel
-                    </span>
-                  </div>
-                  <motion.div
-                    variants={{ rest: { scaleX: 1 }, hover: { scaleX: 1.15 } }}
-                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                    className="h-px w-10 bg-white/40 origin-left"
-                  />
-                </motion.button>
               </div>
 
+              {/* Droite : Scroll indicator */}
+              <div className="flex flex-col items-center gap-2">
+                <span className="uppercase text-[0.6rem] tracking-widest font-bold text-white/60">Scroll</span>
+                <div className="w-5 h-8 rounded-full border-2 border-white/40 flex justify-center p-1 relative overflow-hidden">
+                  <motion.div
+                    animate={{ y: [0, 12], opacity: [1, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeOut" }}
+                    className="w-1 h-1.5 bg-white rounded-full"
+                  />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
