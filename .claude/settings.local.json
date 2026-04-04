@@ -15,7 +15,8 @@
       "Bash(sed -i '' 's|/img/AURASUN\\\\.webp|/img/AURASUN.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
       "Bash(sed -i '' 's|/img/Dalkia\\\\.webp|/img/Dalkia.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
       "Bash(sed -i '' 's|/img/LekkAfrica\\\\.webp|/img/LekkAfrica.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
-      "Bash(sed -i '' 's|/img/MrWorkout\\\\.webp|/img/MrWorkout.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)"
+      "Bash(sed -i '' 's|/img/MrWorkout\\\\.webp|/img/MrWorkout.png|g' /Users/anas/Desktop/Projet/nomobo-app/src/config/content.js)",
+      "Bash(npm install:*)"
     ]
   }
 }
