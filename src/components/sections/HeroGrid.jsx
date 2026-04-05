@@ -48,7 +48,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
 
       {/* ========== VERSION MOBILE + TABLETTE (< 1024px) ========== */}
       {!isDesktop && (
-      <div className="bg-white" id="hero-mobile">
+      <div className="bg-neutral-100" id="hero-mobile">
         <section className="relative h-[100dvh] mx-0 mt-0 overflow-hidden bg-neutral-900">
           <VideoBackground
             ref={heroVideoRef}

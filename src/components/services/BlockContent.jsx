@@ -47,10 +47,14 @@ const BlockContent = ({
               poster={blockConfig.poster}
               className="brightness-[0.7]"
             />
+            <div className={`absolute top-3 lg:top-4 z-30 flex items-center gap-2 opacity-0 group-hover/block:opacity-100 transition-all duration-300 ${isRight ? "left-3 lg:left-4 flex-row-reverse" : "right-3 lg:right-4"}`}>
+              <span className="text-[0.55rem] uppercase tracking-widest text-white/60 font-medium hidden lg:block">
+                Voir en format original
+              </span>
             <button
               onClick={handleOpenVimeo}
               aria-label="Voir la vidéo en HD"
-              className="absolute top-3 right-3 lg:top-4 lg:right-4 z-30 w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover/block:opacity-60 hover:!opacity-100 transition-all cursor-pointer"
+              className="w-9 h-9 lg:w-10 lg:h-10 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-60 hover:opacity-100 transition-all cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +71,7 @@ const BlockContent = ({
                 />
               </svg>
             </button>
+            </div>
           </>
         )}
 

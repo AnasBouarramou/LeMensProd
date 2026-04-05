@@ -57,15 +57,20 @@ export const MobileBlock = ({ block, index, configAccent }) => {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       {block.vimeoId && (
-        <button
-          onClick={handleOpenVimeo}
-          aria-label="Voir la vidéo en HD"
-          className="absolute top-3 right-3 z-30 w-9 h-9 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-white">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-          </svg>
-        </button>
+        <div className="absolute top-3 right-3 z-30 flex items-center gap-2">
+          <span className="text-[0.55rem] uppercase tracking-widest text-white/50 font-medium">
+            Format original
+          </span>
+          <button
+            onClick={handleOpenVimeo}
+            aria-label="Voir la vidéo en HD"
+            className="w-9 h-9 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-white">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+            </svg>
+          </button>
+        </div>
       )}
 
       <div className="absolute inset-0 flex flex-col justify-between p-5">

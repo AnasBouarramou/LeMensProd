@@ -35,10 +35,6 @@ const Navbar = ({ progress }) => {
     ["#ffffff", "#171717"],
   );
 
-  // Transition du logo : blanc → bleu selon le scroll
-  const whiteLogoOpacity = useTransform(progress, [0.05, 0.15], [1, 0]);
-  const blueLogoOpacity = useTransform(progress, [0.05, 0.15], [0, 1]);
-
   // CORRECTION 2 : Le fond solide apparaît plus tôt (dès 70% de scroll)
   const backdropOpacity = useTransform(progress, [0.7, 0.8], [0, 1]);
 
@@ -129,22 +125,11 @@ const Navbar = ({ progress }) => {
           }}
         >
           <div className="relative h-6 md:h-7 w-auto scale-[2] origin-left">
-            <motion.img
-              src="/img/logo_white.webp"
-              alt="Lemen's Prod"
-              className="h-full w-auto absolute top-0 left-0"
-              fetchPriority="high"
-              style={{ opacity: isMobile ? 0 : whiteLogoOpacity }}
-            />
-            <motion.img
-              src="/img/logo_white.webp"
+            <img
+              src="/img/Logo.webp"
               alt="Lemen's Prod"
               className="h-full w-auto"
               fetchPriority="high"
-              style={{
-                opacity: isMobile ? (pastHero ? 1 : 0) : blueLogoOpacity,
-                filter: "invert(1)",
-              }}
             />
           </div>
         </motion.div>

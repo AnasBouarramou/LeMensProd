@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VimeoModal = ({ isOpen, onClose, videoId }) => {
+  const containerRef = useRef(null);
   // Bloque le scroll du body ET des conteneurs scrollables quand la modale est ouverte
   useEffect(() => {
     if (!isOpen) return;
@@ -15,6 +16,19 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
       document.body.style.overflow = "";
       window.removeEventListener("wheel", prevent);
       window.removeEventListener("touchmove", prevent);
+    };
+  }, [isOpen]);
+
+  // Plein écran automatique à l'ouverture
+  useEffect(() => {
+    if (!isOpen) return;
+    const el = containerRef.current;
+    if (!el) return;
+    (el.requestFullscreen?.() ?? el.webkitRequestFullscreen?.())?.catch?.(() => {});
+    return () => {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        document.exitFullscreen?.().catch(() => {});
+      }
     };
   }, [isOpen]);
 
@@ -36,6 +50,7 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          ref={containerRef}
           className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-sm md:pt-48"
           onClick={onClose}
         >
