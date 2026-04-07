@@ -11,9 +11,7 @@ const Modal = ({ selectedOffer, onClose, rootElement }) => {
   return (
     <PopupModal
       url={CALENDLY_URL}
-      prefill={{
-        text: `Bonjour Anas, je suis intéressé par l'offre ${selectedOffer}. Discutons-en !`,
-      }}
+
       pageSettings={{
         backgroundColor: "ffffff", // Fond de la fenêtre (blanc)
         hideEventTypeDetails: false, // Mettre 'true' pour cacher la barre latérale gauche
