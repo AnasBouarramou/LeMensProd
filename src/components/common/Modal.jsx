@@ -1,33 +1,43 @@
 // src/components/common/Modal.jsx
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const CALENDLY_URL = "https://calendly.com/lemensprod/45min";
 
 const Modal = ({ selectedOffer, onClose }) => {
-  useEffect(() => {
-    if (!selectedOffer) return;
+  const containerRef = useRef(null);
 
-    // Charge le CSS Calendly
+  useEffect(() => {
+    if (!selectedOffer || !containerRef.current) return;
+
+    const url = `${CALENDLY_URL}?hide_gdpr_banner=1&primary_color=000000&text_color=4d5055&background_color=ffffff&utm_source=Site+Web&utm_medium=Page+Offres&utm_campaign=${encodeURIComponent(selectedOffer)}`;
+
+    const init = () => {
+      window.Calendly.initInlineWidget({
+        url,
+        parentElement: containerRef.current,
+      });
+    };
+
+    if (window.Calendly) {
+      init();
+      return;
+    }
+
+    // CSS
     const link = document.createElement("link");
     link.href = "https://assets.calendly.com/assets/external/widget.css";
     link.rel = "stylesheet";
     document.head.appendChild(link);
 
-    // Charge le JS Calendly
+    // JS
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
+    script.onload = init;
     document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(link);
-      document.head.removeChild(script);
-    };
   }, [selectedOffer]);
 
   if (!selectedOffer) return null;
-
-  const url = `${CALENDLY_URL}?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=000000&text_color=4d5055&background_color=ffffff&utm_source=Site+Web&utm_medium=Page+Offres&utm_campaign=${encodeURIComponent(selectedOffer)}`;
 
   return (
     <div
@@ -46,11 +56,7 @@ const Modal = ({ selectedOffer, onClose }) => {
         >
           ×
         </button>
-        <div
-          className="calendly-inline-widget"
-          data-url={url}
-          style={{ width: "100%", height: "100%" }}
-        />
+        <div ref={containerRef} style={{ width: "100%", height: "100%" }} />
       </div>
     </div>
   );
