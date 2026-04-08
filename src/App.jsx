@@ -43,8 +43,6 @@ export default function App() {
   // --- GESTION DES ÉTATS ---
   const [selectedOffer, setSelectedOffer] = useState(null);
   const [activePage, setActivePage] = useState(null);
-  const [rootElement, setRootElement] = useState(null);
-
   const handleSetActivePage = (page) => {
     setActivePage(page);
   };
@@ -55,10 +53,6 @@ export default function App() {
     immo: IMMO_CONFIG,
     live: LIVE_CONFIG,
   };
-
-  useEffect(() => {
-    setRootElement(document.getElementById("root") || document.body);
-  }, []);
 
   // CORRECTION MAJEURE :
   // On bloque le scroll de la page d'accueil si une offre OU une page de détail est ouverte.
@@ -132,7 +126,6 @@ export default function App() {
       <Modal
         selectedOffer={selectedOffer}
         onClose={() => setSelectedOffer(null)}
-        rootElement={rootElement}
       />
     </div>
   );
