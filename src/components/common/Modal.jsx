@@ -1,11 +1,10 @@
 // src/components/common/Modal.jsx
+import { InlineWidget } from "react-calendly";
 
 const CALENDLY_URL = "https://calendly.com/lemensprod/45min";
 
 const Modal = ({ selectedOffer, onClose }) => {
   if (!selectedOffer) return null;
-
-  const iframeSrc = `${CALENDLY_URL}?embed_type=Inline&hide_event_type_details=0&hide_gdpr_banner=1&primary_color=000000&text_color=4d5055&background_color=ffffff&utm_source=Site+Web&utm_medium=Page+Offres&utm_campaign=${encodeURIComponent(selectedOffer)}`;
 
   return (
     <div
@@ -24,12 +23,21 @@ const Modal = ({ selectedOffer, onClose }) => {
         >
           ×
         </button>
-        <iframe
-          src={iframeSrc}
-          width="100%"
-          height="100%"
-          style={{ border: "none" }}
-          title="Prendre rendez-vous"
+        <InlineWidget
+          url={CALENDLY_URL}
+          utm={{
+            utmSource: "Site Web",
+            utmMedium: "Page Offres",
+            utmCampaign: selectedOffer,
+          }}
+          pageSettings={{
+            backgroundColor: "ffffff",
+            hideEventTypeDetails: false,
+            hideLandingPageDetails: false,
+            primaryColor: "000000",
+            textColor: "4d5055",
+          }}
+          styles={{ width: "100%", height: "100%" }}
         />
       </div>
     </div>
