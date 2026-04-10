@@ -8,9 +8,13 @@ import {
 } from "../../config/animations";
 import LegalModal from "../common/LegalModal";
 
-const Footer = ({ onBack, setActivePage }) => {
+const Footer = ({ onBack, setActivePage, onNavClick }) => {
   const [activeLegalModal, setActiveLegalModal] = useState(null);
   const scrollToSection = (id) => {
+    if (onNavClick) {
+      onNavClick(id);
+      return;
+    }
     let targetId = id;
     if (id === "savoir-faire" && window.innerWidth >= 768) {
       targetId = "savoir-faire-desktop";

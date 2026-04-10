@@ -13,7 +13,7 @@ import ServiceProcess from "./ServiceProcess";
 import ServiceCTA from "./ServiceCTA";
 import Footer from "../layout/Footer";
 
-const ServiceDetailPage = ({ config, onBack }) => {
+const ServiceDetailPage = ({ config, onBack, setActivePage }) => {
   const containerRef = useRef(null);
   const isMobile = useIsMobile();
 
@@ -219,7 +219,21 @@ const ServiceDetailPage = ({ config, onBack }) => {
         <ServiceStats config={config} containerRef={containerRef} />
         <ServiceProcess config={config} containerRef={containerRef} />
         <ServiceCTA config={config} containerRef={containerRef} onBack={onBack} />
-        <Footer />
+        <Footer
+          onBack={onBack}
+          setActivePage={setActivePage}
+          onNavClick={(id) => {
+            onBack();
+            setTimeout(() => {
+              let targetId = id;
+              if (id === "savoir-faire" && window.innerWidth >= 768) {
+                targetId = "savoir-faire-desktop";
+              }
+              const element = document.getElementById(targetId);
+              if (element) element.scrollIntoView({ behavior: "smooth" });
+            }, 500);
+          }}
+        />
       </div>
     </motion.div>
   );
