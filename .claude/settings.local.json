@@ -27,7 +27,10 @@
       "Bash(brew install:*)",
       "Bash(ffprobe -v quiet -print_format json -show_streams /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4)",
       "Bash(ffmpeg -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -vf scale=1280:720 -c:v libx264 -crf 20 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile.mp4)",
-      "Bash(ffmpeg -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -vf scale=1280:720 -c:v libx264 -crf 24 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile-crf24.mp4)"
+      "Bash(ffmpeg -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -vf scale=1280:720 -c:v libx264 -crf 24 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile-crf24.mp4)",
+      "Bash(ffmpeg -y -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -c:v libx264 -crf 22 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile.mp4)",
+      "Bash(ffmpeg -y -i public/video/fp.mp4 -c:v libx264 -b:v 2500k -pass 1 -preset slow -an -f null /dev/null)",
+      "Bash(ffmpeg -y -i public/video/fp.mp4 -c:v libx264 -b:v 2500k -pass 2 -preset slow -profile:v high -level 4.1 -movflags +faststart -an public/video/fp-mobile.mp4)"
     ]
   }
 }
