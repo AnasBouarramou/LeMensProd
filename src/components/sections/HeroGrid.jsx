@@ -7,10 +7,10 @@ import VideoBackground from "../common/VideoBackground";
 import { VIDEOS } from "../../config/content";
 
 const cards = [
-  { bgColor: "bg-orange-500", videoSrc: VIDEOS.leftTop,     poster: VIDEOS.leftTopPoster,    title: "Snack Content",  subtitle: "Capter l'attention",     page: "snack" },
-  { bgColor: "bg-rose-500",   videoSrc: VIDEOS.leftBottom,  poster: VIDEOS.leftBottomPoster,  title: "Production",     subtitle: "Raconter votre histoire", page: "production" },
-  { bgColor: "bg-violet-500", videoSrc: VIDEOS.rightBottom, poster: VIDEOS.rightBottomPoster, title: "Live / Multicam",subtitle: "Connecter le réel",       page: "live" },
-  { bgColor: "bg-emerald-500",videoSrc: VIDEOS.rightTop,    poster: VIDEOS.rightTopPoster,    title: "Immobilier",     subtitle: "Révéler les espaces",     page: "immo" },
+  { bgColor: "bg-orange-500", videoSrc: VIDEOS.leftTop,     poster: VIDEOS.leftTopPoster,     posterMobile: VIDEOS.leftTopPosterMobile,     title: "Snack Content",  subtitle: "Capter l'attention",     page: "snack" },
+  { bgColor: "bg-rose-500",   videoSrc: VIDEOS.leftBottom,  poster: VIDEOS.leftBottomPoster,  posterMobile: VIDEOS.leftBottomPosterMobile,  title: "Production",     subtitle: "Raconter votre histoire", page: "production" },
+  { bgColor: "bg-violet-500", videoSrc: VIDEOS.rightBottom, poster: VIDEOS.rightBottomPoster, posterMobile: VIDEOS.rightBottomPosterMobile, title: "Live / Multicam",subtitle: "Connecter le réel",       page: "live" },
+  { bgColor: "bg-emerald-500",videoSrc: VIDEOS.rightTop,    poster: VIDEOS.rightTopPoster,    posterMobile: VIDEOS.rightTopPosterMobile,    title: "Immobilier",     subtitle: "Révéler les espaces",     page: "immo" },
 ];
 
 const mobileCardVariants = {
@@ -53,7 +53,9 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
           <VideoBackground
             ref={heroVideoRef}
             videoSrc={VIDEOS.hero}
+            videoSrcMobile={VIDEOS.heroMobile}
             poster={VIDEOS.heroPoster}
+            posterMobile={VIDEOS.heroPosterMobile}
             className="scale-[1.1]"
             eager
           />
@@ -129,6 +131,7 @@ const HeroGrid = ({ progress, setActivePage, containerRef }) => {
                 bgColor={card.bgColor}
                 videoSrc={card.videoSrc}
                 poster={card.poster}
+                posterMobile={card.posterMobile}
                 title={card.title}
                 subtitle={card.subtitle}
                 onClick={() => setActivePage(card.page)}

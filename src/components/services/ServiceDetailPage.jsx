@@ -82,6 +82,7 @@ const ServiceDetailPage = ({ config, onBack, setActivePage }) => {
                 <VideoBackground
                     videoSrc={config.heroVideo}
                     poster={config.heroPoster}
+                    posterMobile={config.heroPosterMobile}
                     className="brightness-[0.8]"
                     eager
                   />
@@ -178,6 +179,7 @@ const ServiceDetailPage = ({ config, onBack, setActivePage }) => {
             <VideoBackground
               videoSrc={config.heroVideo}
               poster={config.heroPoster}
+              posterMobile={config.heroPosterMobile}
               className="brightness-[0.7]"
               eager
             />

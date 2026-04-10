@@ -3,15 +3,21 @@
 // --- CONFIGURATION DES VIDÉOS (fichiers locaux dans public/video/) ---
 export const VIDEOS = {
   hero: "/video/fp.mp4",
+  heroMobile: "/video/fp-mobile.mp4",
   heroPoster: "/img/fp.webp",
+  heroPosterMobile: "/img/fp-mobile.webp",
   leftTop: "/video/sc1.mp4", // Snack Content
   leftTopPoster: "/img/sc1.webp",
+  leftTopPosterMobile: "/img/sc1-mobile.webp",
   leftBottom: "/video/av1.mp4", // Audiovisuelle
   leftBottomPoster: "/img/av1.webp",
+  leftBottomPosterMobile: "/img/av1-mobile.webp",
   rightTop: "/video/immo1.mp4", // Immobilier
   rightTopPoster: "/img/immo1.webp",
+  rightTopPosterMobile: "/img/immo1-mobile.webp",
   rightBottom: "/video/live1.mp4", // Live
   rightBottomPoster: "/img/live1.webp",
+  rightBottomPosterMobile: "/img/live1-mobile.webp",
 };
 
 // --- LOGOS ---
@@ -141,6 +147,7 @@ export const SNACK_CONFIG = {
   hoverAccent: "hover:bg-orange-500",
   heroVideo: VIDEOS.leftTop, // sc1
   heroPoster: VIDEOS.leftTopPoster,
+  heroPosterMobile: VIDEOS.leftTopPosterMobile,
   heroTitle:
     'QUAND CHAQUE<br /><span class="text-orange-500 font-serif italic font-normal">Seconde</span> COMPTE',
   heroLabel: 'SNACK<br /><span class="text-orange-500">CONTENT</span>',
@@ -150,6 +157,7 @@ export const SNACK_CONFIG = {
     {
       video: "/video/sc2.mp4",
       poster: "/img/sc2.webp",
+      posterMobile: "/img/sc2-mobile.webp",
       tag: "Format Court",
       title: 'Snack<br /><span class="text-orange-400">Culinaire</span>',
       expandTitle: 'Snack <span class="text-orange-500">Culinaire</span>',
@@ -170,6 +178,7 @@ export const SNACK_CONFIG = {
     {
       video: "/video/sc3.mp4",
       poster: "/img/sc3.webp",
+      posterMobile: "/img/sc3-mobile.webp",
       tag: "Format Réel",
       title: 'Réel<br /><span class="text-orange-400">Immobilier</span>',
       expandTitle: 'Réel <span class="text-orange-500">Immobilier</span>',
@@ -227,6 +236,7 @@ export const PRODUCTION_CONFIG = {
   hoverAccent: "hover:bg-rose-500",
   heroVideo: VIDEOS.leftBottom, // av1
   heroPoster: VIDEOS.leftBottomPoster,
+  heroPosterMobile: VIDEOS.leftBottomPosterMobile,
   heroTitle:
     'CHAQUE IMAGE<br /><span class="text-rose-400 font-serif italic font-normal">Raconte</span> UNE HISTOIRE',
   heroLabel: 'PRODUCTION<br /><span class="text-rose-400">AUDIOVISUELLE</span>',
@@ -236,6 +246,7 @@ export const PRODUCTION_CONFIG = {
     {
       video: "/video/av2.mp4",
       poster: "/img/av2.webp",
+      posterMobile: "/img/av2-mobile.webp",
       tag: "Institutionnel",
       title: 'Dalkia<br /><span class="text-rose-400">Groupe EDF</span>',
       expandTitle: 'Dalkia <span class="text-rose-500">Groupe EDF</span>',
@@ -256,6 +267,7 @@ export const PRODUCTION_CONFIG = {
     {
       video: "/video/av3.mp4",
       poster: "/img/av3.webp",
+      posterMobile: "/img/av3-mobile.webp",
       tag: "Showroom",
       title: 'Aurasun<br /><span class="text-rose-400">Solaire</span>',
       expandTitle: 'Aurasun <span class="text-rose-500">Solaire</span>',
@@ -318,6 +330,7 @@ export const IMMO_CONFIG = {
   hoverAccent: "hover:bg-emerald-500",
   heroVideo: VIDEOS.rightTop, // immo1
   heroPoster: VIDEOS.rightTopPoster,
+  heroPosterMobile: VIDEOS.rightTopPosterMobile,
   heroTitle:
     'RÉVÉLER<br /><span class="text-emerald-400 font-serif italic font-normal">l\'Essence</span> DES LIEUX',
   heroLabel: 'IMMOBILIER<br /><span class="text-emerald-400">PREMIUM</span>',
@@ -327,6 +340,7 @@ export const IMMO_CONFIG = {
     {
       video: "/video/immo3.mp4",
       poster: "/img/immo3.webp",
+      posterMobile: "/img/immo3-mobile.webp",
       tag: "Hôtellerie",
       title: 'Espaces<br /><span class="text-emerald-400">Événementiels</span>',
       expandTitle:
@@ -348,6 +362,7 @@ export const IMMO_CONFIG = {
     {
       video: "/video/immo2.mp4",
       poster: "/img/immo2.webp",
+      posterMobile: "/img/immo2-mobile.webp",
       tag: "Format Story",
       title: 'Visite<br /><span class="text-emerald-400">Immersive</span>',
       expandTitle: 'Visite <span class="text-emerald-500">Immersive</span>',
@@ -411,6 +426,7 @@ export const LIVE_CONFIG = {
   hoverAccent: "hover:bg-violet-500",
   heroVideo: VIDEOS.rightBottom, // live1
   heroPoster: VIDEOS.rightBottomPoster,
+  heroPosterMobile: VIDEOS.rightBottomPosterMobile,
   heroTitle:
     'LIVE<br /><span class="text-violet-400 font-serif italic font-normal">Multicam</span> EN DIRECT',
   heroLabel: 'LIVE<br /><span class="text-violet-400">MULTICAM</span>',
@@ -420,6 +436,7 @@ export const LIVE_CONFIG = {
     {
       video: "/video/live2.mp4",
       poster: "/img/live2.webp",
+      posterMobile: "/img/live2-mobile.webp",
       tag: "Interviews",
       title: 'Spa<br /><span class="text-violet-400">Témoignages</span>',
       expandTitle: 'Spa <span class="text-violet-500">Témoignages</span>',
@@ -440,6 +457,7 @@ export const LIVE_CONFIG = {
     {
       video: "/video/live3.mp4",
       poster: "/img/live3.webp",
+      posterMobile: "/img/live3-mobile.webp",
       tag: "Promotionnel",
       title: 'MrWorkout<br /><span class="text-violet-400">Promo</span>',
       expandTitle: 'MrWorkout <span class="text-violet-500">Promo</span>',

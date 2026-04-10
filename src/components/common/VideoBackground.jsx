@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 
-const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHover = false, eager = false, rootMargin = "200px" }, ref) => {
+const VideoBackground = forwardRef(({ videoSrc, videoSrcMobile, poster, posterMobile, className = "", playOnHover = false, eager = false, rootMargin = "200px" }, ref) => {
+  const isMobile = window.innerWidth < 768;
+  const activePoster = posterMobile && isMobile ? posterMobile : poster;
+  const activeVideoSrc = videoSrcMobile && isMobile ? videoSrcMobile : videoSrc;
   const [isPlaying, setIsPlaying] = useState(false);
   const [srcLoaded, setSrcLoaded] = useState(false);
   const videoRef = useRef(null);
@@ -80,13 +83,13 @@ const VideoBackground = forwardRef(({ videoSrc, poster, className = "", playOnHo
       className={`absolute inset-0 overflow-hidden pointer-events-none bg-neutral-900 ${className}`}
       style={{
         willChange: "transform",
-        ...(poster ? { backgroundImage: `url(${poster})`, backgroundSize: "cover", backgroundPosition: "center" } : {}),
+        ...(activePoster ? { backgroundImage: `url(${activePoster})`, backgroundSize: "cover", backgroundPosition: "center" } : {}),
       }}
     >
       <video
         ref={videoRef}
-        src={srcLoaded ? videoSrc : undefined}
-        poster={poster}
+        src={srcLoaded ? activeVideoSrc : undefined}
+        poster={activePoster}
         autoPlay={srcLoaded && !playOnHover}
         loop
         playsInline={true}

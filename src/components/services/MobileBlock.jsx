@@ -52,6 +52,7 @@ export const MobileBlock = ({ block, index, configAccent }) => {
         ref={videoRef}
         videoSrc={block.video}
         poster={block.poster}
+        posterMobile={block.posterMobile}
         className="brightness-[0.7]"
         playOnHover
       />

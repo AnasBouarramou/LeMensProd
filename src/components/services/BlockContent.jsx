@@ -45,6 +45,7 @@ const BlockContent = ({
               ref={blockVideoRef}
               videoSrc={videoSrc}
               poster={blockConfig.poster}
+              posterMobile={blockConfig.posterMobile}
               className="brightness-[0.7]"
             />
             <div className={`absolute top-3 lg:top-4 z-30 flex items-center gap-2 opacity-0 group-hover/block:opacity-100 transition-all duration-300 ${isRight ? "left-3 lg:left-4 flex-row-reverse" : "right-3 lg:right-4"}`}>

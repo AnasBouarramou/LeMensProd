@@ -137,8 +137,8 @@ const ContactForm = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Sujet</label>
-                <select name="type_projet" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                <label htmlFor="type_projet" className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Sujet</label>
+                <select id="type_projet" name="type_projet" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
                   <option value="" className="bg-white text-neutral-500">Sélectionnez un sujet</option>
                   <option className="bg-white text-neutral-900">Demande Sur-Mesure</option>
                   <option className="bg-white text-neutral-900">Snack Content</option>
@@ -150,8 +150,8 @@ const ContactForm = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="flex flex-col gap-2">
-                <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Budget estimé</label>
-                <select name="budget" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                <label htmlFor="budget" className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Budget estimé</label>
+                <select id="budget" name="budget" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
                   <option value="" className="bg-white text-neutral-500">À définir</option>
                   <option className="bg-white text-neutral-900">Moins de 1 000€</option>
                   <option className="bg-white text-neutral-900">1 000€ - 2 000€</option>
@@ -160,8 +160,8 @@ const ContactForm = () => {
                 </select>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Délai souhaité</label>
-                <select name="deadline" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
+                <label htmlFor="deadline" className="text-[0.65rem] md:text-xs text-neutral-500 uppercase tracking-widest font-bold">Délai souhaité</label>
+                <select id="deadline" name="deadline" required className="bg-transparent border-b border-neutral-300 py-3 md:py-4 text-neutral-900 focus:border-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer text-base">
                   <option value="" className="bg-white text-neutral-500">Sélectionnez un délai</option>
                   <option className="bg-white text-neutral-900">Urgent (&lt; 2 semaines)</option>
                   <option className="bg-white text-neutral-900">Dans le mois</option>

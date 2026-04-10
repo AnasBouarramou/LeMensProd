@@ -20,7 +20,14 @@
       "Bash(npm audit:*)",
       "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\('vulns:', JSON.stringify\\(d.metadata?.vulnerabilities\\)\\); console.log\\('total:', d.metadata?.vulnerabilities?.total ?? 0\\)\")",
       "Bash(find /Users/anas/Desktop/Projet/nomobo-app/public -type f \\\\\\( -name \"*.mp4\" -o -name \"*.webp\" \\\\\\) -exec ls -lh {} \\\\;)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:pagespeed.web.dev)",
+      "Bash(node:*)",
+      "Bash(ffmpeg -version)",
+      "Bash(brew install:*)",
+      "Bash(ffprobe -v quiet -print_format json -show_streams /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4)",
+      "Bash(ffmpeg -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -vf scale=1280:720 -c:v libx264 -crf 20 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile.mp4)",
+      "Bash(ffmpeg -i /Users/anas/Desktop/Projet/nomobo-app/public/video/fp.mp4 -vf scale=1280:720 -c:v libx264 -crf 24 -preset slow -profile:v high -level 4.1 -movflags +faststart -an /Users/anas/Desktop/Projet/nomobo-app/public/video/fp-mobile-crf24.mp4)"
     ]
   }
 }

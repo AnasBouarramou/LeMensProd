@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 
 // Configuration globale
@@ -12,24 +12,22 @@ import {
 // Hooks
 import { useScrollProgress } from "./hooks/useScrollProgress";
 
-// Composants Communs & Layout
+// Composants critiques (chargement immédiat)
 import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import Modal from "./components/common/Modal";
-
-// Pages de détails
-import ServiceDetailPage from "./components/services/ServiceDetailPage";
-
-// Sections de la Landing Page
 import HeroGrid from "./components/sections/HeroGrid";
-import TrustSlider from "./components/sections/TrustSlider";
 import About from "./components/sections/About";
-import Testimonials from "./components/sections/Testimonials";
-import KeyFigures from "./components/sections/KeyFigures";
-import Process from "./components/sections/Process";
-import Offers from "./components/sections/Offers";
-import FAQ from "./components/sections/FAQ";
-import ContactForm from "./components/sections/ContactForm";
+
+// Composants différés (lazy load)
+const Footer = lazy(() => import("./components/layout/Footer"));
+const Modal = lazy(() => import("./components/common/Modal"));
+const ServiceDetailPage = lazy(() => import("./components/services/ServiceDetailPage"));
+const TrustSlider = lazy(() => import("./components/sections/TrustSlider"));
+const Testimonials = lazy(() => import("./components/sections/Testimonials"));
+const KeyFigures = lazy(() => import("./components/sections/KeyFigures"));
+const Process = lazy(() => import("./components/sections/Process"));
+const Offers = lazy(() => import("./components/sections/Offers"));
+const FAQ = lazy(() => import("./components/sections/FAQ"));
+const ContactForm = lazy(() => import("./components/sections/ContactForm"));
 
 export default function App() {
   const containerRef = useRef(null);
@@ -85,50 +83,53 @@ export default function App() {
 
       <About />
 
-      <TrustSlider />
+      <Suspense fallback={null}>
+        <TrustSlider />
 
-      <Testimonials />
+        <Testimonials />
 
-      <KeyFigures />
+        <KeyFigures />
 
-      <Process />
+        <Process />
 
-      <div id="projects">
-        <Offers onSelectOffer={setSelectedOffer} />
-      </div>
+        <div id="projects">
+          <Offers onSelectOffer={setSelectedOffer} />
+        </div>
 
-      <FAQ />
-      <div id="contact">
-        <ContactForm />
-      </div>
+        <FAQ />
+        <div id="contact">
+          <ContactForm />
+        </div>
 
-      <Footer
-        onBack={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        setActivePage={handleSetActivePage}
-      />
+        <Footer
+          onBack={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          setActivePage={handleSetActivePage}
+        />
+      </Suspense>
 
       {/* =========================================
           2. LES SURCOUCHES (Overlays / Modales)
       ========================================== */}
 
       {/* OVERLAY : La page de détail d'un service */}
-      {/* Grâce à AnimatePresence ici, la page va disparaître avec un fondu fluide */}
-      <AnimatePresence>
-        {activePage && PAGE_CONFIGS[activePage] && (
-          <ServiceDetailPage
-            key={activePage}
-            config={PAGE_CONFIGS[activePage]}
-            onBack={() => handleSetActivePage(null)}
-            setActivePage={handleSetActivePage}
-          />
-        )}
-      </AnimatePresence>
+      <Suspense fallback={null}>
+        <AnimatePresence>
+          {activePage && PAGE_CONFIGS[activePage] && (
+            <ServiceDetailPage
+              key={activePage}
+              config={PAGE_CONFIGS[activePage]}
+              onBack={() => handleSetActivePage(null)}
+              setActivePage={handleSetActivePage}
+            />
+          )}
+        </AnimatePresence>
 
-      {/* OVERLAY : La modale Calendly */}
-      <Modal
-        selectedOffer={selectedOffer}
-        onClose={() => setSelectedOffer(null)}
-      />
+        {/* OVERLAY : La modale Calendly */}
+        <Modal
+          selectedOffer={selectedOffer}
+          onClose={() => setSelectedOffer(null)}
+        />
+      </Suspense>
     </div>
   );
 }

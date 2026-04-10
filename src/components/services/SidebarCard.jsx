@@ -6,6 +6,7 @@ import VideoBackground from "../common/VideoBackground";
 const SidebarCard = ({
   videoSrc,
   poster,
+  posterMobile,
   bgColor,
   title,
   subtitle,
@@ -73,7 +74,7 @@ const SidebarCard = ({
           className="absolute inset-0 w-full h-full grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
           style={{ willChange: "transform, filter" }}
         >
-          <VideoBackground ref={videoRef} videoSrc={videoSrc} poster={poster} playOnHover />
+          <VideoBackground ref={videoRef} videoSrc={videoSrc} poster={poster} posterMobile={posterMobile} playOnHover />
         </div>
 
         {/* Overlay dégradé pour lisibilité */}
