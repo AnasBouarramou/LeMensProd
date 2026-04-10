@@ -116,6 +116,7 @@ export default function App() {
       <AnimatePresence>
         {activePage && PAGE_CONFIGS[activePage] && (
           <ServiceDetailPage
+            key={activePage}
             config={PAGE_CONFIGS[activePage]}
             onBack={() => handleSetActivePage(null)}
             setActivePage={handleSetActivePage}
