@@ -29,9 +29,11 @@ const PortfolioCard = ({ project, index, onOpen }) => (
     style={{ willChange: "transform" }}
   >
     {/* Miniature — iframe Vimeo sans autoplay, pointer-events: none pour laisser passer le clic */}
+    {/* Le conteneur dépasse de 50px en bas : l'overflow-hidden de la carte
+        coupe la barre de contrôles Vimeo qui est toujours en bas de l'iframe */}
     <div
-      className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-      style={{ willChange: "transform, filter" }}
+      className="absolute inset-x-0 top-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+      style={{ bottom: "-50px", willChange: "transform, filter" }}
     >
       <iframe
         src={`https://player.vimeo.com/video/${project.vimeoId}?${project.vimeoHash ? `h=${project.vimeoHash}&` : ""}autoplay=0&title=0&byline=0&portrait=0`}
