@@ -28,17 +28,21 @@ const PortfolioCard = ({ project, index, onOpen }) => (
     className="relative h-[50vh] md:h-[45vh] bg-neutral-900 rounded-2xl md:rounded-[2rem] overflow-hidden cursor-pointer group"
     style={{ willChange: "transform" }}
   >
-    {/* Miniature — iframe Vimeo sans autoplay, pointer-events: none pour laisser passer le clic */}
-    {/* Le conteneur dépasse de 50px en bas : l'overflow-hidden de la carte
-        coupe la barre de contrôles Vimeo qui est toujours en bas de l'iframe */}
+    {/* Miniature — l'iframe est dimensionnée pour couvrir la carte (object-fit: cover)
+        width = hauteur carte × 16/9 → la vidéo 16:9 remplit toute la hauteur sans bandes noires
+        height = hauteur carte + 80px → les 80px en plus cachent la barre de contrôles Vimeo */}
     <div
-      className="absolute inset-x-0 top-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-      style={{ bottom: "-50px", willChange: "transform, filter" }}
+      className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+      style={{ willChange: "transform, filter" }}
     >
       <iframe
         src={`https://player.vimeo.com/video/${project.vimeoId}?${project.vimeoHash ? `h=${project.vimeoHash}&` : ""}autoplay=0&title=0&byline=0&portrait=0`}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ minWidth: "120%", minHeight: "120%", width: "auto", height: "auto", pointerEvents: "none" }}
+        style={{
+          width: "calc(50vh * 16 / 9)",
+          height: "calc(50vh + 80px)",
+          pointerEvents: "none",
+        }}
         frameBorder="0"
         loading="lazy"
         allow="fullscreen"
