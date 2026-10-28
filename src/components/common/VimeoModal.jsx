@@ -43,7 +43,7 @@ const VimeoModal = ({ isOpen, onClose, videoId, videoHash }) => {
           <button
             onClick={onClose}
             aria-label="Fermer la vidéo"
-            className="absolute top-4 right-4 md:top-28 md:right-8 z-[1000] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
+            className="absolute top-4 left-4 md:top-28 md:left-auto md:right-8 z-[1000] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
