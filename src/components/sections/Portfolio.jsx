@@ -28,27 +28,19 @@ const PortfolioCard = ({ project, index, onOpen }) => (
     className="relative h-[50vh] md:h-[45vh] bg-neutral-900 rounded-2xl md:rounded-[2rem] overflow-hidden cursor-pointer group"
     style={{ willChange: "transform" }}
   >
-    {/* Miniature — l'iframe est dimensionnée pour couvrir la carte (object-fit: cover)
-        width = hauteur carte × 16/9 → la vidéo 16:9 remplit toute la hauteur sans bandes noires
-        height = hauteur carte + 80px → les 80px en plus cachent la barre de contrôles Vimeo */}
-    <div
-      className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-      style={{ willChange: "transform, filter" }}
-    >
-      <iframe
-        src={`https://player.vimeo.com/video/${project.vimeoId}?${project.vimeoHash ? `h=${project.vimeoHash}&` : ""}autoplay=0&title=0&byline=0&portrait=0`}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{
-          width: "calc(50vh * 16 / 9)",
-          height: "calc(50vh + 80px)",
-          pointerEvents: "none",
-        }}
-        frameBorder="0"
-        loading="lazy"
-        allow="fullscreen"
-        title={project.title}
-      />
-    </div>
+    {/* Miniature statique */}
+    {project.thumbnail && (
+      <div
+        className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+        style={{ willChange: "transform, filter" }}
+      >
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    )}
 
     {/* Gradient */}
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 group-hover:via-black/30 transition-all duration-500 pointer-events-none" />

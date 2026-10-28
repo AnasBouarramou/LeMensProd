@@ -528,6 +528,7 @@ export const PORTFOLIO_PROJECTS = [
     resultat: "18 000 vues sur Instagram",
     vimeoId: "1237374996",
     vimeoHash: "f7e6888dc4",
+    thumbnail: "/img/portfolio-1.webp",
     testimonial: null,
   },
   {
@@ -540,6 +541,7 @@ export const PORTFOLIO_PROJECTS = [
     livre: "Un teaser avec voix narrative, séquences dynamiques et storytelling appuyé.",
     resultat: null,
     vimeoId: "1237373611",
+    thumbnail: "/img/portfolio-2.webp",
     testimonial: null,
   },
   {
@@ -552,6 +554,7 @@ export const PORTFOLIO_PROJECTS = [
     livre: "Un film d'entreprise qui met en scène la fiabilité et le sérieux de l'équipe.",
     resultat: null,
     vimeoId: "1237374593",
+    thumbnail: "/img/portfolio-3.webp",
     testimonial: null,
   },
   {
@@ -564,6 +567,7 @@ export const PORTFOLIO_PROJECTS = [
     livre: "Un after movie de l'événement.",
     resultat: "10 000 vues · 350 likes",
     vimeoId: "1237372745",
+    thumbnail: "/img/portfolio-4.webp",
     testimonial: null,
   },
 ];
