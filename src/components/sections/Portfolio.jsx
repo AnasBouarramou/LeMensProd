@@ -32,14 +32,13 @@ const PortfolioCard = ({ project, index, onOpen }) => (
     {project.thumbnail && (
       <div
         className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-        style={{ willChange: "transform, filter" }}
-      >
-        <img
-          src={project.thumbnail}
-          alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
+        style={{
+          backgroundImage: `url(${project.thumbnail})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          willChange: "transform, filter",
+        }}
+      />
     )}
 
     {/* Gradient */}
