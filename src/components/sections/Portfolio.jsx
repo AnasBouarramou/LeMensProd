@@ -1,12 +1,23 @@
 // src/components/sections/Portfolio.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { PORTFOLIO_PROJECTS } from "../../config/content";
 import VimeoModal from "../common/VimeoModal";
 import { staggerContainer, fadeInUp, widthReveal } from "../../config/animations";
 
 const PortfolioCard = ({ project, index, onOpen }) => {
-  const [previewLoaded, setPreviewLoaded] = useState(false);
+  const [thumbnail, setThumbnail] = useState(null);
+
+  useEffect(() => {
+    const videoUrl = project.vimeoHash
+      ? `https://vimeo.com/${project.vimeoId}/${project.vimeoHash}`
+      : `https://vimeo.com/${project.vimeoId}`;
+
+    fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(videoUrl)}&width=1280`)
+      .then((r) => r.json())
+      .then((data) => { if (data.thumbnail_url) setThumbnail(data.thumbnail_url); })
+      .catch(() => {});
+  }, [project.vimeoId, project.vimeoHash]);
 
   return (
     <motion.div
@@ -28,27 +39,33 @@ const PortfolioCard = ({ project, index, onOpen }) => {
           onOpen();
         }
       }}
-      onMouseEnter={() => setPreviewLoaded(true)}
       className="relative h-[50vh] md:h-[45vh] bg-neutral-900 rounded-2xl md:rounded-[2rem] overflow-hidden cursor-pointer group"
       style={{ willChange: "transform" }}
     >
-      {/* Aperçu Vimeo — monté uniquement au premier survol */}
-      <div
-        className="absolute inset-0 grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 pointer-events-none"
-        style={{ willChange: "transform, filter" }}
-      >
-        {previewLoaded && (
-          <iframe
-            src={`https://player.vimeo.com/video/${project.vimeoId}?${project.vimeoHash ? `h=${project.vimeoHash}&` : ""}background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0`}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{ minWidth: "120%", minHeight: "120%", width: "auto", height: "auto" }}
-            frameBorder="0"
-            allow="autoplay; fullscreen"
+      {/* Miniature */}
+      {thumbnail && (
+        <div
+          className="absolute inset-0 grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+          style={{ willChange: "transform, filter" }}
+        >
+          <img
+            src={thumbnail}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover"
           />
-        )}
+        </div>
+      )}
+
+      {/* Bouton play centré */}
+      <div className="absolute inset-0 flex items-center justify-center z-[5] pointer-events-none">
+        <div className="w-14 h-14 rounded-full bg-black/30 backdrop-blur-sm border border-white/25 flex items-center justify-center opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white translate-x-0.5">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
       </div>
 
-      {/* Gradient — s'étend au survol pour couvrir le texte additionnel */}
+      {/* Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 group-hover:via-black/30 transition-all duration-500 pointer-events-none" />
 
       {/* Contenu bas */}
@@ -89,11 +106,7 @@ const PortfolioCard = ({ project, index, onOpen }) => {
           stroke="currentColor"
           className="w-4 h-4 lg:w-5 lg:h-5 shrink-0 self-end opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
         </svg>
       </div>
     </motion.div>
