@@ -515,7 +515,58 @@ export const LIVE_CONFIG = {
   ctaBgText: "LV",
 };
 
-// À AJOUTER À LA FIN DE src/config/content.js
+// --- PORTFOLIO ---
+export const PORTFOLIO_PROJECTS = [
+  {
+    id: 1,
+    title: "On Air x Street Fighter",
+    category: "Film de marque",
+    categoryColor: "bg-rose-500",
+    categoryTextColor: "text-rose-400",
+    accroche: "Quand une salle de sport de sports de combat s'invite sur grand écran.",
+    livre: "Un film de 1'30 en 16/9 au rendu cinématographique décliné pour Instagram.",
+    resultat: "18 000 vues sur Instagram",
+    vimeoId: "1237374996",
+    vimeoHash: "f7e6888dc4",
+    testimonial: null,
+  },
+  {
+    id: 2,
+    title: "La Vera",
+    category: "Teaser de marque",
+    categoryColor: "bg-orange-500",
+    categoryTextColor: "text-orange-400",
+    accroche: "Du suspense, du rythme et une voix pour annoncer une nouvelle marque de basket.",
+    livre: "Un teaser avec voix narrative, séquences dynamiques et storytelling appuyé.",
+    resultat: null,
+    vimeoId: "1237373611",
+    testimonial: null,
+  },
+  {
+    id: 3,
+    title: "Le Compagnon de votre maison",
+    category: "Film d'entreprise",
+    categoryColor: "bg-rose-500",
+    categoryTextColor: "text-rose-400",
+    accroche: "Le savoir-faire ardoisier, sous toutes les coutures.",
+    livre: "Un film d'entreprise qui met en scène la fiabilité et le sérieux de l'équipe.",
+    resultat: null,
+    vimeoId: "1237374593",
+    testimonial: null,
+  },
+  {
+    id: 4,
+    title: "Anniversaire Fitness Park Colombes",
+    category: "Vidéo événementielle",
+    categoryColor: "bg-violet-500",
+    categoryTextColor: "text-violet-400",
+    accroche: "L'énergie d'une soirée anniversaire, revécue en quelques minutes.",
+    livre: "Un after movie de l'événement.",
+    resultat: "10 000 vues · 350 likes",
+    vimeoId: "1237372745",
+    testimonial: null,
+  },
+];
 
 // --- FAQ ---
 export const FAQ_DATA = [

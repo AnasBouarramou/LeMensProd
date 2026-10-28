@@ -25,6 +25,7 @@ const TrustSlider = lazy(() => import("./components/sections/TrustSlider"));
 const Testimonials = lazy(() => import("./components/sections/Testimonials"));
 const KeyFigures = lazy(() => import("./components/sections/KeyFigures"));
 const Process = lazy(() => import("./components/sections/Process"));
+const Portfolio = lazy(() => import("./components/sections/Portfolio"));
 const Offers = lazy(() => import("./components/sections/Offers"));
 const FAQ = lazy(() => import("./components/sections/FAQ"));
 const ContactForm = lazy(() => import("./components/sections/ContactForm"));
@@ -80,6 +81,10 @@ export default function App() {
         setActivePage={handleSetActivePage}
         containerRef={containerRef}
       />
+
+      <Suspense fallback={null}>
+        <Portfolio />
+      </Suspense>
 
       <About />
 

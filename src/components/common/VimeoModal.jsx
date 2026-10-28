@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const VimeoModal = ({ isOpen, onClose, videoId }) => {
+const VimeoModal = ({ isOpen, onClose, videoId, videoHash }) => {
   const containerRef = useRef(null);
   // Bloque le scroll du body ET des conteneurs scrollables quand la modale est ouverte
   useEffect(() => {
@@ -86,7 +86,7 @@ const VimeoModal = ({ isOpen, onClose, videoId }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`}
+              src={`https://player.vimeo.com/video/${videoId}?${videoHash ? `h=${videoHash}&` : ""}autoplay=1&title=0&byline=0&portrait=0`}
               className="absolute inset-0 w-full h-full rounded-xl"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
