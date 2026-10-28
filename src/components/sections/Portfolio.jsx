@@ -1,117 +1,95 @@
 // src/components/sections/Portfolio.jsx
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { PORTFOLIO_PROJECTS } from "../../config/content";
 import VimeoModal from "../common/VimeoModal";
 import { staggerContainer, fadeInUp, widthReveal } from "../../config/animations";
 
-const PortfolioCard = ({ project, index, onOpen }) => {
-  const [thumbnail, setThumbnail] = useState(null);
-
-  useEffect(() => {
-    const videoUrl = project.vimeoHash
-      ? `https://vimeo.com/${project.vimeoId}/${project.vimeoHash}`
-      : `https://vimeo.com/${project.vimeoId}`;
-
-    fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(videoUrl)}&width=1280`)
-      .then((r) => r.json())
-      .then((data) => { if (data.thumbnail_url) setThumbnail(data.thumbnail_url); })
-      .catch(() => {});
-  }, [project.vimeoId, project.vimeoHash]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        delay: (index % 2) * 0.12,
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-      role="button"
-      tabIndex={0}
-      aria-label={`Voir ${project.title}`}
-      onClick={onOpen}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onOpen();
-        }
-      }}
-      className="relative h-[50vh] md:h-[45vh] bg-neutral-900 rounded-2xl md:rounded-[2rem] overflow-hidden cursor-pointer group"
-      style={{ willChange: "transform" }}
+const PortfolioCard = ({ project, index, onOpen }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{
+      delay: (index % 2) * 0.12,
+      duration: 0.8,
+      ease: [0.25, 0.1, 0.25, 1],
+    }}
+    role="button"
+    tabIndex={0}
+    aria-label={`Voir ${project.title}`}
+    onClick={onOpen}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        onOpen();
+      }
+    }}
+    className="relative h-[50vh] md:h-[45vh] bg-neutral-900 rounded-2xl md:rounded-[2rem] overflow-hidden cursor-pointer group"
+    style={{ willChange: "transform" }}
+  >
+    {/* Miniature — iframe Vimeo sans autoplay, pointer-events: none pour laisser passer le clic */}
+    <div
+      className="absolute inset-0 grayscale opacity-80 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+      style={{ willChange: "transform, filter" }}
     >
-      {/* Miniature */}
-      {thumbnail && (
-        <div
-          className="absolute inset-0 grayscale opacity-90 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-          style={{ willChange: "transform, filter" }}
-        >
-          <img
-            src={thumbnail}
-            alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-      )}
+      <iframe
+        src={`https://player.vimeo.com/video/${project.vimeoId}?${project.vimeoHash ? `h=${project.vimeoHash}&` : ""}autoplay=0&title=0&byline=0&portrait=0`}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{ minWidth: "120%", minHeight: "120%", width: "auto", height: "auto", pointerEvents: "none" }}
+        frameBorder="0"
+        loading="lazy"
+        allow="fullscreen"
+        title={project.title}
+      />
+    </div>
 
-      {/* Bouton play centré */}
-      <div className="absolute inset-0 flex items-center justify-center z-[5] pointer-events-none">
-        <div className="w-14 h-14 rounded-full bg-black/30 backdrop-blur-sm border border-white/25 flex items-center justify-center opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white translate-x-0.5">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
-      </div>
+    {/* Gradient */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 group-hover:via-black/30 transition-all duration-500 pointer-events-none" />
 
-      {/* Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 group-hover:via-black/30 transition-all duration-500 pointer-events-none" />
+    {/* Contenu bas */}
+    <div className="absolute bottom-0 left-0 w-full p-4 lg:p-6 text-white z-10 flex items-end justify-between pointer-events-none">
+      <div className="flex flex-col min-w-0 flex-1 mr-3">
+        <p className="text-[0.6rem] lg:text-[0.65rem] uppercase tracking-widest font-medium opacity-60 mb-0.5">
+          {project.category}
+        </p>
+        <h3 className="text-xl lg:text-2xl font-bold uppercase tracking-tight truncate">
+          {project.title}
+        </h3>
+        <p className="text-xs lg:text-sm font-medium opacity-70 mt-0.5 lg:mt-1 italic truncate">
+          {project.accroche}
+        </p>
 
-      {/* Contenu bas */}
-      <div className="absolute bottom-0 left-0 w-full p-4 lg:p-6 text-white z-10 flex items-end justify-between pointer-events-none">
-        <div className="flex flex-col min-w-0 flex-1 mr-3">
-          <p className="text-[0.6rem] lg:text-[0.65rem] uppercase tracking-widest font-medium opacity-60 mb-0.5">
-            {project.category}
-          </p>
-          <h3 className="text-xl lg:text-2xl font-bold uppercase tracking-tight truncate">
-            {project.title}
-          </h3>
-          <p className="text-xs lg:text-sm font-medium opacity-70 mt-0.5 lg:mt-1 italic truncate">
-            {project.accroche}
-          </p>
-
-          {/* Livré + Résultat — révélés au survol */}
-          <div className="max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
-            <div className="border-t border-white/15 mt-3 pt-2.5 space-y-1.5">
-              <div className="flex gap-2.5 items-baseline">
-                <span className="text-[0.5rem] uppercase tracking-widest opacity-40 shrink-0">Livré</span>
-                <span className="text-[0.6rem] lg:text-[0.65rem] opacity-75 leading-tight line-clamp-2">{project.livre}</span>
-              </div>
-              {project.resultat && (
-                <div className="flex gap-2.5 items-baseline">
-                  <span className="text-[0.5rem] uppercase tracking-widest opacity-40 shrink-0">Résultat</span>
-                  <span className="text-[0.6rem] lg:text-[0.65rem] opacity-75 leading-tight">{project.resultat}</span>
-                </div>
-              )}
+        {/* Livré + Résultat — révélés au survol */}
+        <div className="max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
+          <div className="border-t border-white/15 mt-3 pt-2.5 space-y-1.5">
+            <div className="flex gap-2.5 items-baseline">
+              <span className="text-[0.5rem] uppercase tracking-widest opacity-40 shrink-0">Livré</span>
+              <span className="text-[0.6rem] lg:text-[0.65rem] opacity-75 leading-tight line-clamp-2">{project.livre}</span>
             </div>
+            {project.resultat && (
+              <div className="flex gap-2.5 items-baseline">
+                <span className="text-[0.5rem] uppercase tracking-widest opacity-40 shrink-0">Résultat</span>
+                <span className="text-[0.6rem] lg:text-[0.65rem] opacity-75 leading-tight">{project.resultat}</span>
+              </div>
+            )}
           </div>
         </div>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="currentColor"
-          className="w-4 h-4 lg:w-5 lg:h-5 shrink-0 self-end opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-        </svg>
       </div>
-    </motion.div>
-  );
-};
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="currentColor"
+        className="w-4 h-4 lg:w-5 lg:h-5 shrink-0 self-end opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+      </svg>
+    </div>
+  </motion.div>
+);
 
 const Portfolio = () => {
   const [activeVideo, setActiveVideo] = useState(null); // { id, hash? }
