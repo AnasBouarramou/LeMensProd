@@ -58,6 +58,11 @@ export const LOGOS = [
     url: "/img/FitnessPark.webp",
     scale: 2.2,
   },
+  {
+    name: "On Air",
+    url: "/img/OnAir.webp",
+    scale: 1,
+  },
 ];
 
 // --- TEMOIGNAGES ---
@@ -137,6 +142,127 @@ export const OFFERS = [
     style: "white",
   },
 ];
+
+// --- OFFRES COMMERCES & INDÉPENDANTS ---
+export const LOCAL_OFFERS = [
+  {
+    title: "Présentation",
+    price: "450",
+    deposit: "225",
+    paymentUrl: "", // lien de paiement Stripe de l'acompte (vide = bouton masqué)
+    desc: "Une vidéo qui présente votre activité, et deux shorts pour la faire vivre.",
+    features: [
+      "1 h 30 de tournage sur place",
+      "1 vidéo de présentation de 45 à 60 s",
+      "2 shorts extraits du tournage, offerts",
+      "Sous-titres et musique libre de droits",
+      "Livraison sous 7 jours",
+      "2 tours de retours",
+    ],
+    style: "white",
+  },
+  {
+    title: "Visibilité",
+    price: "650",
+    deposit: "325",
+    paymentUrl: "",
+    desc: "De quoi publier chaque semaine pendant un mois, sans y penser.",
+    features: [
+      "2 h de tournage guidé par une trame de questions adaptée à votre métier",
+      "6 shorts de 20 à 45 s, sous-titrés",
+      "Légendes et hashtags prêts à publier",
+      "Calendrier de publication sur 4 semaines",
+      "Livraison sous 7 à 10 jours",
+      "2 tours de retours",
+    ],
+    style: "black",
+    badge: "Le plus choisi",
+  },
+  {
+    title: "Expertise",
+    price: "990",
+    deposit: "495",
+    paymentUrl: "",
+    desc: "Montrez votre savoir-faire et installez-vous comme la référence près de chez vous.",
+    features: [
+      "3 h de tournage sur place",
+      "1 vidéo de présentation",
+      "6 shorts d'expertise",
+      "1 vidéo de démonstration de votre savoir-faire (30 à 45 s)",
+      "Légendes et calendrier sur 4 semaines",
+      "Un appel de 30 min pour faire le point",
+      "Livraison sous 10 jours",
+      "2 tours de retours",
+    ],
+    style: "white",
+  },
+];
+
+// Preuves de la sous-page. Chaque entrée de `videos` :
+// { category, title, subtitle, vimeoId, vimeoHash (si non répertoriée), thumbnail, format: "horizontal" | "vertical" }
+// La section « Ce que ça donne » reste masquée tant que `videos` est vide.
+// `reviews` : de vrais avis { quote, name, role, source } — masqués tant que vide.
+export const LOCAL_PROOF = {
+  categories: ["Présentation d'établissement", "Interview face cam"],
+  videos: [
+    {
+      category: "Présentation d'établissement",
+      title: "Le Compagnon de votre maison",
+      subtitle: "Le savoir-faire d'une entreprise, en format vertical.",
+      vimeoId: "1249788782",
+      thumbnail: "/img/local/1249788782.jpg",
+      format: "vertical",
+    },
+    {
+      category: "Présentation d'établissement",
+      title: "Superfly",
+      subtitle: "L'ambiance d'une salle de sport, mise en scène.",
+      vimeoId: "1249788912",
+      thumbnail: "/img/local/1249788912.jpg",
+      format: "vertical",
+    },
+    {
+      category: "Présentation d'établissement",
+      title: "Présentation",
+      subtitle: "Une vidéo de présentation, pensée pour les réseaux.",
+      vimeoId: "1249788946",
+      thumbnail: "/img/local/1249788946.jpg",
+      format: "vertical",
+    },
+    {
+      category: "Interview face cam",
+      title: "Spa de nage : combien ça coûte vraiment ?",
+      subtitle: "Une interview face cam sous-titrée, qui répond à la question des clients.",
+      vimeoId: "1249788779",
+      thumbnail: "/img/local/1249788779.jpg",
+      format: "vertical",
+    },
+    {
+      category: "Interview face cam",
+      title: "Interview Giovanni",
+      subtitle: "Un portrait face cam, sobre et naturel.",
+      vimeoId: "1249788781",
+      thumbnail: "/img/local/1249788781.jpg",
+      format: "vertical",
+    },
+    {
+      category: "Interview face cam",
+      title: "Conseil training avec Florian",
+      subtitle: "Routine abdos, Courbevoie.",
+      vimeoId: "1249788780",
+      thumbnail: "/img/local/1249788780.jpg",
+      format: "vertical",
+    },
+  ],
+  reviews: [],
+};
+
+export const LOCAL_OFFERS_EXTRAS = {
+  monthly: "Et après ? On continue chaque mois : 1 h 30 de tournage et 6 shorts, dès 450 €/mois (engagement 3 mois).",
+  options: "Short supplémentaire : 60 € · Version publicitaire d'une vidéo : 90 €",
+  fineprint:
+    "TVA non applicable, art. 293 B du CGI. Déplacement inclus dans un rayon de 30 km, au-delà au kilomètre. Règlement : 50 % à la réservation, 50 % à la livraison. Un short ne vous plaît pas ? On le refait.",
+};
 
 // ============================================================
 // 4 CONFIGURATIONS DE PAGES DE SERVICES
