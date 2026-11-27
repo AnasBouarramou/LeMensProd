@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
-const VimeoModal = ({ isOpen, onClose, videoId, videoHash }) => {
+const VimeoModal = ({ isOpen, onClose, videoId, videoHash, vertical }) => {
   const isMobile = useIsMobile();
 
   // Bloque le scroll du body quand la modale est ouverte
@@ -67,7 +67,9 @@ const VimeoModal = ({ isOpen, onClose, videoId, videoHash }) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative mx-4 md:mx-auto md:w-full md:max-w-6xl aspect-[9/16] w-[85vw] max-h-[72dvh] md:max-h-none md:aspect-video"
+            className={vertical
+              ? "relative mx-auto aspect-[9/16] h-[72dvh] max-w-[90vw] md:h-[82dvh]"
+              : "relative mx-4 md:mx-auto md:w-full md:max-w-6xl aspect-[9/16] w-[85vw] max-h-[72dvh] md:max-h-none md:aspect-video"}
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
